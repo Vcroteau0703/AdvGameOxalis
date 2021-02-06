@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Input System/PlayerControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Input/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -6,22 +6,22 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerControls : IInputActionCollection, IDisposable
+public class @Controls : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @PlayerControls()
+    public @Controls()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""PlayerControls"",
+    ""name"": ""Controls"",
     ""maps"": [
         {
             ""name"": ""Gameplay"",
-            ""id"": ""dd948482-f137-4b66-b04b-1965456f7d77"",
+            ""id"": ""330495eb-f1e8-4b0c-8675-d20329ccc8cf"",
             ""actions"": [
                 {
                     ""name"": ""Move"",
                     ""type"": ""Button"",
-                    ""id"": ""434720ce-496d-4fad-8bf8-3a43b75624c9"",
+                    ""id"": ""e2bdd140-7956-4c3f-94e3-2de063186ba5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -29,16 +29,24 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Look"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""17098aba-75e0-4932-9d64-7b463247cb3a"",
+                    ""id"": ""ec4d59b3-b121-4132-90d1-98a6935ef8b9"",
                     ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""32a8b6fa-c10b-4ed1-9ce7-e560712925b8"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""5d45168a-1810-4064-9041-a7c80018bc40"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""2cd4d9f3-367a-457e-b0ce-9270d710bda1"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -49,7 +57,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""263c59c3-8020-41b7-8072-69813976c35b"",
+                    ""id"": ""bbcd1b1a-febf-42ae-968c-f406b605f418"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -60,7 +68,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""2334a6a5-8130-483d-a94c-258f14b166e4"",
+                    ""id"": ""390da51c-fb00-4472-9ebc-1a186bd08fbc"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -71,7 +79,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""6af73a4e-8076-4340-b4f3-8f0919596d3e"",
+                    ""id"": ""05993712-bbfb-4d87-ad8b-43b082fc2052"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -82,7 +90,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""48482e33-e699-49a5-be65-26feb7608166"",
+                    ""id"": ""454fedba-b7db-4676-bae5-c7b4f09f7023"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -93,12 +101,23 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ecff8a6b-f6ef-4e44-afbb-13b21a19e8ce"",
+                    ""id"": ""ed4d6607-b7df-46e6-937c-34115dc53802"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=0.15,y=0.2)"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5362810-50ce-4f78-829b-0ef1102028ae"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -111,6 +130,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
+        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +182,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Look;
+    private readonly InputAction m_Gameplay_Interact;
     public struct GameplayActions
     {
-        private @PlayerControls m_Wrapper;
-        public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        private @Controls m_Wrapper;
+        public GameplayActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
+        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -183,6 +205,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
+                @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -193,6 +218,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -201,5 +229,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

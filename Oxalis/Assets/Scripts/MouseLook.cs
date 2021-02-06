@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    private PlayerControls controls;
+    private Controls controls;
 
     [SerializeField] private float mouseSensitivity = 1f;
 
@@ -15,7 +15,7 @@ public class MouseLook : MonoBehaviour
 
     private void Awake()
     {
-        controls = new PlayerControls();
+        controls = new Controls();
 
         Cursor.lockState = CursorLockMode.Locked;
 

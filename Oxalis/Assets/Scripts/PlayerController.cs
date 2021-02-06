@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private PlayerControls controls;
+    private Controls controls;
 
     float movementSpeed = 4.5f;
     private Vector2 move;
@@ -21,15 +21,17 @@ public class PlayerController : MonoBehaviour
     //public bool isGrounded;
     //public bool isRunning;
 
-    //private RaycastHit vision; // detecting raycast collision
-    //public float rayLength; //assigning length to the raycast
+    private RaycastHit vision; // detecting raycast collision
+    public float rayLength; //assigning length to the raycast
 
 
     private void Awake()
     {
-        controls = new PlayerControls();
+        controls = new Controls();
         characterController = GetComponent<CharacterController>();
-
+        rayLength = 4.0f;
+        //Interact
+        controls.Gameplay.Interact.performed += ctx => Interact();
 
     }
 
@@ -57,6 +59,22 @@ public class PlayerController : MonoBehaviour
 
         characterController.Move(velocity * Time.deltaTime);
 
+    }
+
+    void Interact()
+    {
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
+        {
+
+            if (vision.collider.tag == "Plot")
+            {
+                Debug.Log(vision.collider.name);
+                vision.collider.GetComponent<GrowPlant>().Grow();
+                //Debug.Log("Interacting");
+            }
+        }
     }
 
     private void OnEnable()
