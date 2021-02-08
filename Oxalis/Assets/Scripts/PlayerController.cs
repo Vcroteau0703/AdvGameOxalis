@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit vision; // detecting raycast collision
     public float rayLength; //assigning length to the raycast
 
+    private Inventory inventory; //accessing inventory class
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         rayLength = 4.0f;
         //Interact
         controls.Gameplay.Interact.performed += ctx => Interact();
-
+        inventory = new Inventory();
     }
 
     private void FixedUpdate()
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
             if (vision.collider.tag == "Plot")
             {
                 Debug.Log(vision.collider.name);
-                vision.collider.GetComponent<GrowPlant>().Grow();
+                vision.collider.GetComponent<GrowPlant>().FarmMechanic();
                 //Debug.Log("Interacting");
             }
         }
