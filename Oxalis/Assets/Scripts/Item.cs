@@ -5,8 +5,8 @@ using UnityEngine;
 public class Item {
     public enum ItemType
     {
-        Carrot,
-        CarrotSeed,
+        Potato,
+        PotatoSeed,
         Corn,
         CornSeed,
         Fertilizer,

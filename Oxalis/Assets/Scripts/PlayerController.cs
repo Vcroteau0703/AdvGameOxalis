@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private Inventory inventory; //accessing inventory class
 
+    [SerializeField] private UI_Inventory uiInventory;
+
     private void Awake()
     {
         controls = new Controls();
@@ -33,7 +35,9 @@ public class PlayerController : MonoBehaviour
         rayLength = 4.0f;
         //Interact
         controls.Gameplay.Interact.performed += ctx => Interact();
+
         inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
     }
 
     private void FixedUpdate()

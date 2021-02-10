@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skybox
-  m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _SCREENSPACE_ON _SUNDISK_HIGH_QUALITY
+  m_Shader: {fileID: 4800000, guid: 83301e6b636e78144a9d8e699df1b21b, type: 3}
+  m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -69,7 +69,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Screenspace: 1
+    - _Screenspace: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -81,10 +81,10 @@ Material:
     - _mult: 1
     - _pwer: 1
     m_Colors:
-    - _Bottom: {r: 0, g: 0.072719194, b: 0.3773585, a: 1}
+    - _Bottom: {r: 0.15294118, g: 0.47058827, b: 0.4784314, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0, g: 0.0118211815, b: 0.122641504, a: 1}
     - _SkyTint: {r: 0.2511125, g: 0.9339623, b: 0.79339105, a: 1}
-    - _Top: {r: 0.23829652, g: 0.96846986, b: 0.990566, a: 0}
+    - _Top: {r: 0.3726415, g: 1, b: 0.7127756, a: 1}
   m_BuildTextureStacks: []
