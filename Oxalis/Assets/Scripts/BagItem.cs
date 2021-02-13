@@ -8,10 +8,12 @@ public class BagItem : ScriptableObject
     public string crop;
     public string seeds;
     public int supplyYield;
-    public int growTime;
+    public int cropYield;
     public int seedYield;
     public int fertilizerYield;
+    public int growTime;
     public Sprite Image;
     public bool isSeed;
     public GameObject plant;
+
 }

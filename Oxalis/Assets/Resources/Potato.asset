@@ -15,9 +15,10 @@ MonoBehaviour:
   crop: Potato
   seeds: Potato Seeds
   supplyYield: 10
-  growTime: 20
+  cropYield: 5
   seedYield: 2
   fertilizerYield: 1
+  growTime: 20
   Image: {fileID: 21300000, guid: 89f13d3b79487224784a23c7b9655de6, type: 3}
   isSeed: 0
   plant: {fileID: 4182784995727101449, guid: 7646a157a9333254f884a0a9c4b15291, type: 3}

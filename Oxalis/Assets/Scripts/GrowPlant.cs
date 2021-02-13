@@ -13,6 +13,7 @@ public class GrowPlant : MonoBehaviour
     public int plantState = 0;
     public BagItem crop;
     public string plantedCropName;
+    public int cropYield;
 
 
     private void Awake()
@@ -52,22 +53,27 @@ public class GrowPlant : MonoBehaviour
     private void Plant(BagItem selectedItem)
     {
         //check if selected item is a seed
-        if (selectedItem.isSeed)
+        if(selectedItem != null)
         {
-            //plant the selected seed
-            plantedCropName = selectedItem.crop; //storing the name of the crop that needs to grow
-            crop = Resources.Load<BagItem>(plantedCropName); //getting the reference to that crop from the resources folder
-            Bag.RemoveItemFromInventory(selectedItem);
-            Vector3 plantTransform = new Vector3(0, 0.495f, 0);
+            if (selectedItem.isSeed)
+            {
+                //plant the selected seed
+                plantedCropName = selectedItem.crop; //storing the name of the crop that needs to grow
+                crop = Resources.Load<BagItem>(plantedCropName); //getting the reference to that crop from the resources folder
+                cropYield = crop.cropYield; //storing the number of crops to give the player upon harvest
+                Bag.RemoveItemFromInventory(selectedItem);
+                Vector3 plantTransform = new Vector3(0, 0.495f, 0);
 
-            plant = Instantiate(crop.plant, transform, false) as GameObject;
+                plant = Instantiate(crop.plant, transform, false) as GameObject;
 
-            plantState++;
+                plantState++;
+            }
+            else
+            {
+                Debug.Log("Selected Item is not a seed!!");
+            }
         }
-        else
-        {
-            Debug.Log("Selected Item is not a seed!!");
-        }
+
     }
 
     private void Water()
@@ -86,10 +92,12 @@ public class GrowPlant : MonoBehaviour
     private void Harvest()
     {
         //harvest the plant when fully grown
-
-        Bag.AddItemToInventory(crop);
+        for(int i = 0; i < cropYield; i++)
+        {
+            Bag.AddItemToInventory(crop);
+        }
         Destroy(plant);
-        rend.material = dryGround;
+        rend.material = unTilledGround;
         plantState = 0;
     }
 }
