@@ -1,47 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
-    private Inventory inventory;
-    public Transform itemSlotContainer;
-    public Transform itemSlotTemplate;
     public BagItem myItem;
+    public BagItem otherItem;
+    public int curInvSlot = 0;
 
     private void Start()
     {
         Bag.InitInventory();
+        Bag.AddItemToInventory(myItem);
+        Bag.AddItemToInventory(myItem);
+        otherItem = Resources.Load<BagItem>("Potato");
+        Bag.AddItemToInventory(otherItem);
+        Bag.AddItemToInventory(otherItem);
+        Bag.AddItemToInventory(otherItem);
+        Bag.RemoveItemFromInventory(otherItem);
+        Bag.RemoveItemFromInventory(otherItem);
+        Bag.RemoveItemFromInventory(otherItem);
         //Bag.AddItemToInventory(myItem);
         //Bag.AddItemToInventory(myItem);
-        //Bag.AddItemToInventory(myItem);
-        //Bag.AddItemToInventory(myItem);
-        //Debug.Log(Bag.slots[0].itemRef.crop);
-        //Debug.Log(Bag.slots[0].itemRef.growTime);
-        //Debug.Log(Bag.slots[0].itemRef.supplyYield);
-        //Debug.Log(Bag.slots[0].quantity);
+
+        DrawSlots();
+        InventorySelection();
     }
 
-    public void SetInventory(Inventory inventory)
+    public void DrawSlots()
     {
-        this.inventory = inventory;
-        //RefreshInventoryItems();
-    }
-
-    private void RefreshInventoryItems()
-    {
-        int y = 0;
-        int x = 0;
-        float itemSlotCellSize = 30f;
-        foreach(Item item in inventory.GetItemList())
+        for(int i = 0; i < Bag.slots.Length; i++)
         {
-            RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.gameObject.SetActive(true);
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            x++;
-            if(x > 2)
+            Image slotImage;
+            Text slotNumber;
+            slotImage = transform.GetChild(i).GetChild(0).GetComponent<Image>();
+            slotNumber = transform.GetChild(i).GetChild(1).GetComponent<Text>();
+            if (Bag.slots[i].quantity != 0)
             {
-                Debug.Log("Inventory Full!");
+                slotImage.gameObject.SetActive(true);
+                slotNumber.gameObject.SetActive(true);
+                slotImage.sprite = Bag.slots[i].itemRef.Image;
+                slotNumber.text = Bag.slots[i].quantity.ToString();
+            }
+            else
+            {
+                slotImage.gameObject.SetActive(false);
+                slotNumber.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void InventorySelection()
+    {
+        Image slotBorder;
+
+        for(int i = 0; i < Bag.slots.Length; i++)
+        {
+            if(i != curInvSlot)
+            {
+                slotBorder = transform.GetChild(i).GetComponent<Image>();
+                slotBorder.color = new Color(1, 1, 1, 0.5f);
+            }
+            else
+            {
+                slotBorder = transform.GetChild(curInvSlot).GetComponent<Image>();
+                slotBorder.color = new Color(1, 1, 1, 1f);
             }
         }
     }

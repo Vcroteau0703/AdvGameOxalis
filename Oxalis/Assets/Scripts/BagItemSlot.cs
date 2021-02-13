@@ -6,5 +6,4 @@ public struct BagItemSlot
 {
     public int quantity;
     public BagItem itemRef;
-
 }

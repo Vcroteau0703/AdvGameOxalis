@@ -24,20 +24,24 @@ public class PlayerController : MonoBehaviour
     private RaycastHit vision; // detecting raycast collision
     public float rayLength; //assigning length to the raycast
 
-    private Inventory inventory; //accessing inventory class
 
-    [SerializeField] private UI_Inventory uiInventory;
+    private UI_Inventory uiInventory;
+    public GameObject ui_Inventory;
 
     private void Awake()
     {
         controls = new Controls();
         characterController = GetComponent<CharacterController>();
         rayLength = 4.0f;
+
+        uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
+
         //Interact
         controls.Gameplay.Interact.performed += ctx => Interact();
 
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
+        //Change Inventory Selection
+        controls.Gameplay.ChangeSelection.performed += ctx => ChangeInventorySelection();
+
     }
 
     private void FixedUpdate()
@@ -76,10 +80,28 @@ public class PlayerController : MonoBehaviour
             if (vision.collider.tag == "Plot")
             {
                 Debug.Log(vision.collider.name);
-                vision.collider.GetComponent<GrowPlant>().FarmMechanic();
+                BagItem selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                vision.collider.GetComponent<GrowPlant>().FarmMechanic(selectedItem);
+                uiInventory.DrawSlots();
                 //Debug.Log("Interacting");
             }
         }
+    }
+
+    void ChangeInventorySelection()
+    {
+
+        if(uiInventory.curInvSlot < Bag.slots.Length - 1)
+        {
+            uiInventory.curInvSlot++;
+            uiInventory.InventorySelection();
+        }
+        else
+        {
+            uiInventory.curInvSlot = 0;
+            uiInventory.InventorySelection();
+        }
+
     }
 
     private void OnEnable()
