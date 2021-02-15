@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74e324c11750b1e4c918faa9ccd71040, type: 3}
-  m_Name: Corn
+  m_Name: Fertilizer
   m_EditorClassIdentifier: 
-  crop: Corn
-  seeds: Corn Seeds
-  supplyYield: 15
+  crop: 
+  seeds: 
+  supplyYield: 0
   cropYield: 0
-  seedYield: 1
-  fertilizerYield: 2
-  growTime: 30
-  Image: {fileID: 21300000, guid: 7844e296d6abc254baeee007fc5092e6, type: 3}
+  seedYield: 0
+  fertilizerYield: 0
+  growTime: 0
+  Image: {fileID: 21300000, guid: 83fa0416a41237349a042f0e0c49dd00, type: 3}
   isSeed: 0
-  plant: {fileID: 1885295084780175934, guid: 6d5ab892634c3624f8a280bd6aac337b, type: 3}
-  isCrop: 1
-  isFertilizer: 0
+  plant: {fileID: 0}
+  isCrop: 0
+  isFertilizer: 1

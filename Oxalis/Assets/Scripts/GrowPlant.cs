@@ -26,7 +26,7 @@ public class GrowPlant : MonoBehaviour
         switch (plantState)
         {
             case 0:
-                Till();
+                Till(selectedItem);
                 break;
             case 1:
                 Plant(selectedItem);
@@ -43,11 +43,22 @@ public class GrowPlant : MonoBehaviour
         }
     }
 
-    private void Till()
+    private void Till(BagItem selectedItem)
     {
-        //till the soil for planting
-        rend.material = dryGround;
-        plantState++;
+        if(selectedItem != null)
+        {
+            //till the soil for planting
+            if (selectedItem.isFertilizer)
+            {
+                Bag.RemoveItemFromInventory(selectedItem);
+                rend.material = dryGround;
+                plantState++;
+            }
+            else
+            {
+                Debug.Log("Item is not fertilizer!");
+            }
+        }
     }
 
     private void Plant(BagItem selectedItem)

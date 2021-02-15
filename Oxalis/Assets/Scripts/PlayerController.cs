@@ -93,12 +93,7 @@ public class PlayerController : MonoBehaviour
                 if(selectedItem != null)
                 {
                     //check if selected item is a crop
-                    if (selectedItem.isSeed || selectedItem == null)
-                    {
-                        Debug.Log("Item is not a crop!");
-
-                    }
-                    else
+                    if (selectedItem.isCrop)
                     {
                         BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
                         for (int i = 0; i < selectedItem.seedYield; i++)
@@ -108,22 +103,46 @@ public class PlayerController : MonoBehaviour
                         Bag.RemoveItemFromInventory(selectedItem);
                         uiInventory.DrawSlots();
                     }
+                    else
+                    {
+                        Debug.Log("Item is not a crop!");
+                    }
                 }
             }
             if(vision.collider.tag == "Storage")
             {
                 if(selectedItem != null)
                 {
-                    if (selectedItem.isSeed)
-                    {
-                        Debug.Log("Item is not a crop!");
-
-                    }
-                    else
+                    if (selectedItem.isCrop)
                     {
                         supplySlider.value += selectedItem.supplyYield;
                         Bag.RemoveItemFromInventory(selectedItem);
                         uiInventory.DrawSlots();
+                    }
+                    else
+                    {
+                        Debug.Log("Item is not a crop!");
+                    }
+                }
+            }
+            if(vision.collider.tag == "Compost")
+            {
+                if(selectedItem != null)
+                {
+                    if (selectedItem.isCrop)
+                    {
+                        int fertilizerCnt = selectedItem.fertilizerYield;
+                        Bag.RemoveItemFromInventory(selectedItem);
+                        BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
+                        for (int i = 0; i < fertilizerCnt; i++)
+                        {
+                            Bag.AddItemToInventory(fertilizer);
+                        }
+                        uiInventory.DrawSlots();
+                    }
+                    else
+                    {
+                        Debug.Log("Item is not a crop!");
                     }
                 }
             }

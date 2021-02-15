@@ -15,5 +15,6 @@ public class BagItem : ScriptableObject
     public Sprite Image;
     public bool isSeed;
     public GameObject plant;
-
+    public bool isCrop;
+    public bool isFertilizer;
 }

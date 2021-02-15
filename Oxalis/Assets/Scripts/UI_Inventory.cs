@@ -14,13 +14,10 @@ public class UI_Inventory : MonoBehaviour
         Bag.InitInventory();
         Bag.AddItemToInventory(myItem);
         Bag.AddItemToInventory(myItem);
-        otherItem = Resources.Load<BagItem>("Potato");
+        otherItem = Resources.Load<BagItem>("Fertilizer");
         Bag.AddItemToInventory(otherItem);
         Bag.AddItemToInventory(otherItem);
         Bag.AddItemToInventory(otherItem);
-        Bag.RemoveItemFromInventory(otherItem);
-        Bag.RemoveItemFromInventory(otherItem);
-        Bag.RemoveItemFromInventory(otherItem);
         //Bag.AddItemToInventory(myItem);
         //Bag.AddItemToInventory(myItem);
 

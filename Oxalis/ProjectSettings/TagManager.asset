@@ -8,6 +8,7 @@ TagManager:
   - Plot
   - Germinator
   - Storage
+  - Compost
   layers:
   - Default
   - TransparentFX
