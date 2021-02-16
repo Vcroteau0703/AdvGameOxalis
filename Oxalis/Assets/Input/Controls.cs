@@ -20,9 +20,9 @@ public class @Controls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e2bdd140-7956-4c3f-94e3-2de063186ba5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -43,9 +43,33 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ChangeSelection"",
+                    ""name"": ""ChangeSelectionRight"",
                     ""type"": ""Button"",
                     ""id"": ""4e64d7cf-5a43-4224-bf2b-2f0a8cc690dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""069dc977-0391-4d0e-ba34-231dbfb3e232"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeSelectionLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""ec6f9fba-99a6-42fd-9ac4-02a1127961d0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e5fe1b7-aea7-43c0-a556-c1fd9fe5104d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -109,8 +133,30 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""c86f7a43-f2df-46f3-a915-4d8829050385"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ed4d6607-b7df-46e6-937c-34115dc53802"",
                     ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b32c3c25-778a-45e2-9192-cb50b9fec322"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -131,12 +177,100 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4ef2717b-5a23-4fe1-a2ba-a46b55ad2ad7"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4647cfb5-77f9-49db-a641-d076d4d81914"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelectionRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4174beed-1d72-441a-a573-61fc72a56492"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelectionRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1ce201f-44df-4718-ae91-858551eef58a"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9457e299-5a37-43d6-bbe3-66fbe2bf7520"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70908657-bf3a-40f8-b898-d99777e4485b"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeSelection"",
+                    ""action"": ""ChangeSelectionLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7d15542-f57a-4b55-af7e-a1a41a8fc13b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelectionLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b397f253-efe9-481e-8567-3a1035369711"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30b0c349-944f-438f-888a-45ef11113054"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -150,7 +284,10 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
-        m_Gameplay_ChangeSelection = m_Gameplay.FindAction("ChangeSelection", throwIfNotFound: true);
+        m_Gameplay_ChangeSelectionRight = m_Gameplay.FindAction("ChangeSelectionRight", throwIfNotFound: true);
+        m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
+        m_Gameplay_ChangeSelectionLeft = m_Gameplay.FindAction("ChangeSelectionLeft", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -203,7 +340,10 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Look;
     private readonly InputAction m_Gameplay_Interact;
-    private readonly InputAction m_Gameplay_ChangeSelection;
+    private readonly InputAction m_Gameplay_ChangeSelectionRight;
+    private readonly InputAction m_Gameplay_Sprint;
+    private readonly InputAction m_Gameplay_ChangeSelectionLeft;
+    private readonly InputAction m_Gameplay_Jump;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -211,7 +351,10 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
-        public InputAction @ChangeSelection => m_Wrapper.m_Gameplay_ChangeSelection;
+        public InputAction @ChangeSelectionRight => m_Wrapper.m_Gameplay_ChangeSelectionRight;
+        public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
+        public InputAction @ChangeSelectionLeft => m_Wrapper.m_Gameplay_ChangeSelectionLeft;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,9 +373,18 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @ChangeSelection.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelection;
-                @ChangeSelection.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelection;
-                @ChangeSelection.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelection;
+                @ChangeSelectionRight.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelectionRight;
+                @ChangeSelectionRight.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelectionRight;
+                @ChangeSelectionRight.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelectionRight;
+                @Sprint.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @ChangeSelectionLeft.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelectionLeft;
+                @ChangeSelectionLeft.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelectionLeft;
+                @ChangeSelectionLeft.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeSelectionLeft;
+                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -246,9 +398,18 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
-                @ChangeSelection.started += instance.OnChangeSelection;
-                @ChangeSelection.performed += instance.OnChangeSelection;
-                @ChangeSelection.canceled += instance.OnChangeSelection;
+                @ChangeSelectionRight.started += instance.OnChangeSelectionRight;
+                @ChangeSelectionRight.performed += instance.OnChangeSelectionRight;
+                @ChangeSelectionRight.canceled += instance.OnChangeSelectionRight;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
+                @ChangeSelectionLeft.started += instance.OnChangeSelectionLeft;
+                @ChangeSelectionLeft.performed += instance.OnChangeSelectionLeft;
+                @ChangeSelectionLeft.canceled += instance.OnChangeSelectionLeft;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -258,6 +419,9 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnChangeSelection(InputAction.CallbackContext context);
+        void OnChangeSelectionRight(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnChangeSelectionLeft(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

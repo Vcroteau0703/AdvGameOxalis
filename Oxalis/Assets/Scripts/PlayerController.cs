@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     private Controls controls;
 
-    float movementSpeed = 4.5f;
+    public float movementSpeed = 4.5f;
     private Vector2 move;
 
     private CharacterController characterController;
     Vector3 velocity;
     public float gravity = -9.81f;
+    public float jumpHeight = 2f;
+
 
     //checks for grounded
-    //public Transform groundCheck;
-    //public float groundDistance = 0.4f;
-    //public LayerMask groundMask;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
 
-    //public bool isGrounded;
-    //public bool isRunning;
+    public bool isGrounded;
+    public bool isRunning;
 
     private RaycastHit vision; // detecting raycast collision
     public float rayLength; //assigning length to the raycast
@@ -33,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     public Slider supplySlider;
 
+    bool jump = false;
+    public float jetpackStrength;
+
     private void Awake()
     {
         controls = new Controls();
@@ -44,19 +50,30 @@ public class PlayerController : MonoBehaviour
         //Interact
         controls.Gameplay.Interact.performed += ctx => Interact();
 
-        //Change Inventory Selection
-        controls.Gameplay.ChangeSelection.performed += ctx => ChangeInventorySelection();
+        //Change Inventory Selection right
+        controls.Gameplay.ChangeSelectionRight.performed += ctx => ChangeInventorySelectionRight();
+
+        //Change Inventory Selection left
+        controls.Gameplay.ChangeSelectionLeft.performed += ctx => ChangeInventorySelectionLeft();
+
+        //Sprint
+        controls.Gameplay.Sprint.performed += ctv => Sprint();
+        controls.Gameplay.Sprint.canceled += ctx => SprintReleased();
+
+        //Jetpack
+        controls.Gameplay.Jump.performed += ctv => Jetpack();
+        controls.Gameplay.Jump.canceled += ctx => JetpackReleased();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         //checking to see if player is on the ground
-        //if(isGrounded && velocity.y < 0)
-        //{
-        //    velocity.y = -2f;
-        //}
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
@@ -71,6 +88,12 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
+
+        if (jump)
+        {
+            jumpHeight = Mathf.Lerp(0, jumpHeight, jetpackStrength);
+            velocity.y = jumpHeight;
+        }
 
     }
 
@@ -149,7 +172,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ChangeInventorySelection()
+    void ChangeInventorySelectionRight()
     {
         if (uiInventory.curInvSlot < Bag.slots.Length - 1)
         {
@@ -161,7 +184,41 @@ public class PlayerController : MonoBehaviour
             uiInventory.curInvSlot = 0;
             uiInventory.InventorySelection();
         }
+    }
+    
+    void ChangeInventorySelectionLeft()
+    {
+        if(uiInventory.curInvSlot > 0)
+        {
+            uiInventory.curInvSlot--;
+            uiInventory.InventorySelection();
+        }
+        else
+        {
+            uiInventory.curInvSlot = Bag.slots.Length - 1;
+            uiInventory.InventorySelection();
+        }
+    }
 
+    void Sprint()
+    {
+        movementSpeed = movementSpeed * 2;
+    }
+
+    void SprintReleased()
+    {
+        movementSpeed = movementSpeed / 2;
+    }
+
+    void Jetpack()
+    {
+
+        jump = true;
+    }
+    
+    void JetpackReleased()
+    {
+        jump = false;
     }
 
     private void OnEnable()
