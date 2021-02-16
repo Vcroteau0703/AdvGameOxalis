@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         rayLength = 4.0f;
 
+        // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
 
         //Interact
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
         //Jetpack
         controls.Gameplay.Jump.performed += ctv => Jetpack();
         controls.Gameplay.Jump.canceled += ctx => JetpackReleased();
+
     }
 
     private void Update()

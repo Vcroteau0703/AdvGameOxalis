@@ -15,27 +15,64 @@ public class GrowPlant : MonoBehaviour
     public string plantedCropName;
     public int cropYield;
 
+    //get ui_tutorial
+    public GameObject ui_Tutorial;
+    private UI_Tutorial uiTutorial;
+
+
 
     private void Awake()
     {
         rend = GetComponent<Renderer>();
+        uiTutorial = ui_Tutorial.GetComponent<UI_Tutorial>();
     }
 
+    private void Update()
+    {
+        if(plant != null)
+        {
+            if (plant.GetComponent<FinishGrowing>().grown)
+            {
+                plant.GetComponent<FinishGrowing>().grown = false;
+                plantState++;
+                if (uiTutorial.firstWater)
+                {
+                    uiTutorial.firstWater = false;
+                    uiTutorial.NextTutorial();
+                }
+            }
+        }
+    }
     public void FarmMechanic(BagItem selectedItem)
     {
         switch (plantState)
         {
             case 0:
                 Till(selectedItem);
+                if (uiTutorial.firstTill)
+                {
+                    uiTutorial.firstTill = false;
+                    uiTutorial.NextTutorial();
+                }
                 break;
             case 1:
                 Plant(selectedItem);
+                if (uiTutorial.firstPlant)
+                {
+                    uiTutorial.firstPlant = false;
+                    uiTutorial.NextTutorial();
+                }
                 break;
             case 2:
                 Water();
                 break;
             case 3:
                 Harvest();
+                if (uiTutorial.firstHarvest)
+                {
+                    uiTutorial.firstHarvest = false;
+                    uiTutorial.NextTutorial();
+                }
                 break;
             default:
                 Debug.Log("there was a problem :/");
@@ -91,13 +128,13 @@ public class GrowPlant : MonoBehaviour
     {
         //Water the plant
         rend.material = wateredGround;
-        plantState++;
         Grow();
     }
 
     private void Grow()
     {
         plant.GetComponent<Animator>().SetTrigger("Planted");
+
     }
 
     private void Harvest()

@@ -12,14 +12,12 @@ public class UI_Inventory : MonoBehaviour
     private void Start()
     {
         Bag.InitInventory();
-        Bag.AddItemToInventory(myItem);
-        Bag.AddItemToInventory(myItem);
         otherItem = Resources.Load<BagItem>("Fertilizer");
         Bag.AddItemToInventory(otherItem);
         Bag.AddItemToInventory(otherItem);
         Bag.AddItemToInventory(otherItem);
-        //Bag.AddItemToInventory(myItem);
-        //Bag.AddItemToInventory(myItem);
+        Bag.AddItemToInventory(myItem);
+        Bag.AddItemToInventory(myItem);
 
         DrawSlots();
         InventorySelection();
