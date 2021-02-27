@@ -28,16 +28,20 @@ public class PlayerController : MonoBehaviour
     private RaycastHit vision; // detecting raycast collision
     public float rayLength; //assigning length to the raycast
 
-
+    //inventory
     private UI_Inventory uiInventory;
     public GameObject ui_Inventory;
 
     public BagItem selectedItem;
 
+    //Slider refs
     public Slider supplySlider;
 
+    //jetpack
     bool jump = false;
     public float jetpackStrength;
+    private FuelMeter fuelMeter;
+    public GameObject fuel;
 
     private void Awake()
     {
@@ -47,6 +51,9 @@ public class PlayerController : MonoBehaviour
 
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
+
+        // getting fuel meter script ref
+        fuelMeter = fuel.GetComponent<FuelMeter>();
 
         //Interact
         controls.Gameplay.Interact.performed += ctx => Interact();
@@ -75,6 +82,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            fuelMeter.IncreaseFuel();
         }
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -91,10 +99,12 @@ public class PlayerController : MonoBehaviour
 
         characterController.Move(velocity * Time.deltaTime);
 
-        if (jump)
+        //Jetpacking Logic
+        if (jump && fuelMeter.fuelVal > 0)
         {
             jumpHeight = Mathf.Lerp(0, jumpHeight, jetpackStrength);
             velocity.y = jumpHeight;
+            fuelMeter.DepleteFuel();
         }
 
     }
@@ -214,7 +224,6 @@ public class PlayerController : MonoBehaviour
 
     void Jetpack()
     {
-
         jump = true;
     }
     
