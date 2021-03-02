@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SupplyGoals : MonoBehaviour
 {
@@ -9,23 +10,54 @@ public class SupplyGoals : MonoBehaviour
     int goalCompletionCount = 0;
     private UI_Inventory uiInventory;
     public GameObject ui_Inventory;
+    Image rewardImage;
+    public Sprite plotImage;
+    public Transform farm;
+    GameObject unlockPlot;
+    int plotNum = 5;
+    BagItem seedReward;
+    TextMeshProUGUI updates;
+    float timer = 5f;
 
     private void Awake()
     {
         supplySlider = GetComponent<Slider>();
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
+
+        // accessing farm plots
+        unlockPlot = farm.GetChild(plotNum).gameObject;
+
+        // accessing update text
+        updates = transform.GetChild(4).GetComponent<TextMeshProUGUI>();
+
+        // getting image and first reward ref
+        seedReward = Resources.Load<BagItem>("Orange Seeds");
+        rewardImage = transform.GetChild(3).GetComponent<Image>();
+        rewardImage.sprite = seedReward.Image;
     }
 
     // Update is called once per frame
     void Update()
     {
+ 
+
         if(supplySlider.maxValue == supplySlider.value)
         {
             //give reward and hint!!
             Reward();
             //Make new goal harder
             ChangeGoal();
+        }
+
+        if(updates.gameObject.activeInHierarchy)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                updates.gameObject.SetActive(false);
+                timer = 5f;
+            }
         }
     }
 
@@ -46,13 +78,19 @@ public class SupplyGoals : MonoBehaviour
         switch (goalCompletionCount)
         {
             case 0:
-                BagItem orangeSeeds = Resources.Load<BagItem>("Orange Seeds");
-                Bag.AddItemToInventory(orangeSeeds);
-                Bag.AddItemToInventory(orangeSeeds);
-                Bag.AddItemToInventory(orangeSeeds);
+                updates.gameObject.SetActive(true);
+                updates.text = "Orange seeds unlocked!";
+                Bag.AddItemToInventory(seedReward);
+                Bag.AddItemToInventory(seedReward);
+                Bag.AddItemToInventory(seedReward);
                 uiInventory.DrawSlots();
+                rewardImage.sprite = plotImage;
                 break;
             case 1:
+                updates.gameObject.SetActive(true);
+                updates.text = "New planter unlocked!";
+                unlockPlot.SetActive(true);
+                plotNum++;
                 break;
             case 2:
                 break;

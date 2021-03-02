@@ -19,12 +19,15 @@ public class GrowPlant : MonoBehaviour
     public GameObject ui_Tutorial;
     private UI_Tutorial uiTutorial;
 
+    //SFX
+    AudioSource audioSource;
 
 
     private void Awake()
     {
         rend = GetComponent<Renderer>();
         uiTutorial = ui_Tutorial.GetComponent<UI_Tutorial>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -49,6 +52,8 @@ public class GrowPlant : MonoBehaviour
         {
             case 0:
                 Till(selectedItem);
+                audioSource.clip = Resources.Load<AudioClip>("PlantingSFX");
+                audioSource.Play();
                 if (uiTutorial.firstTill)
                 {
                     uiTutorial.firstTill = false;
@@ -57,6 +62,7 @@ public class GrowPlant : MonoBehaviour
                 break;
             case 1:
                 Plant(selectedItem);
+                audioSource.Play();
                 if (uiTutorial.firstPlant)
                 {
                     uiTutorial.firstPlant = false;
@@ -65,9 +71,13 @@ public class GrowPlant : MonoBehaviour
                 break;
             case 2:
                 Water();
+                audioSource.clip = Resources.Load<AudioClip>("WaterSFX");
+                audioSource.Play();
                 break;
             case 3:
                 Harvest();
+                audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                audioSource.Play();
                 if (uiTutorial.firstHarvest)
                 {
                     uiTutorial.firstHarvest = false;

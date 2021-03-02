@@ -15,7 +15,7 @@ MonoBehaviour:
   crop: Orange
   seeds: Orange Seeds
   supplyYield: 3
-  cropYield: 0
+  cropYield: 7
   seedYield: 1
   fertilizerYield: 2
   growTime: 30
