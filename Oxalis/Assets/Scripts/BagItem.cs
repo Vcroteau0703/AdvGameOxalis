@@ -17,4 +17,6 @@ public class BagItem : ScriptableObject
     public GameObject plant;
     public bool isCrop;
     public bool isFertilizer;
+    public int hungerWorth;
+
 }

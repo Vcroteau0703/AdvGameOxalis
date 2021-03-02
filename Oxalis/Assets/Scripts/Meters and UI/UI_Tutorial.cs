@@ -23,6 +23,9 @@ public class UI_Tutorial : MonoBehaviour
     public bool firstPlant = true;
     public bool firstWater = true;
     public bool firstHarvest = true;
+    public bool firstGermination = true;
+    public bool firstCompost = true;
+    public bool firstConsume = true;
 
     //accessing germinator, compost and storage
     public GameObject germinator;

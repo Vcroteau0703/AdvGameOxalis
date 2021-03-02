@@ -53,9 +53,10 @@ public class OxygenMeter : MonoBehaviour
             if(oxygenVal == 0)
             {
                 timerVal = 1f;
+                timer = timerVal;
             }
         }
-        else 
+        else if(!healthMeter.playerDead)
         {
             healthMeter.DecreaseHealth(10);
             //put hit/choking sfx here

@@ -42,6 +42,7 @@ public static class Bag
                     slots[i].quantity = 1;
                     break;
                 }
+
             }
         }
     }
