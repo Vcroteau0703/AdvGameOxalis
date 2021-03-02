@@ -84,6 +84,7 @@ MonoBehaviour:
   fuel: {fileID: 0}
   hunger: {fileID: 0}
   ui_Tutorial: {fileID: 0}
+  crosshairs: {fileID: 0}
 --- !u!136 &223974230
 CapsuleCollider:
   m_ObjectHideFlags: 0
