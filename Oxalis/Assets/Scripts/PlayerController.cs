@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
 
+    //mouse scroll
+    Vector2 scroll;
 
     //checks for grounded
     public Transform groundCheck;
@@ -53,17 +55,20 @@ public class PlayerController : MonoBehaviour
     private UI_Tutorial uiTutorial;
 
     //SFX
-    AudioSource[] audioSources;
-    AudioSource jetpackSFX;
-    AudioSource footStepsSand;
-    AudioSource footStepsSwamp;
-    AudioSource pickupSFX;
+    AudioSource audioSource;
+
+    //Crosshairs
+    public Transform crosshairs;
+    Animator leftAnim;
+    Animator rightAnim;
+    Animator upAnim;
+    Animator downAnim;
 
     private void Awake()
     {
         controls = new Controls();
         characterController = GetComponent<CharacterController>();
-        rayLength = 4.0f;
+        rayLength = 5.0f;
 
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
@@ -98,11 +103,13 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Consume.performed += ctx => Consume();
 
         //Getting SFX
-        audioSources = GetComponents<AudioSource>();
-        jetpackSFX = audioSources[0];
-        pickupSFX = audioSources[1];
+        audioSource = GetComponent<AudioSource>();
 
-
+        //getting crosshairs
+        leftAnim = crosshairs.GetChild(0).GetComponent<Animator>();
+        rightAnim = crosshairs.GetChild(1).GetComponent<Animator>();
+        upAnim = crosshairs.GetChild(2).GetComponent<Animator>();
+        downAnim = crosshairs.GetChild(3).GetComponent<Animator>();
     }
 
     private void Update()
@@ -138,6 +145,39 @@ public class PlayerController : MonoBehaviour
             fuelMeter.DepleteFuel();
         }
 
+        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
+        {
+            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost")
+            {
+                leftAnim.SetBool("interactable", true);
+                rightAnim.SetBool("interactable", true);
+                upAnim.SetBool("interactable", true);
+                downAnim.SetBool("interactable", true);
+            }
+        }
+        else
+        {
+            leftAnim.SetBool("interactable", false);
+            rightAnim.SetBool("interactable", false);
+            upAnim.SetBool("interactable", false);
+            downAnim.SetBool("interactable", false);
+        }
+
+        // mouse scroll
+        scroll = controls.Gameplay.Scroll.ReadValue<Vector2>();
+        //Debug.Log(scroll.y);
+        if(scroll.y > 0f)
+        {
+            ChangeInventorySelectionLeft();
+        }
+        if(scroll.y < 0f)
+        {
+            ChangeInventorySelectionRight();
+        }
+
+
     }
 
     // interaction function
@@ -169,7 +209,8 @@ public class PlayerController : MonoBehaviour
                         {
                             Bag.AddItemToInventory(seed);
                         }
-                        pickupSFX.Play();
+                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                        audioSource.Play();
                         Bag.RemoveItemFromInventory(selectedItem);
                         // refreshing inventory
                         uiInventory.DrawSlots();
@@ -219,7 +260,8 @@ public class PlayerController : MonoBehaviour
                         {
                             Bag.AddItemToInventory(fertilizer);
                         }
-                        pickupSFX.Play();
+                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                        audioSource.Play();
                         // refreshing inventory
                         uiInventory.DrawSlots();
 
@@ -285,13 +327,17 @@ public class PlayerController : MonoBehaviour
     void Jetpack()
     {
         jump = true;
-        jetpackSFX.Play();
+        audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
+        audioSource.loop = true;
+        audioSource.Play();
     }
     
     void JetpackReleased()
     {
         jump = false;
-        jetpackSFX.Pause();
+        audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
+        audioSource.loop = false;
+        audioSource.Pause();
     }
 
     //Consume function

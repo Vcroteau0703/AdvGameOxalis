@@ -44,9 +44,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""ChangeSelectionRight"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""4e64d7cf-5a43-4224-bf2b-2f0a8cc690dd"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -60,9 +60,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""ChangeSelectionLeft"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""ec6f9fba-99a6-42fd-9ac4-02a1127961d0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -87,6 +87,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""72c130cd-b66e-4715-9e8c-45509a4f948d"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""876b0178-064c-4d4c-87b9-c8059f12332c"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -204,20 +212,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4647cfb5-77f9-49db-a641-d076d4d81914"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeSelectionRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""4174beed-1d72-441a-a573-61fc72a56492"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChangeSelectionRight"",
@@ -248,20 +245,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""70908657-bf3a-40f8-b898-d99777e4485b"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeSelectionLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""d7d15542-f57a-4b55-af7e-a1a41a8fc13b"",
                     ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChangeSelectionLeft"",
@@ -333,6 +319,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Consume"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""575508ab-4da6-4990-86e2-6667ea7c5b8c"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -350,6 +347,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
         m_Gameplay_Consume = m_Gameplay.FindAction("Consume", throwIfNotFound: true);
+        m_Gameplay_Scroll = m_Gameplay.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -408,6 +406,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Escape;
     private readonly InputAction m_Gameplay_Consume;
+    private readonly InputAction m_Gameplay_Scroll;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -421,6 +420,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
         public InputAction @Consume => m_Wrapper.m_Gameplay_Consume;
+        public InputAction @Scroll => m_Wrapper.m_Gameplay_Scroll;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -457,6 +457,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Consume.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConsume;
                 @Consume.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConsume;
                 @Consume.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConsume;
+                @Scroll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScroll;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -488,6 +491,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Consume.started += instance.OnConsume;
                 @Consume.performed += instance.OnConsume;
                 @Consume.canceled += instance.OnConsume;
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
             }
         }
     }
@@ -503,5 +509,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
         void OnConsume(InputAction.CallbackContext context);
+        void OnScroll(InputAction.CallbackContext context);
     }
 }

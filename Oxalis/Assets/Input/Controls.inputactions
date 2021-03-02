@@ -31,9 +31,9 @@
                 },
                 {
                     "name": "ChangeSelectionRight",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "4e64d7cf-5a43-4224-bf2b-2f0a8cc690dd",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
@@ -47,9 +47,9 @@
                 },
                 {
                     "name": "ChangeSelectionLeft",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "ec6f9fba-99a6-42fd-9ac4-02a1127961d0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },
@@ -74,6 +74,14 @@
                     "type": "Button",
                     "id": "72c130cd-b66e-4715-9e8c-45509a4f948d",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Scroll",
+                    "type": "Value",
+                    "id": "876b0178-064c-4d4c-87b9-c8059f12332c",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -191,20 +199,9 @@
                 },
                 {
                     "name": "",
-                    "id": "4647cfb5-77f9-49db-a641-d076d4d81914",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeSelectionRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4174beed-1d72-441a-a573-61fc72a56492",
                     "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "ChangeSelectionRight",
@@ -235,20 +232,9 @@
                 },
                 {
                     "name": "",
-                    "id": "70908657-bf3a-40f8-b898-d99777e4485b",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeSelectionLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d7d15542-f57a-4b55-af7e-a1a41a8fc13b",
                     "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "ChangeSelectionLeft",
@@ -318,6 +304,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Consume",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "575508ab-4da6-4990-86e2-6667ea7c5b8c",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
