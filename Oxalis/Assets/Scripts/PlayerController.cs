@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+
 public class PlayerController : MonoBehaviour
 {
     private Controls controls;
@@ -43,6 +44,21 @@ public class PlayerController : MonoBehaviour
     private FuelMeter fuelMeter;
     public GameObject fuel;
 
+    //Hunger ref
+    public GameObject hunger;
+    HungerMeter hungerMeter;
+
+    //get ui_tutorial
+    public GameObject ui_Tutorial;
+    private UI_Tutorial uiTutorial;
+
+    //SFX
+    AudioSource[] audioSources;
+    AudioSource jetpackSFX;
+    AudioSource footStepsSand;
+    AudioSource footStepsSwamp;
+    AudioSource pickupSFX;
+
     private void Awake()
     {
         controls = new Controls();
@@ -54,6 +70,12 @@ public class PlayerController : MonoBehaviour
 
         // getting fuel meter script ref
         fuelMeter = fuel.GetComponent<FuelMeter>();
+
+        // getting hunger meter script ref
+        hungerMeter = hunger.GetComponent<HungerMeter>();
+
+        // getting ui tutorial script ref
+        uiTutorial = ui_Tutorial.GetComponent<UI_Tutorial>();
 
         //Interact
         controls.Gameplay.Interact.performed += ctx => Interact();
@@ -71,6 +93,15 @@ public class PlayerController : MonoBehaviour
         //Jetpack
         controls.Gameplay.Jump.performed += ctv => Jetpack();
         controls.Gameplay.Jump.canceled += ctx => JetpackReleased();
+
+        //Consume
+        controls.Gameplay.Consume.performed += ctx => Consume();
+
+        //Getting SFX
+        audioSources = GetComponents<AudioSource>();
+        jetpackSFX = audioSources[0];
+        pickupSFX = audioSources[1];
+
 
     }
 
@@ -109,6 +140,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // interaction function
     void Interact()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
@@ -130,13 +162,24 @@ public class PlayerController : MonoBehaviour
                     //check if selected item is a crop
                     if (selectedItem.isCrop)
                     {
+                        // getting seed ref
                         BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
+                        // cycling through how many seeds to add based on crops seed yield
                         for (int i = 0; i < selectedItem.seedYield; i++)
                         {
                             Bag.AddItemToInventory(seed);
                         }
+                        pickupSFX.Play();
                         Bag.RemoveItemFromInventory(selectedItem);
+                        // refreshing inventory
                         uiInventory.DrawSlots();
+                        
+                        // checking if tutorial is needed
+                        if (uiTutorial.firstGermination)
+                        {
+                            uiTutorial.firstGermination = false;
+                            uiTutorial.NextTutorial();
+                        }
                     }
                     else
                     {
@@ -166,14 +209,26 @@ public class PlayerController : MonoBehaviour
                 {
                     if (selectedItem.isCrop)
                     {
+                        // storing how much fertilizer to add to inventory
                         int fertilizerCnt = selectedItem.fertilizerYield;
                         Bag.RemoveItemFromInventory(selectedItem);
+                        // getting fertilizer ref
                         BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
+                        // cycling through how much fertilizer to add
                         for (int i = 0; i < fertilizerCnt; i++)
                         {
                             Bag.AddItemToInventory(fertilizer);
                         }
+                        pickupSFX.Play();
+                        // refreshing inventory
                         uiInventory.DrawSlots();
+
+                        // checking if tutorial is needed
+                        if (uiTutorial.firstCompost)
+                        {
+                            uiTutorial.firstCompost = false;
+                            uiTutorial.NextTutorial();
+                        }
                     }
                     else
                     {
@@ -184,6 +239,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    // selection change functions
     void ChangeInventorySelectionRight()
     {
         if (uiInventory.curInvSlot < Bag.slots.Length - 1)
@@ -212,6 +269,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //sprint functions
     void Sprint()
     {
         movementSpeed = movementSpeed * 2;
@@ -222,14 +280,49 @@ public class PlayerController : MonoBehaviour
         movementSpeed = movementSpeed / 2;
     }
 
+
+    //jetpacking functions
     void Jetpack()
     {
         jump = true;
+        jetpackSFX.Play();
     }
     
     void JetpackReleased()
     {
         jump = false;
+        jetpackSFX.Pause();
+    }
+
+    //Consume function
+    void Consume()
+    {
+        selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+        if (selectedItem.isCrop)
+        {
+            if(hungerMeter.hungerVal < 100)
+            {
+                hungerMeter.IncreaseHunger(selectedItem.hungerWorth);
+                Bag.RemoveItemFromInventory(selectedItem);
+                uiInventory.DrawSlots();
+
+                if (uiTutorial.firstConsume)
+                {
+                    uiTutorial.firstConsume = false;
+                    uiTutorial.NextTutorial();
+                }
+            }
+            else
+            {
+                Debug.Log("You aren't hungry right now");
+            }
+
+
+        }
+        else
+        {
+            Debug.Log("Item is not a crop!");
+        }
     }
 
     private void OnEnable()

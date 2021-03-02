@@ -81,6 +81,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Consume"",
+                    ""type"": ""Button"",
+                    ""id"": ""72c130cd-b66e-4715-9e8c-45509a4f948d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -175,7 +183,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c5362810-50ce-4f78-829b-0ef1102028ae"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -303,6 +311,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f93392c-80a6-479b-9060-88d70d9d42ee"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Consume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6e18761-7921-47f5-9207-abea9b63a868"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Consume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -319,6 +349,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_ChangeSelectionLeft = m_Gameplay.FindAction("ChangeSelectionLeft", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
+        m_Gameplay_Consume = m_Gameplay.FindAction("Consume", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -376,6 +407,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_ChangeSelectionLeft;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Escape;
+    private readonly InputAction m_Gameplay_Consume;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -388,6 +420,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @ChangeSelectionLeft => m_Wrapper.m_Gameplay_ChangeSelectionLeft;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
+        public InputAction @Consume => m_Wrapper.m_Gameplay_Consume;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -421,6 +454,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Escape.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Consume.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConsume;
+                @Consume.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConsume;
+                @Consume.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnConsume;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -449,6 +485,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @Consume.started += instance.OnConsume;
+                @Consume.performed += instance.OnConsume;
+                @Consume.canceled += instance.OnConsume;
             }
         }
     }
@@ -463,5 +502,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnChangeSelectionLeft(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnConsume(InputAction.CallbackContext context);
     }
 }

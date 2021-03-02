@@ -32,8 +32,8 @@ public class FuelMeter : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0.0f)
         {
-            timer = 1f;
-            fuelVal -= 10;
+            timer = 0.2f;
+            fuelVal -= 5;
         }
     }
     public void IncreaseFuel()

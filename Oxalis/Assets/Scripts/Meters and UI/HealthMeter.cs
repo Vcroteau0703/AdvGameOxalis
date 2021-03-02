@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class HealthMeter : MonoBehaviour
 {
     Slider healthSlider;
-    float curHealth;
-    float healthVal;
-    float fillSpeed = 1f;
-
+    public float curHealth;
+    public float healthVal;
+    float fillSpeed = 2f;
+    public bool playerDead = false;
     public GameObject deathScreen;
     PlayerDeath playerDeath;
 
@@ -24,14 +24,13 @@ public class HealthMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(healthVal == 0)
+        if(curHealth <= 0 && !playerDead)
         {
+            playerDead = true;
             //player dies
-            StartCoroutine(playerDeath.FadeInDeathScreen());
-            //reset health
-            healthVal = 100;
-        }
+            StartCoroutine(playerDeath.FadeDeathScreen());
 
+        }
         curHealth = Mathf.Lerp(curHealth, healthVal, Time.deltaTime * fillSpeed);
 
         healthSlider.value = curHealth;
