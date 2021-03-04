@@ -1,7 +1,7 @@
-Shader "Custom/NewSurfaceShader"
+Shader "Custom/ToonShading"
 {
-	Properties
-	{
+    Properties
+    {
 		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("Albedo (RGB)", 2D) = "white" {}
 		[Normal]_Normal("Normal", 2D) = "bump" {}
@@ -21,7 +21,7 @@ Shader "Custom/NewSurfaceShader"
 
 		[Header(Emission)]
 		[HDR]_Emission("Emission", Color) = (0,0,0,1)
-	}
+    }
 		SubShader
 		{
 			Tags { "RenderType" = "Opaque" }

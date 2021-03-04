@@ -19,8 +19,15 @@ public class SupplyGoals : MonoBehaviour
     TextMeshProUGUI updates;
     float timer = 5f;
 
+    AudioSource audioSource;
+    AudioClip currentSFX;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        currentSFX = Resources.Load<AudioClip>("PickupSFX");
+        audioSource.clip = currentSFX;
+
         supplySlider = GetComponent<Slider>();
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
@@ -85,6 +92,7 @@ public class SupplyGoals : MonoBehaviour
                 Bag.AddItemToInventory(seedReward);
                 uiInventory.DrawSlots();
                 rewardImage.sprite = plotImage;
+                audioSource.Play();
                 break;
             case 1:
                 updates.gameObject.SetActive(true);

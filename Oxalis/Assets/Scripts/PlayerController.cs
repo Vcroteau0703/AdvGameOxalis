@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
     //SFX
     AudioSource audioSource;
 
+    //ref health
+    public GameObject health;
+    HealthMeter healthMeter;
+
     //Crosshairs
     public Transform crosshairs;
     Animator leftAnim;
@@ -78,6 +82,9 @@ public class PlayerController : MonoBehaviour
 
         // getting hunger meter script ref
         hungerMeter = hunger.GetComponent<HungerMeter>();
+
+        // getting health meter script ref
+        healthMeter = health.GetComponent<HealthMeter>();
 
         // getting ui tutorial script ref
         uiTutorial = ui_Tutorial.GetComponent<UI_Tutorial>();
@@ -349,6 +356,10 @@ public class PlayerController : MonoBehaviour
             if(hungerMeter.hungerVal < 100)
             {
                 hungerMeter.IncreaseHunger(selectedItem.hungerWorth);
+                if(healthMeter.healthVal < 100)
+                {
+                    healthMeter.IncreaseHealth(selectedItem.healthWorth);
+                }
                 Bag.RemoveItemFromInventory(selectedItem);
                 uiInventory.DrawSlots();
 
