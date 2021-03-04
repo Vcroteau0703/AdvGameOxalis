@@ -48,8 +48,6 @@ public class SupplyGoals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-
         if(supplySlider.maxValue == supplySlider.value)
         {
             //give reward and hint!!

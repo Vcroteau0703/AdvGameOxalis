@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Landscape
+  m_Name: examplematerial
   m_Shader: {fileID: 4800000, guid: 05dd977ea2129774a8e3a747532b256b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -69,14 +69,14 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.52
     - _GlossyReflections: 1
-    - _LightCutoff: 1
+    - _LightCutoff: 0.86
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimSize: 0.01
+    - _RimSize: 0.27
     - _ShadowBands: 4
     - _ShadowedRim: 0
     - _SmoothnessTextureChannel: 0
@@ -85,9 +85,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.65882355, g: 0.44846526, b: 0.3254902, a: 1}
+    - _Color: {r: 0.57578534, g: 1, b: 0.1745283, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.5, g: 0.28217974, b: 0.13915095, a: 1}
+    - _RimColor: {r: 0.48584908, g: 1, b: 0.6679553, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -187,7 +187,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16504
+  m_Name: pb_Mesh16502
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -528,7 +528,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438314873}
   m_LocalRotation: {x: -0, y: 0.25978205, z: -0, w: 0.9656673}
-  m_LocalPosition: {x: -34.89, y: -0.07, z: -144.33}
+  m_LocalPosition: {x: -34.89, y: -0.12, z: -144.33}
   m_LocalScale: {x: 2.4310162, y: 1, z: 3.7818205}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10308,6 +10308,10 @@ PrefabInstance:
     - target: {fileID: 8486625623285524458, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_Name
       value: Player Hud Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623285524458, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8486625623285524462, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_Pivot.x
