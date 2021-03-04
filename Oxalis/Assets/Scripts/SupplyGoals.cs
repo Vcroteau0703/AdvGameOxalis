@@ -19,6 +19,7 @@ public class SupplyGoals : MonoBehaviour
     TextMeshProUGUI updates;
     float timer = 5f;
 
+    //audio
     AudioSource audioSource;
     AudioClip currentSFX;
 
