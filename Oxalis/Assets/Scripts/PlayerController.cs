@@ -109,6 +109,12 @@ public class PlayerController : MonoBehaviour
         //Consume
         controls.Gameplay.Consume.performed += ctx => Consume();
 
+        //Change between inventory and supplies purchase menu
+        controls.Gameplay.ChangeMenu.performed += ctx => SwitchMenus();
+
+        //Exit menus
+        controls.Gameplay.ExitMenu.performed += ctx => ExitMenu();
+
         //Getting SFX
         audioSource = GetComponent<AudioSource>();
 
@@ -154,6 +160,8 @@ public class PlayerController : MonoBehaviour
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
 
+
+        // activating and deactivating animated crosshair
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
         {
             if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost")
@@ -171,6 +179,7 @@ public class PlayerController : MonoBehaviour
             upAnim.SetBool("interactable", false);
             downAnim.SetBool("interactable", false);
         }
+
 
         // mouse scroll
         scroll = controls.Gameplay.Scroll.ReadValue<Vector2>();
@@ -190,54 +199,26 @@ public class PlayerController : MonoBehaviour
     // interaction function
     void Interact()
     {
-        Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
+        if (uiInventory.supplyMenuActive)
         {
-            selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
-            if (vision.collider.tag == "Plot")
+            if (uiInventory.inSupplyMenu)
             {
-                vision.collider.GetComponent<GrowPlant>().FarmMechanic(selectedItem);
-                uiInventory.DrawSlots();
-
-                //Debug.Log("Interacting");
-            }
-            if (vision.collider.tag == "Germinator")
-            {
-                if(selectedItem != null)
+                selectedItem = Bag.supplySlots[uiInventory.curInvSlot].itemRef;
+                if(supplySlider.value >= selectedItem.supplyYield)
                 {
-                    //check if selected item is a crop
-                    if (selectedItem.isCrop)
-                    {
-                        // getting seed ref
-                        BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
-                        // cycling through how many seeds to add based on crops seed yield
-                        for (int i = 0; i < selectedItem.seedYield; i++)
-                        {
-                            Bag.AddItemToInventory(seed);
-                        }
-                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
-                        audioSource.Play();
-                        Bag.RemoveItemFromInventory(selectedItem);
-                        // refreshing inventory
-                        uiInventory.DrawSlots();
-                        
-                        // checking if tutorial is needed
-                        if (uiTutorial.firstGermination)
-                        {
-                            uiTutorial.firstGermination = false;
-                            uiTutorial.NextTutorial();
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("Item is not a crop!");
-                    }
+                    supplySlider.value -= selectedItem.supplyYield;
+                    Bag.AddItemToInventory(selectedItem);
+                    uiInventory.DrawSlots();
+                }
+                else
+                {
+                    Debug.Log("you don't have enough supply points to buy this item!");
                 }
             }
-            if(vision.collider.tag == "Storage")
+            else
             {
-                if(selectedItem != null)
+                selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                if (selectedItem != null)
                 {
                     if (selectedItem.isCrop)
                     {
@@ -251,37 +232,91 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            if(vision.collider.tag == "Compost")
-            {
-                if(selectedItem != null)
-                {
-                    if (selectedItem.isCrop)
-                    {
-                        // storing how much fertilizer to add to inventory
-                        int fertilizerCnt = selectedItem.fertilizerYield;
-                        Bag.RemoveItemFromInventory(selectedItem);
-                        // getting fertilizer ref
-                        BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
-                        // cycling through how much fertilizer to add
-                        for (int i = 0; i < fertilizerCnt; i++)
-                        {
-                            Bag.AddItemToInventory(fertilizer);
-                        }
-                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
-                        audioSource.Play();
-                        // refreshing inventory
-                        uiInventory.DrawSlots();
+        }
+        else
+        {
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
 
-                        // checking if tutorial is needed
-                        if (uiTutorial.firstCompost)
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
+            {
+                selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                if (vision.collider.tag == "Plot")
+                {
+                    vision.collider.GetComponent<GrowPlant>().FarmMechanic(selectedItem);
+                    uiInventory.DrawSlots();
+
+                    //Debug.Log("Interacting");
+                }
+                if (vision.collider.tag == "Germinator")
+                {
+                    if (selectedItem != null)
+                    {
+                        //check if selected item is a crop
+                        if (selectedItem.isCrop)
                         {
-                            uiTutorial.firstCompost = false;
-                            uiTutorial.NextTutorial();
+                            // getting seed ref
+                            BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
+                            // cycling through how many seeds to add based on crops seed yield
+                            for (int i = 0; i < selectedItem.seedYield; i++)
+                            {
+                                Bag.AddItemToInventory(seed);
+                            }
+                            audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                            audioSource.Play();
+                            Bag.RemoveItemFromInventory(selectedItem);
+                            // refreshing inventory
+                            uiInventory.DrawSlots();
+
+                            // checking if tutorial is needed
+                            if (uiTutorial.firstGermination && ui_Tutorial.activeInHierarchy)
+                            {
+                                uiTutorial.firstGermination = false;
+                                uiTutorial.NextTutorial();
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Item is not a crop!");
                         }
                     }
-                    else
+                }
+                if (vision.collider.tag == "Storage")
+                {
+                    uiInventory.ActivateStorageMenu();
+                    uiInventory.DrawSupplySlots();
+                }
+                if (vision.collider.tag == "Compost")
+                {
+                    if (selectedItem != null)
                     {
-                        Debug.Log("Item is not a crop!");
+                        if (selectedItem.isCrop)
+                        {
+                            // storing how much fertilizer to add to inventory
+                            int fertilizerCnt = selectedItem.fertilizerYield;
+                            Bag.RemoveItemFromInventory(selectedItem);
+                            // getting fertilizer ref
+                            BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
+                            // cycling through how much fertilizer to add
+                            for (int i = 0; i < fertilizerCnt; i++)
+                            {
+                                Bag.AddItemToInventory(fertilizer);
+                            }
+                            audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                            audioSource.Play();
+                            // refreshing inventory
+                            uiInventory.DrawSlots();
+
+                            // checking if tutorial is needed
+                            if (uiTutorial.firstCompost && ui_Tutorial.activeInHierarchy)
+                            {
+                                uiTutorial.firstCompost = false;
+                                uiTutorial.NextTutorial();
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("Item is not a crop!");
+                        }
                     }
                 }
             }
@@ -292,30 +327,63 @@ public class PlayerController : MonoBehaviour
     // selection change functions
     void ChangeInventorySelectionRight()
     {
-        if (uiInventory.curInvSlot < Bag.slots.Length - 1)
+        if (uiInventory.inSupplyMenu)
         {
-            uiInventory.curInvSlot++;
-            uiInventory.InventorySelection();
+            if (uiInventory.curInvSlot < uiInventory.curStorageSlots - 1)
+            {
+                uiInventory.curInvSlot++;
+                uiInventory.InventorySelection();
+            }
+            else
+            {
+                uiInventory.curInvSlot = 0;
+                uiInventory.InventorySelection();
+            }
         }
         else
         {
-            uiInventory.curInvSlot = 0;
-            uiInventory.InventorySelection();
+            if (uiInventory.curInvSlot < Bag.slots.Length - 1)
+            {
+                uiInventory.curInvSlot++;
+                uiInventory.InventorySelection();
+            }
+            else
+            {
+                uiInventory.curInvSlot = 0;
+                uiInventory.InventorySelection();
+            }
         }
     }
     
     void ChangeInventorySelectionLeft()
     {
-        if(uiInventory.curInvSlot > 0)
+        if (uiInventory.inSupplyMenu)
         {
-            uiInventory.curInvSlot--;
-            uiInventory.InventorySelection();
+            if (uiInventory.curInvSlot > 0)
+            {
+                uiInventory.curInvSlot--;
+                uiInventory.InventorySelection();
+            }
+            else
+            {
+                uiInventory.curInvSlot = uiInventory.curStorageSlots - 1;
+                uiInventory.InventorySelection();
+            }
         }
         else
         {
-            uiInventory.curInvSlot = Bag.slots.Length - 1;
-            uiInventory.InventorySelection();
+            if (uiInventory.curInvSlot > 0)
+            {
+                uiInventory.curInvSlot--;
+                uiInventory.InventorySelection();
+            }
+            else
+            {
+                uiInventory.curInvSlot = Bag.slots.Length - 1;
+                uiInventory.InventorySelection();
+            }
         }
+
     }
 
     //sprint functions
@@ -380,6 +448,27 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Item is not a crop!");
         }
+    }
+
+    void SwitchMenus()
+    {
+        if (uiInventory.inSupplyMenu)
+        {
+            uiInventory.inSupplyMenu = false;
+            uiInventory.curInvSlot = 0;
+            uiInventory.InventorySelection();
+        }
+        else
+        {
+            uiInventory.inSupplyMenu = true;
+            uiInventory.curInvSlot = 0;
+            uiInventory.InventorySelection();
+        }
+    }
+
+    void ExitMenu()
+    {
+        uiInventory.DeactivateStorageMenu();
     }
 
     private void OnEnable()

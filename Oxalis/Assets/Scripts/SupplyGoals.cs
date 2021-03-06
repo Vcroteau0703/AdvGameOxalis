@@ -6,7 +6,8 @@ using TMPro;
 
 public class SupplyGoals : MonoBehaviour
 {
-    Slider supplySlider;
+    public Slider supplySlider;
+
     int goalCompletionCount = 0;
     private UI_Inventory uiInventory;
     public GameObject ui_Inventory;
@@ -16,7 +17,7 @@ public class SupplyGoals : MonoBehaviour
     GameObject unlockPlot;
     int plotNum = 5;
     BagItem seedReward;
-    TextMeshProUGUI updates;
+    public TextMeshProUGUI updates;
     float timer = 5f;
 
     //audio
@@ -30,14 +31,12 @@ public class SupplyGoals : MonoBehaviour
         audioSource.clip = currentSFX;
 
         supplySlider = GetComponent<Slider>();
+
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
 
         // accessing farm plots
         unlockPlot = farm.GetChild(plotNum).gameObject;
-
-        // accessing update text
-        updates = transform.GetChild(4).GetComponent<TextMeshProUGUI>();
 
         // getting image and first reward ref
         seedReward = Resources.Load<BagItem>("Orange Seeds");
@@ -48,6 +47,7 @@ public class SupplyGoals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(supplySlider.maxValue == supplySlider.value)
         {
             //give reward and hint!!
@@ -58,7 +58,7 @@ public class SupplyGoals : MonoBehaviour
 
         if(updates.gameObject.activeInHierarchy)
         {
-            timer -= Time.deltaTime;
+            timer -= Time.unscaledDeltaTime;
             if (timer < 0)
             {
                 updates.gameObject.SetActive(false);

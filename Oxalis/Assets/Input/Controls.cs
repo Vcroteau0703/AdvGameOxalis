@@ -97,6 +97,22 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""aed3bb6e-5e59-46e6-9dc4-cd3a25e97f50"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e51f01d-e750-4ef3-b30b-b281857356ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -330,6 +346,61 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16572241-7c32-4c04-a33e-f88c85f47a1a"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""484801c9-621a-49fc-bb19-5fc8bc817439"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7fe634f-df00-41bb-8680-e66749d91324"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad2a76ad-c7c8-4b38-b6d7-d617ea09b24d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c7b1107-505f-4c76-b07c-3ad0c7f82fb5"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -348,6 +419,8 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
         m_Gameplay_Consume = m_Gameplay.FindAction("Consume", throwIfNotFound: true);
         m_Gameplay_Scroll = m_Gameplay.FindAction("Scroll", throwIfNotFound: true);
+        m_Gameplay_ChangeMenu = m_Gameplay.FindAction("ChangeMenu", throwIfNotFound: true);
+        m_Gameplay_ExitMenu = m_Gameplay.FindAction("ExitMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -407,6 +480,8 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Escape;
     private readonly InputAction m_Gameplay_Consume;
     private readonly InputAction m_Gameplay_Scroll;
+    private readonly InputAction m_Gameplay_ChangeMenu;
+    private readonly InputAction m_Gameplay_ExitMenu;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -421,6 +496,8 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
         public InputAction @Consume => m_Wrapper.m_Gameplay_Consume;
         public InputAction @Scroll => m_Wrapper.m_Gameplay_Scroll;
+        public InputAction @ChangeMenu => m_Wrapper.m_Gameplay_ChangeMenu;
+        public InputAction @ExitMenu => m_Wrapper.m_Gameplay_ExitMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -460,6 +537,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Scroll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScroll;
                 @Scroll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScroll;
                 @Scroll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnScroll;
+                @ChangeMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeMenu;
+                @ChangeMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeMenu;
+                @ChangeMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeMenu;
+                @ExitMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitMenu;
+                @ExitMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitMenu;
+                @ExitMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitMenu;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -494,6 +577,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Scroll.started += instance.OnScroll;
                 @Scroll.performed += instance.OnScroll;
                 @Scroll.canceled += instance.OnScroll;
+                @ChangeMenu.started += instance.OnChangeMenu;
+                @ChangeMenu.performed += instance.OnChangeMenu;
+                @ChangeMenu.canceled += instance.OnChangeMenu;
+                @ExitMenu.started += instance.OnExitMenu;
+                @ExitMenu.performed += instance.OnExitMenu;
+                @ExitMenu.canceled += instance.OnExitMenu;
             }
         }
     }
@@ -510,5 +599,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnEscape(InputAction.CallbackContext context);
         void OnConsume(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnChangeMenu(InputAction.CallbackContext context);
+        void OnExitMenu(InputAction.CallbackContext context);
     }
 }
