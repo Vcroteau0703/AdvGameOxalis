@@ -431,7 +431,7 @@ public class PlayerController : MonoBehaviour
                 Bag.RemoveItemFromInventory(selectedItem);
                 uiInventory.DrawSlots();
 
-                if (uiTutorial.firstConsume)
+                if (uiTutorial.firstConsume && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstConsume = false;
                     uiTutorial.NextTutorial();

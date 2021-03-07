@@ -66,5 +66,7 @@ public class OxygenMeter : MonoBehaviour
     public void OxygenRegen()
     {
         oxygenVal = 100f;
+        timerVal = 5f;
+        timer = timerVal;
     }
 }
