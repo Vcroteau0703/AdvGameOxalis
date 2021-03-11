@@ -7,8 +7,7 @@ public class UI_Inventory : MonoBehaviour
 {
     public BagItem myItem;
     public BagItem otherItem;
-
-    public int curInvSlot = 0;
+    public int curInvSlot;
     public int numOfSlots;
     public int curStorageSlots = 1;
     // supply inventory 
@@ -61,6 +60,7 @@ public class UI_Inventory : MonoBehaviour
                 slotNumber.gameObject.SetActive(true);
                 slotImage.sprite = Bag.slots[i].itemRef.Image;
                 slotNumber.text = Bag.slots[i].quantity.ToString();
+
             }
             else
             {
@@ -77,15 +77,18 @@ public class UI_Inventory : MonoBehaviour
         {
             Image slotBorder;
             Image slotImage;
-            Text slotNumber;
+            Text slotNumberQuantity;
+            Text slotNumberPrice;
             slotBorder = supplyInv.GetChild(i).GetComponent<Image>();
             slotImage = supplyInv.GetChild(i).GetChild(0).GetComponent<Image>();
-            slotNumber = supplyInv.GetChild(i).GetChild(1).GetComponent<Text>();
-            if(Bag.supplySlots[i].quantity != 0)
+            slotNumberQuantity = supplyInv.GetChild(i).GetChild(2).GetComponent<Text>();
+            slotNumberPrice = supplyInv.GetChild(i).GetChild(1).GetComponent<Text>();
+            if (Bag.supplySlots[i].quantity != 0)
             {
                 slotBorder.gameObject.SetActive(true);
                 slotImage.sprite = Bag.supplySlots[i].itemRef.Image;
-                slotNumber.text = Bag.supplySlots[i].quantity.ToString();
+                slotNumberQuantity.text = Bag.supplySlots[i].quantity.ToString();
+                slotNumberPrice.text = Bag.supplySlots[i].worth.ToString();
             }
             else
             {
@@ -98,7 +101,6 @@ public class UI_Inventory : MonoBehaviour
     public void InventorySelection()
     {
         Image slotBorder;
-
         if (inSupplyMenu)
         {
             for (int i = 0; i < Bag.slots.Length; i++)
@@ -155,6 +157,7 @@ public class UI_Inventory : MonoBehaviour
         supplyInv.gameObject.SetActive(true);
         localSupplyCanvas.SetActive(false);
         Time.timeScale = 0;
+        InventorySelection();
     }
 
     // deactivating storage menu, turning on local storage canvas and unpausing the game

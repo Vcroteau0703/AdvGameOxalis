@@ -76,7 +76,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimSize: 0.13
+    - _RimSize: 0.31
     - _ShadowBands: 4
     - _ShadowedRim: 0
     - _SmoothnessTextureChannel: 0

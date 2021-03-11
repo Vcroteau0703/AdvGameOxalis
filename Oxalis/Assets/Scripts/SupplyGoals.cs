@@ -7,18 +7,18 @@ using TMPro;
 public class SupplyGoals : MonoBehaviour
 {
     public Slider supplySlider;
-
+    public Slider localSupplySlider;
     int goalCompletionCount = 0;
     private UI_Inventory uiInventory;
     public GameObject ui_Inventory;
     Image rewardImage;
+    Image localRewardImage;
     public Sprite plotImage;
     public Transform farm;
     GameObject unlockPlot;
     int plotNum = 5;
     BagItem seedReward;
     public TextMeshProUGUI updates;
-    float timer = 5f;
 
     //audio
     AudioSource audioSource;
@@ -40,8 +40,11 @@ public class SupplyGoals : MonoBehaviour
 
         // getting image and first reward ref
         seedReward = Resources.Load<BagItem>("Orange Seeds");
+
         rewardImage = transform.GetChild(3).GetComponent<Image>();
         rewardImage.sprite = seedReward.Image;
+        localRewardImage = localSupplySlider.transform.GetChild(3).GetComponent<Image>();
+        localRewardImage.sprite = seedReward.Image;
     }
 
     // Update is called once per frame
@@ -56,21 +59,13 @@ public class SupplyGoals : MonoBehaviour
             ChangeGoal();
         }
 
-        if(updates.gameObject.activeInHierarchy)
-        {
-            timer -= Time.unscaledDeltaTime;
-            if (timer < 0)
-            {
-                updates.gameObject.SetActive(false);
-                timer = 5f;
-            }
-        }
     }
 
     public void ChangeGoal()
     {
         goalCompletionCount++;
         supplySlider.maxValue = supplySlider.maxValue * 1.5f;
+        localSupplySlider.maxValue = supplySlider.maxValue;
         supplySlider.value = 0;
     }
 
@@ -91,6 +86,7 @@ public class SupplyGoals : MonoBehaviour
                 Bag.AddItemToInventory(seedReward);
                 uiInventory.DrawSlots();
                 rewardImage.sprite = plotImage;
+                localRewardImage.sprite = plotImage;
                 audioSource.Play();
                 break;
             case 1:

@@ -25,3 +25,4 @@ MonoBehaviour:
   isCrop: 0
   isFertilizer: 0
   hungerWorth: 0
+  healthWorth: 0

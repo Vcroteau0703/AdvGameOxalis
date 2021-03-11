@@ -98,18 +98,43 @@ public static class Bag
                 break;
             }
         }
-        if (!itemIn)
+        if (itemIn)
+        {
+            supplySlots[itemPos].quantity++;
+        }
+        else
         {
             for (int i = 0; i < supplySlots.Length; i++)
             {
                 if (supplySlots[i].itemRef == null)
                 {
                     supplySlots[i].itemRef = itemToAdd;
-                    supplySlots[i].quantity = itemToAdd.supplyYield;
+                    supplySlots[i].quantity = 1;
+                    supplySlots[i].worth = itemToAdd.supplyYield;
                     break;
                 }
             }
         }
     }
 
+    public static bool IsItemInStorage(BagItem itemToCheck)
+    {
+        bool itemIn = false;
+        for (int i = 0; i < supplySlots.Length; i++)
+        {
+            if (itemToCheck == supplySlots[i].itemRef)
+            {
+                itemIn = true;
+                break;
+            }
+        }
+        if (itemIn)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

@@ -239,6 +239,17 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""e150fa19-16c4-4ee9-9a29-fdcb3f836300"",
+                    ""path"": ""<DualShockGamepad>/dpad/right"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelectionRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c1ce201f-44df-4718-ae91-858551eef58a"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -263,6 +274,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""d7d15542-f57a-4b55-af7e-a1a41a8fc13b"",
                     ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelectionLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b57ed120-333d-4a18-bbe0-30d382b1b592"",
+                    ""path"": ""<DualShockGamepad>/dpad/left"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",

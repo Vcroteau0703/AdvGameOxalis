@@ -24,3 +24,5 @@ MonoBehaviour:
   plant: {fileID: 0}
   isCrop: 0
   isFertilizer: 0
+  hungerWorth: 0
+  healthWorth: 0

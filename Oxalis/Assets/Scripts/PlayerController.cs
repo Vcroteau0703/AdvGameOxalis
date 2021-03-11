@@ -220,16 +220,26 @@ public class PlayerController : MonoBehaviour
                 selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
                 if (selectedItem != null)
                 {
-                    if (selectedItem.isCrop)
+                    supplySlider.value += selectedItem.supplyYield;
+                    //checking if item player is adding is in storage menu and adding them if not
+                    if (!Bag.IsItemInStorage(selectedItem))
                     {
-                        supplySlider.value += selectedItem.supplyYield;
-                        Bag.RemoveItemFromInventory(selectedItem);
-                        uiInventory.DrawSlots();
+                        Debug.Log("item is not in storage, adding item now");
+                        uiInventory.curStorageSlots++;
                     }
-                    else
-                    {
-                        Debug.Log("Item is not a crop!");
-                    }
+                    Bag.AddItemToStorage(selectedItem);
+                    uiInventory.DrawSupplySlots();
+                    Bag.RemoveItemFromInventory(selectedItem);
+                    uiInventory.DrawSlots();
+
+                    //if (selectedItem.isCrop)
+                    //{
+
+                    //}
+                    //else
+                    //{
+                    //    Debug.Log("Item is not a crop!");
+                    //}
                 }
             }
         }
@@ -468,7 +478,14 @@ public class PlayerController : MonoBehaviour
 
     void ExitMenu()
     {
-        uiInventory.DeactivateStorageMenu();
+        if (uiInventory.supplyMenuActive)
+        {
+            uiInventory.DeactivateStorageMenu();
+            uiInventory.inSupplyMenu = false;
+            uiInventory.curInvSlot = 0;
+            uiInventory.InventorySelection();
+        }
+
     }
 
     private void OnEnable()
