@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: examplematerial
+  m_Name: TentaclePlant
   m_Shader: {fileID: 4800000, guid: 05dd977ea2129774a8e3a747532b256b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -76,7 +76,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimSize: 0.31
+    - _RimSize: 0.12
     - _ShadowBands: 4
     - _ShadowedRim: 0
     - _SmoothnessTextureChannel: 0
@@ -85,9 +85,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.24528301, g: 0.17933428, b: 0.17239231, a: 1}
+    - _Color: {r: 0.24705882, g: 0.17254902, b: 0.21773219, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.5754717, g: 0, b: 0.010934542, a: 1}
+    - _RimColor: {r: 0.025194641, g: 0, b: 0.5764706, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

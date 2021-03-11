@@ -29,14 +29,14 @@ public class TriggerDecompresionChamber : MonoBehaviour
     {
         insideDoor.SetTrigger("DoorClose");
         yield return new WaitForSeconds(2f);
-        decompressionTrigger.SetActive(false);
+        //decompressionTrigger.SetActive(false);
         OpenChamberOutside();
     }
     IEnumerator CloseChamberFromOutside()
     {
         outsideDoor.SetTrigger("CloseDoor");
         yield return new WaitForSeconds(2f);
-        decompressionTrigger.SetActive(true);
+        //decompressionTrigger.SetActive(true);
         OpenChamberInside();
     }
 
