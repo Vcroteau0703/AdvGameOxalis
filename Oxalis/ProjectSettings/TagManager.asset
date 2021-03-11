@@ -9,6 +9,7 @@ TagManager:
   - Germinator
   - Storage
   - Compost
+  - Decompression
   layers:
   - Default
   - TransparentFX

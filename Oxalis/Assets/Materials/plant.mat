@@ -34,7 +34,7 @@ Material:
     m_Floats:
     - _Glossiness: 0.63
     - _LightCutoff: 1
-    - _RimSize: 0.22
+    - _RimSize: 0
     - _ShadowBands: 4
     - _ShadowedRim: 0
     m_Colors:

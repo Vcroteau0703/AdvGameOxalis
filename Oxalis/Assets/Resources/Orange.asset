@@ -21,7 +21,7 @@ MonoBehaviour:
   growTime: 30
   Image: {fileID: 21300000, guid: 5afd175fe4f321742adc7d268eb742bd, type: 3}
   isSeed: 0
-  plant: {fileID: 1885295084780175934, guid: 6d5ab892634c3624f8a280bd6aac337b, type: 3}
+  plant: {fileID: 1769660710404700366, guid: d8f2081eddc077c418b918ef0581be81, type: 3}
   isCrop: 1
   isFertilizer: 0
   hungerWorth: 5

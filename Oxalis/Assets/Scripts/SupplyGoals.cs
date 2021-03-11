@@ -16,7 +16,7 @@ public class SupplyGoals : MonoBehaviour
     public Sprite plotImage;
     public Transform farm;
     GameObject unlockPlot;
-    int plotNum = 5;
+    int plotNum = 1;
     BagItem seedReward;
     public TextMeshProUGUI updates;
 
@@ -42,9 +42,9 @@ public class SupplyGoals : MonoBehaviour
         seedReward = Resources.Load<BagItem>("Orange Seeds");
 
         rewardImage = transform.GetChild(3).GetComponent<Image>();
-        rewardImage.sprite = seedReward.Image;
+        rewardImage.sprite = plotImage;
         localRewardImage = localSupplySlider.transform.GetChild(3).GetComponent<Image>();
-        localRewardImage.sprite = seedReward.Image;
+        localRewardImage.sprite = plotImage;
     }
 
     // Update is called once per frame
@@ -80,22 +80,28 @@ public class SupplyGoals : MonoBehaviour
         {
             case 0:
                 updates.gameObject.SetActive(true);
+                updates.text = "New planter unlocked!";
+                unlockPlot.SetActive(true);
+                plotNum++;
+                rewardImage.sprite = seedReward.Image;
+                localRewardImage.sprite = seedReward.Image;
+                break;
+            case 1:
+                updates.gameObject.SetActive(true);
                 updates.text = "Orange seeds unlocked!";
                 Bag.AddItemToInventory(seedReward);
                 Bag.AddItemToInventory(seedReward);
                 Bag.AddItemToInventory(seedReward);
                 uiInventory.DrawSlots();
+                audioSource.Play();
                 rewardImage.sprite = plotImage;
                 localRewardImage.sprite = plotImage;
-                audioSource.Play();
                 break;
-            case 1:
+            case 2:
                 updates.gameObject.SetActive(true);
                 updates.text = "New planter unlocked!";
                 unlockPlot.SetActive(true);
                 plotNum++;
-                break;
-            case 2:
                 break;
             case 3:
                 break;

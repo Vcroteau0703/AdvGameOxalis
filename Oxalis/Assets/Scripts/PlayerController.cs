@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
         // activating and deactivating animated crosshair
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
         {
-            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost")
+            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost" || vision.collider.tag == "Decompression")
             {
                 leftAnim.SetBool("interactable", true);
                 rightAnim.SetBool("interactable", true);
@@ -256,6 +256,10 @@ public class PlayerController : MonoBehaviour
                     uiInventory.DrawSlots();
 
                     //Debug.Log("Interacting");
+                }
+                if(vision.collider.tag == "Decompression")
+                {
+                    vision.collider.GetComponent<TriggerDecompresionChamber>().BeginDecompression();
                 }
                 if (vision.collider.tag == "Germinator")
                 {
