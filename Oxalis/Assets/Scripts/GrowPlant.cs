@@ -38,7 +38,7 @@ public class GrowPlant : MonoBehaviour
             {
                 plant.GetComponent<FinishGrowing>().grown = false;
                 plantState++;
-                if (uiTutorial.firstWater)
+                if (uiTutorial.firstWater && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstWater = false;
                     uiTutorial.NextTutorial();
@@ -54,7 +54,7 @@ public class GrowPlant : MonoBehaviour
                 Till(selectedItem);
                 audioSource.clip = Resources.Load<AudioClip>("PlantingSFX");
                 audioSource.Play();
-                if (uiTutorial.firstTill)
+                if (uiTutorial.firstTill && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstTill = false;
                     uiTutorial.NextTutorial();
@@ -63,7 +63,7 @@ public class GrowPlant : MonoBehaviour
             case 1:
                 Plant(selectedItem);
                 audioSource.Play();
-                if (uiTutorial.firstPlant)
+                if (uiTutorial.firstPlant && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstPlant = false;
                     uiTutorial.NextTutorial();
@@ -78,7 +78,7 @@ public class GrowPlant : MonoBehaviour
                 Harvest();
                 audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
                 audioSource.Play();
-                if (uiTutorial.firstHarvest)
+                if (uiTutorial.firstHarvest && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstHarvest = false;
                     uiTutorial.NextTutorial();

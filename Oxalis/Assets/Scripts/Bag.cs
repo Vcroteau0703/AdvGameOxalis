@@ -5,17 +5,20 @@ using UnityEngine;
 public static class Bag 
 {
     public static BagItemSlot[] slots;
+    public static BagItemSlot[] supplySlots;
     
     public static void InitInventory()
     {
         //initializing item slots
         slots = new BagItemSlot[5];
+        supplySlots = new BagItemSlot[10];
     }
 
     public static void AddItemToInventory(BagItem itemToAdd)
     {
         //Check if item is already in the inventory
         bool itemIn = false;
+        bool itemAdded = false;
         int itemPos = 0;
         for(int i = 0; i < slots.Length; i++)
         {
@@ -40,9 +43,13 @@ public static class Bag
                 {
                     slots[i].itemRef = itemToAdd;
                     slots[i].quantity = 1;
+                    itemAdded = true;
                     break;
                 }
-
+            }
+            if (!itemAdded)
+            {
+                Debug.Log("inventory full!");
             }
         }
     }
@@ -77,4 +84,57 @@ public static class Bag
         }
     }
 
+    public static void AddItemToStorage(BagItem itemToAdd)
+    {
+        // check if item already in
+        bool itemIn = false;
+        int itemPos = 0;
+        for(int i = 0; i < supplySlots.Length; i++)
+        {
+            if(itemToAdd == supplySlots[i].itemRef)
+            {
+                itemIn = true;
+                itemPos = i;
+                break;
+            }
+        }
+        if (itemIn)
+        {
+            supplySlots[itemPos].quantity++;
+        }
+        else
+        {
+            for (int i = 0; i < supplySlots.Length; i++)
+            {
+                if (supplySlots[i].itemRef == null)
+                {
+                    supplySlots[i].itemRef = itemToAdd;
+                    supplySlots[i].quantity = 1;
+                    supplySlots[i].worth = itemToAdd.supplyYield;
+                    break;
+                }
+            }
+        }
+    }
+
+    public static bool IsItemInStorage(BagItem itemToCheck)
+    {
+        bool itemIn = false;
+        for (int i = 0; i < supplySlots.Length; i++)
+        {
+            if (itemToCheck == supplySlots[i].itemRef)
+            {
+                itemIn = true;
+                break;
+            }
+        }
+        if (itemIn)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

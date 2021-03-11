@@ -6,41 +6,50 @@ using TMPro;
 
 public class SupplyGoals : MonoBehaviour
 {
-    Slider supplySlider;
+    public Slider supplySlider;
+    public Slider localSupplySlider;
     int goalCompletionCount = 0;
     private UI_Inventory uiInventory;
     public GameObject ui_Inventory;
     Image rewardImage;
+    Image localRewardImage;
     public Sprite plotImage;
     public Transform farm;
     GameObject unlockPlot;
-    int plotNum = 5;
+    int plotNum = 1;
     BagItem seedReward;
-    TextMeshProUGUI updates;
-    float timer = 5f;
+    public TextMeshProUGUI updates;
+
+    //audio
+    AudioSource audioSource;
+    AudioClip currentSFX;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        currentSFX = Resources.Load<AudioClip>("PickupSFX");
+        audioSource.clip = currentSFX;
+
         supplySlider = GetComponent<Slider>();
+
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
 
         // accessing farm plots
         unlockPlot = farm.GetChild(plotNum).gameObject;
 
-        // accessing update text
-        updates = transform.GetChild(4).GetComponent<TextMeshProUGUI>();
-
         // getting image and first reward ref
         seedReward = Resources.Load<BagItem>("Orange Seeds");
+
         rewardImage = transform.GetChild(3).GetComponent<Image>();
-        rewardImage.sprite = seedReward.Image;
+        rewardImage.sprite = plotImage;
+        localRewardImage = localSupplySlider.transform.GetChild(3).GetComponent<Image>();
+        localRewardImage.sprite = plotImage;
     }
 
     // Update is called once per frame
     void Update()
     {
- 
 
         if(supplySlider.maxValue == supplySlider.value)
         {
@@ -50,21 +59,13 @@ public class SupplyGoals : MonoBehaviour
             ChangeGoal();
         }
 
-        if(updates.gameObject.activeInHierarchy)
-        {
-            timer -= Time.deltaTime;
-            if (timer < 0)
-            {
-                updates.gameObject.SetActive(false);
-                timer = 5f;
-            }
-        }
     }
 
     public void ChangeGoal()
     {
         goalCompletionCount++;
         supplySlider.maxValue = supplySlider.maxValue * 1.5f;
+        localSupplySlider.maxValue = supplySlider.maxValue;
         supplySlider.value = 0;
     }
 
@@ -79,20 +80,28 @@ public class SupplyGoals : MonoBehaviour
         {
             case 0:
                 updates.gameObject.SetActive(true);
+                updates.text = "New planter unlocked!";
+                unlockPlot.SetActive(true);
+                plotNum++;
+                rewardImage.sprite = seedReward.Image;
+                localRewardImage.sprite = seedReward.Image;
+                break;
+            case 1:
+                updates.gameObject.SetActive(true);
                 updates.text = "Orange seeds unlocked!";
                 Bag.AddItemToInventory(seedReward);
                 Bag.AddItemToInventory(seedReward);
                 Bag.AddItemToInventory(seedReward);
                 uiInventory.DrawSlots();
+                audioSource.Play();
                 rewardImage.sprite = plotImage;
+                localRewardImage.sprite = plotImage;
                 break;
-            case 1:
+            case 2:
                 updates.gameObject.SetActive(true);
                 updates.text = "New planter unlocked!";
                 unlockPlot.SetActive(true);
                 plotNum++;
-                break;
-            case 2:
                 break;
             case 3:
                 break;

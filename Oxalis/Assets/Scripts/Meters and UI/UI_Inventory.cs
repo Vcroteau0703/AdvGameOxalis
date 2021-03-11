@@ -7,7 +7,20 @@ public class UI_Inventory : MonoBehaviour
 {
     public BagItem myItem;
     public BagItem otherItem;
-    public int curInvSlot = 0;
+    public int curInvSlot;
+    public int numOfSlots;
+    public int curStorageSlots = 1;
+    // supply inventory 
+    Transform supplyInv;
+
+    public bool inSupplyMenu = false;
+    public bool supplyMenuActive = false;
+
+    //accessing supply canvas in worldspace
+    public GameObject localSupplyCanvas;
+    Slider localSupplySlider;
+    // supply goals script
+    public SupplyGoals supplyGoals;
 
     private void Start()
     {
@@ -18,11 +31,21 @@ public class UI_Inventory : MonoBehaviour
         Bag.AddItemToInventory(otherItem);
         Bag.AddItemToInventory(myItem);
         Bag.AddItemToInventory(myItem);
+        numOfSlots = Bag.slots.Length;
+        supplyInv = transform.GetChild(5).GetComponent<Transform>();
+
+        otherItem = Resources.Load<BagItem>("Potato");
+        Bag.AddItemToStorage(otherItem);
+
+        //otherItem = Resources.Load<BagItem>("Orange");
+        //Bag.AddItemToStorage(otherItem);
+        //curStorageSlots++;
 
         DrawSlots();
         InventorySelection();
     }
 
+    // Draws the inventory slots with the correct items and number of items
     public void DrawSlots()
     {
         for(int i = 0; i < Bag.slots.Length; i++)
@@ -37,6 +60,7 @@ public class UI_Inventory : MonoBehaviour
                 slotNumber.gameObject.SetActive(true);
                 slotImage.sprite = Bag.slots[i].itemRef.Image;
                 slotNumber.text = Bag.slots[i].quantity.ToString();
+
             }
             else
             {
@@ -46,22 +70,105 @@ public class UI_Inventory : MonoBehaviour
         }
     }
 
-    public void InventorySelection()
+    // drawing slots on the supply purchase menu
+    public void DrawSupplySlots()
     {
-        Image slotBorder;
-
-        for(int i = 0; i < Bag.slots.Length; i++)
+        for(int i = 0; i < Bag.supplySlots.Length; i++)
         {
-            if(i != curInvSlot)
+            Image slotBorder;
+            Image slotImage;
+            Text slotNumberQuantity;
+            Text slotNumberPrice;
+            slotBorder = supplyInv.GetChild(i).GetComponent<Image>();
+            slotImage = supplyInv.GetChild(i).GetChild(0).GetComponent<Image>();
+            slotNumberQuantity = supplyInv.GetChild(i).GetChild(2).GetComponent<Text>();
+            slotNumberPrice = supplyInv.GetChild(i).GetChild(1).GetComponent<Text>();
+            if (Bag.supplySlots[i].quantity != 0)
             {
-                slotBorder = transform.GetChild(i).GetComponent<Image>();
-                slotBorder.color = new Color(1, 1, 1, 0.5f);
+                slotBorder.gameObject.SetActive(true);
+                slotImage.sprite = Bag.supplySlots[i].itemRef.Image;
+                slotNumberQuantity.text = Bag.supplySlots[i].quantity.ToString();
+                slotNumberPrice.text = Bag.supplySlots[i].worth.ToString();
             }
             else
             {
-                slotBorder = transform.GetChild(curInvSlot).GetComponent<Image>();
-                slotBorder.color = new Color(1, 1, 1, 1f);
+                slotBorder.gameObject.SetActive(false);
             }
         }
+    }
+
+    // called when changing which inventory item is selected
+    public void InventorySelection()
+    {
+        Image slotBorder;
+        if (inSupplyMenu)
+        {
+            for (int i = 0; i < Bag.slots.Length; i++)
+            {
+                slotBorder = transform.GetChild(i).GetComponent<Image>();
+                slotBorder.color = new Color(slotBorder.color.r, slotBorder.color.g, slotBorder.color.b, 0.5f);
+            }
+
+            for (int i = 0; i < curStorageSlots; i++)
+            {
+                if (i != curInvSlot)
+                {
+                    slotBorder = supplyInv.GetChild(i).GetComponent<Image>();
+                    slotBorder.color = new Color(slotBorder.color.r, slotBorder.color.g, slotBorder.color.b, 0.5f);
+                }
+                else
+                {
+                    slotBorder = supplyInv.GetChild(curInvSlot).GetComponent<Image>();
+                    slotBorder.color = new Color(slotBorder.color.r, slotBorder.color.g, slotBorder.color.b, 1f);
+                }
+            }
+        }
+        else
+        {
+            if (supplyMenuActive)
+            {
+                for (int i = 0; i < curStorageSlots; i++)
+                {
+                    slotBorder = supplyInv.GetChild(i).GetComponent<Image>();
+                    slotBorder.color = new Color(slotBorder.color.r, slotBorder.color.g, slotBorder.color.b, 0.5f);
+                }
+
+            }
+            for (int i = 0; i < Bag.slots.Length; i++)
+            {
+                if (i != curInvSlot)
+                {
+                    slotBorder = transform.GetChild(i).GetComponent<Image>();
+                    slotBorder.color = new Color(1, 1, 1, 0.5f);
+                }
+                else
+                {
+                    slotBorder = transform.GetChild(curInvSlot).GetComponent<Image>();
+                    slotBorder.color = new Color(1, 1, 1, 1f);
+                }
+            }
+        }
+    }
+
+    // activating storage menu and turning off local storage canvas and pausing the game
+    public void ActivateStorageMenu()
+    {
+        supplyMenuActive = true;
+        supplyInv.gameObject.SetActive(true);
+        localSupplyCanvas.SetActive(false);
+        Time.timeScale = 0;
+        InventorySelection();
+    }
+
+    // deactivating storage menu, turning on local storage canvas and unpausing the game
+    public void DeactivateStorageMenu()
+    {
+        float curStorageVal = supplyGoals.supplySlider.value;
+        supplyMenuActive = false;
+        supplyInv.gameObject.SetActive(false);
+        localSupplyCanvas.SetActive(true);
+        Time.timeScale = 1;
+        localSupplySlider = localSupplyCanvas.transform.GetChild(0).GetComponent<Slider>();
+        localSupplySlider.value = curStorageVal;
     }
 }

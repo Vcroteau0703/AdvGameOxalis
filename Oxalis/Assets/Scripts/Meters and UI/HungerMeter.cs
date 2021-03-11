@@ -21,6 +21,7 @@ public class HungerMeter : MonoBehaviour
     {
         hungerSlider = GetComponent<Slider>();
         curHunger = hungerVal = hungerSlider.value;
+        healthMeter = health.GetComponent<HealthMeter>();
     }
 
     // Update is called once per frame

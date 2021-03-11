@@ -18,5 +18,5 @@ public class BagItem : ScriptableObject
     public bool isCrop;
     public bool isFertilizer;
     public int hungerWorth;
-
+    public int healthWorth;
 }
