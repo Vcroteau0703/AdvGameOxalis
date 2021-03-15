@@ -9,7 +9,7 @@ public class UI_Inventory : MonoBehaviour
     public BagItem otherItem;
     public int curInvSlot;
     public int numOfSlots;
-    public int curStorageSlots = 1;
+    public int curStorageSlots;
     // supply inventory 
     Transform supplyInv;
 
@@ -33,15 +33,13 @@ public class UI_Inventory : MonoBehaviour
         Bag.AddItemToInventory(myItem);
         numOfSlots = Bag.slots.Length;
         supplyInv = transform.GetChild(5).GetComponent<Transform>();
-
-        otherItem = Resources.Load<BagItem>("Potato");
-        Bag.AddItemToStorage(otherItem);
-
+        curStorageSlots = Bag.supplySlots.Length;
         //otherItem = Resources.Load<BagItem>("Orange");
         //Bag.AddItemToStorage(otherItem);
         //curStorageSlots++;
 
         DrawSlots();
+        DrawSupplySlots();
         InventorySelection();
     }
 
@@ -60,7 +58,6 @@ public class UI_Inventory : MonoBehaviour
                 slotNumber.gameObject.SetActive(true);
                 slotImage.sprite = Bag.slots[i].itemRef.Image;
                 slotNumber.text = Bag.slots[i].quantity.ToString();
-
             }
             else
             {
@@ -75,24 +72,26 @@ public class UI_Inventory : MonoBehaviour
     {
         for(int i = 0; i < Bag.supplySlots.Length; i++)
         {
-            Image slotBorder;
             Image slotImage;
             Text slotNumberQuantity;
             Text slotNumberPrice;
-            slotBorder = supplyInv.GetChild(i).GetComponent<Image>();
             slotImage = supplyInv.GetChild(i).GetChild(0).GetComponent<Image>();
             slotNumberQuantity = supplyInv.GetChild(i).GetChild(2).GetComponent<Text>();
             slotNumberPrice = supplyInv.GetChild(i).GetChild(1).GetComponent<Text>();
             if (Bag.supplySlots[i].quantity != 0)
             {
-                slotBorder.gameObject.SetActive(true);
+                slotImage.gameObject.SetActive(true);
+                slotNumberQuantity.gameObject.SetActive(true);
+                slotNumberPrice.gameObject.SetActive(true);
                 slotImage.sprite = Bag.supplySlots[i].itemRef.Image;
                 slotNumberQuantity.text = Bag.supplySlots[i].quantity.ToString();
                 slotNumberPrice.text = Bag.supplySlots[i].worth.ToString();
             }
             else
             {
-                slotBorder.gameObject.SetActive(false);
+                slotImage.gameObject.SetActive(false);
+                slotNumberQuantity.gameObject.SetActive(false);
+                slotNumberPrice.gameObject.SetActive(false);
             }
         }
     }

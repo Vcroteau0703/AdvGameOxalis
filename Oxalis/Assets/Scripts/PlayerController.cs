@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 move;
 
     private CharacterController characterController;
-    Vector3 velocity;
+    public Vector3 velocity;
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
 
@@ -132,6 +132,11 @@ public class PlayerController : MonoBehaviour
         //checking to see if player is on the ground
         if (isGrounded && velocity.y < 0)
         {
+            if(velocity.y <= -15)
+            {
+                healthMeter.DecreaseHealth(10);
+                velocity.y = -2f;
+            }
             velocity.y = -2f;
             fuelMeter.IncreaseFuel();
         }
@@ -157,6 +162,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = jumpHeight;
             fuelMeter.DepleteFuel();
         }
+
 
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
 
@@ -208,7 +214,14 @@ public class PlayerController : MonoBehaviour
                 {
                     supplySlider.value -= selectedItem.supplyYield;
                     Bag.AddItemToInventory(selectedItem);
+                    //if(Bag.supplySlots[uiInventory.curInvSlot].quantity == 1)
+                    //{
+                    //    Debug.Log("removing item from storage");
+                    //    uiInventory.curStorageSlots--;
+                    //}
+                    Bag.RemoveItemFromStorage(selectedItem);
                     uiInventory.DrawSlots();
+                    uiInventory.DrawSupplySlots();
                 }
                 else
                 {
@@ -222,11 +235,11 @@ public class PlayerController : MonoBehaviour
                 {
                     supplySlider.value += selectedItem.supplyYield;
                     //checking if item player is adding is in storage menu and adding them if not
-                    if (!Bag.IsItemInStorage(selectedItem))
-                    {
-                        Debug.Log("item is not in storage, adding item now");
-                        uiInventory.curStorageSlots++;
-                    }
+                    //if (!Bag.IsItemInStorage(selectedItem))
+                    //{
+                    //    Debug.Log("item is not in storage, adding item now");
+                    //    uiInventory.curStorageSlots++;
+                    //}
                     Bag.AddItemToStorage(selectedItem);
                     uiInventory.DrawSupplySlots();
                     Bag.RemoveItemFromInventory(selectedItem);
