@@ -12,9 +12,6 @@ public class Dialogue : MonoBehaviour
     public int index = 0;
     public float typingSpeed;
     public float startWait = 1f;
-    float timer = 1f;
-    bool startGame = false;
-    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()

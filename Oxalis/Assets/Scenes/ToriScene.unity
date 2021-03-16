@@ -16144,9 +16144,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 1
+      minMaxState: 3
+      scalar: 4
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -16197,7 +16197,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -16250,7 +16250,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -20665,7 +20665,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954469152}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 51, y: -84, z: -335}
+  m_LocalPosition: {x: 51, y: 41.4, z: -174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22715,7 +22715,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dome
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6251703332162267766, guid: 757310cfa418be743b582b63cfe60690, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 757310cfa418be743b582b63cfe60690, type: 3}
 --- !u!23 &6377998611958860636
 MeshRenderer:
@@ -22999,12 +23000,36 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 223974227}
+    - target: {fileID: 8486625622353829158, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47769594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622353829158, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622353829158, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8486625622425891380, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8486625622425891380, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622450749695, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47769594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622450749695, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622450749695, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8486625622692447905, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
@@ -23023,6 +23048,30 @@ PrefabInstance:
       propertyPath: localSupplyCanvas
       value: 
       objectReference: {fileID: 1226122396}
+    - target: {fileID: 8486625622771396234, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47769594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622771396234, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625622771396234, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623112473073, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47769594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623112473073, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623112473073, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8486625623285524458, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_Name
       value: Player Hud Canvas
@@ -23109,6 +23158,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8486625623285524462, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623544191729, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47769594
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623544191729, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623544191729, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8486625623743934600, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
