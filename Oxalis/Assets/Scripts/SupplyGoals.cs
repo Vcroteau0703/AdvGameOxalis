@@ -98,12 +98,18 @@ public class SupplyGoals : MonoBehaviour
                 localRewardImage.sprite = plotImage;
                 break;
             case 2:
+                unlockPlot = farm.GetChild(plotNum).gameObject;
                 updates.gameObject.SetActive(true);
                 updates.text = "New planter unlocked!";
                 unlockPlot.SetActive(true);
                 plotNum++;
                 break;
             case 3:
+                unlockPlot = farm.GetChild(plotNum).gameObject;
+                updates.gameObject.SetActive(true);
+                updates.text = "New planter unlocked!";
+                unlockPlot.SetActive(true);
+                plotNum++;
                 break;
         }
 

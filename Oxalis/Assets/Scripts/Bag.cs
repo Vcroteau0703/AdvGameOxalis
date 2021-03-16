@@ -117,6 +117,36 @@ public static class Bag
         }
     }
 
+    public static void RemoveItemFromStorage(BagItem itemToRemove)
+    {
+        //Check if item is in the invetory
+        bool itemIn = false;
+        int itemPos = 0;
+        for (int i = 0; i < supplySlots.Length; i++)
+        {
+            if (itemToRemove == supplySlots[i].itemRef)
+            {
+                itemIn = true;
+                itemPos = i;
+                break;
+            }
+        }
+        //lower the item quantity if the item is in the inventory or remove the item if it is the last one
+        if (itemIn)
+        {
+            if (supplySlots[itemPos].quantity > 1)
+            {
+                supplySlots[itemPos].quantity--;
+            }
+            else
+            {
+                supplySlots[itemPos].itemRef = default;
+                supplySlots[itemPos].quantity = 0;
+            }
+
+        }
+    }
+
     public static bool IsItemInStorage(BagItem itemToCheck)
     {
         bool itemIn = false;
@@ -137,4 +167,5 @@ public static class Bag
             return false;
         }
     }
+
 }
