@@ -11,7 +11,10 @@ public class PlayerDeath : MonoBehaviour
     public PlayerController playerController;
 
     public HealthMeter healthMeter;
-
+    private void Awake()
+    {
+        deathScreen.SetTrigger("FadeIn");
+    }
 
     public IEnumerator FadeDeathScreen()
     {

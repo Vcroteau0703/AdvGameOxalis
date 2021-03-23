@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  velocity: {x: 0, y: 0, z: 0}
   gravity: -9.81
   jumpHeight: 5
   groundCheck: {fileID: 4011397186015517545}
@@ -284,7 +285,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 800
   field of view: 60
   orthographic: 0
   orthographic size: 5

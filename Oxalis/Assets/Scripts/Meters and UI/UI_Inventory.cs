@@ -138,12 +138,12 @@ public class UI_Inventory : MonoBehaviour
                 if (i != curInvSlot)
                 {
                     slotBorder = transform.GetChild(i).GetComponent<Image>();
-                    slotBorder.color = new Color(1, 1, 1, 0.5f);
+                    slotBorder.color = new Color(slotBorder.color.r, slotBorder.color.g, slotBorder.color.b, 0.5f);
                 }
                 else
                 {
                     slotBorder = transform.GetChild(curInvSlot).GetComponent<Image>();
-                    slotBorder.color = new Color(1, 1, 1, 1f);
+                    slotBorder.color = new Color(slotBorder.color.r, slotBorder.color.g, slotBorder.color.b, 1f);
                 }
             }
         }
