@@ -61,12 +61,18 @@ public class PlayerController : MonoBehaviour
     public GameObject health;
     HealthMeter healthMeter;
 
+    //ref pause menu
+    public PauseMenu pauseMenu;
+
     //Crosshairs
     public Transform crosshairs;
     Animator leftAnim;
     Animator rightAnim;
     Animator upAnim;
     Animator downAnim;
+
+    //Interact indicator
+    public Image mouseIndicator;
 
     private void Awake()
     {
@@ -168,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
 
         // activating and deactivating animated crosshair
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength) && !uiInventory.supplyMenuActive && !pauseMenu.pauseMenu.activeInHierarchy)
         {
             if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost" || vision.collider.tag == "Decompression")
             {
@@ -176,6 +182,7 @@ public class PlayerController : MonoBehaviour
                 rightAnim.SetBool("interactable", true);
                 upAnim.SetBool("interactable", true);
                 downAnim.SetBool("interactable", true);
+                mouseIndicator.gameObject.SetActive(true);
             }
         }
         else
@@ -184,6 +191,7 @@ public class PlayerController : MonoBehaviour
             rightAnim.SetBool("interactable", false);
             upAnim.SetBool("interactable", false);
             downAnim.SetBool("interactable", false);
+            mouseIndicator.gameObject.SetActive(false);
         }
 
 
@@ -256,7 +264,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else
+        else if(!pauseMenu.pauseMenu.activeInHierarchy)
         {
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * rayLength, Color.red, 0.5f);
 
@@ -310,7 +318,12 @@ public class PlayerController : MonoBehaviour
                 if (vision.collider.tag == "Storage")
                 {
                     uiInventory.ActivateStorageMenu();
+                    mouseIndicator.gameObject.SetActive(false);
                     uiInventory.DrawSupplySlots();
+                    leftAnim.gameObject.GetComponent<Image>().color = new Color(leftAnim.gameObject.GetComponent<Image>().color.r, leftAnim.gameObject.GetComponent<Image>().color.b, leftAnim.gameObject.GetComponent<Image>().color.g, 0f);
+                    rightAnim.gameObject.GetComponent<Image>().color = new Color(rightAnim.gameObject.GetComponent<Image>().color.r, rightAnim.gameObject.GetComponent<Image>().color.b, rightAnim.gameObject.GetComponent<Image>().color.g, 0f);
+                    upAnim.gameObject.GetComponent<Image>().color = new Color(upAnim.gameObject.GetComponent<Image>().color.r, upAnim.gameObject.GetComponent<Image>().color.b, upAnim.gameObject.GetComponent<Image>().color.g, 0f);
+                    downAnim.gameObject.GetComponent<Image>().color = new Color(downAnim.gameObject.GetComponent<Image>().color.r, downAnim.gameObject.GetComponent<Image>().color.b, downAnim.gameObject.GetComponent<Image>().color.g, 0f);
                 }
                 if (vision.collider.tag == "Compost")
                 {
@@ -493,7 +506,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ExitMenu()
+    public void ExitMenu()
     {
         if (uiInventory.supplyMenuActive)
         {
@@ -501,8 +514,30 @@ public class PlayerController : MonoBehaviour
             uiInventory.inSupplyMenu = false;
             uiInventory.curInvSlot = 0;
             uiInventory.InventorySelection();
+            leftAnim.gameObject.GetComponent<Image>().color = new Color(leftAnim.gameObject.GetComponent<Image>().color.r, leftAnim.gameObject.GetComponent<Image>().color.b, leftAnim.gameObject.GetComponent<Image>().color.g, 1f);
+            rightAnim.gameObject.GetComponent<Image>().color = new Color(rightAnim.gameObject.GetComponent<Image>().color.r, rightAnim.gameObject.GetComponent<Image>().color.b, rightAnim.gameObject.GetComponent<Image>().color.g, 1f);
+            upAnim.gameObject.GetComponent<Image>().color = new Color(upAnim.gameObject.GetComponent<Image>().color.r, upAnim.gameObject.GetComponent<Image>().color.b, upAnim.gameObject.GetComponent<Image>().color.g, 1f);
+            downAnim.gameObject.GetComponent<Image>().color = new Color(downAnim.gameObject.GetComponent<Image>().color.r, downAnim.gameObject.GetComponent<Image>().color.b, downAnim.gameObject.GetComponent<Image>().color.g, 1f);
         }
-
+        else
+        {
+            if (pauseMenu.playerHud.activeInHierarchy)
+            {
+                pauseMenu.PauseGame();
+                leftAnim.gameObject.GetComponent<Image>().color = new Color(leftAnim.gameObject.GetComponent<Image>().color.r, leftAnim.gameObject.GetComponent<Image>().color.b, leftAnim.gameObject.GetComponent<Image>().color.g, 0f);
+                rightAnim.gameObject.GetComponent<Image>().color = new Color(rightAnim.gameObject.GetComponent<Image>().color.r, rightAnim.gameObject.GetComponent<Image>().color.b, rightAnim.gameObject.GetComponent<Image>().color.g, 0f);
+                upAnim.gameObject.GetComponent<Image>().color = new Color(upAnim.gameObject.GetComponent<Image>().color.r, upAnim.gameObject.GetComponent<Image>().color.b, upAnim.gameObject.GetComponent<Image>().color.g, 0f);
+                downAnim.gameObject.GetComponent<Image>().color = new Color(downAnim.gameObject.GetComponent<Image>().color.r, downAnim.gameObject.GetComponent<Image>().color.b, downAnim.gameObject.GetComponent<Image>().color.g, 0f);
+            }
+            else
+            {
+                pauseMenu.ResumeGame();
+                leftAnim.gameObject.GetComponent<Image>().color = new Color(leftAnim.gameObject.GetComponent<Image>().color.r, leftAnim.gameObject.GetComponent<Image>().color.b, leftAnim.gameObject.GetComponent<Image>().color.g, 1f);
+                rightAnim.gameObject.GetComponent<Image>().color = new Color(rightAnim.gameObject.GetComponent<Image>().color.r, rightAnim.gameObject.GetComponent<Image>().color.b, rightAnim.gameObject.GetComponent<Image>().color.g, 1f);
+                upAnim.gameObject.GetComponent<Image>().color = new Color(upAnim.gameObject.GetComponent<Image>().color.r, upAnim.gameObject.GetComponent<Image>().color.b, upAnim.gameObject.GetComponent<Image>().color.g, 1f);
+                downAnim.gameObject.GetComponent<Image>().color = new Color(downAnim.gameObject.GetComponent<Image>().color.r, downAnim.gameObject.GetComponent<Image>().color.b, downAnim.gameObject.GetComponent<Image>().color.g, 1f);
+            }
+        }
     }
 
     private void OnEnable()

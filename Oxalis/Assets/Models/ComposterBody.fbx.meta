@@ -3,9 +3,14 @@ guid: 00432d81fe6cf344e867036e04852530
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ComposterBody
+    second: {fileID: 2100000, guid: 39606eef91beea342b8224c02cb899e9, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

@@ -3,9 +3,14 @@ guid: 87d15cab9f1e01d4aafd07c627c13f27
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ComposterDrawer
+    second: {fileID: 2100000, guid: bff4a332ecfa21f4bace51dc6f1bd85b, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

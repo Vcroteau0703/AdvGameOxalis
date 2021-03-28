@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    Controls controls;
 
     public GameObject playerHud;
     public GameObject pauseMenu;
 
-    private void Awake()
-    {
-        controls = new Controls();
-        controls.Gameplay.Escape.performed += ctx => PauseGame();
-    }
     public void PauseGame()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -35,13 +29,4 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
-    }
 }
