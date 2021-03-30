@@ -37,6 +37,10 @@ public class UI_Inventory : MonoBehaviour
         //otherItem = Resources.Load<BagItem>("Orange");
         //Bag.AddItemToStorage(otherItem);
         //curStorageSlots++;
+        //otherItem = Resources.Load<BagItem>("AlienFruit");
+        //Bag.AddItemToInventory(otherItem);
+        //Bag.AddItemToInventory(otherItem);
+        //Bag.AddItemToInventory(otherItem);
 
         DrawSlots();
         DrawSupplySlots();

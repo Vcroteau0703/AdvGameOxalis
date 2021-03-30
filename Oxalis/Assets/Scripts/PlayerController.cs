@@ -176,13 +176,13 @@ public class PlayerController : MonoBehaviour
         // activating and deactivating animated crosshair
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength) && !uiInventory.supplyMenuActive && !pauseMenu.pauseMenu.activeInHierarchy)
         {
-            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost" || vision.collider.tag == "Decompression")
+            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost" || vision.collider.tag == "Decompression" || vision.collider.tag == "AlienFruit")
             {
                 leftAnim.SetBool("interactable", true);
                 rightAnim.SetBool("interactable", true);
                 upAnim.SetBool("interactable", true);
                 downAnim.SetBool("interactable", true);
-                mouseIndicator.gameObject.SetActive(true);
+                //mouseIndicator.gameObject.SetActive(true);
             }
         }
         else
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
             rightAnim.SetBool("interactable", false);
             upAnim.SetBool("interactable", false);
             downAnim.SetBool("interactable", false);
-            mouseIndicator.gameObject.SetActive(false);
+            //mouseIndicator.gameObject.SetActive(false);
         }
 
 
@@ -318,7 +318,7 @@ public class PlayerController : MonoBehaviour
                 if (vision.collider.tag == "Storage")
                 {
                     uiInventory.ActivateStorageMenu();
-                    mouseIndicator.gameObject.SetActive(false);
+                    //mouseIndicator.gameObject.SetActive(false);
                     uiInventory.DrawSupplySlots();
                     leftAnim.gameObject.GetComponent<Image>().color = new Color(leftAnim.gameObject.GetComponent<Image>().color.r, leftAnim.gameObject.GetComponent<Image>().color.b, leftAnim.gameObject.GetComponent<Image>().color.g, 0f);
                     rightAnim.gameObject.GetComponent<Image>().color = new Color(rightAnim.gameObject.GetComponent<Image>().color.r, rightAnim.gameObject.GetComponent<Image>().color.b, rightAnim.gameObject.GetComponent<Image>().color.g, 0f);
@@ -358,6 +358,19 @@ public class PlayerController : MonoBehaviour
                             Debug.Log("Item is not a crop!");
                         }
                     }
+                }
+                if (vision.collider.tag == "AlienFruit")
+                {
+                    vision.collider.gameObject.SetActive(false);
+                    BagItem AlienFruit = Resources.Load<BagItem>("AlienFruit");
+                    for(int i = 0; i < AlienFruit.cropYield; i++)
+                    {
+                        Bag.AddItemToInventory(AlienFruit);
+                    }
+                    audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                    audioSource.Play();
+                    // refreshing inventory
+                    uiInventory.DrawSlots();
                 }
             }
         }
