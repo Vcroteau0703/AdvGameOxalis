@@ -420,7 +420,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 24
+    scalar: 25
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -6665,8 +6665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f300a0bb8245a429f555a24024062c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  star1: {fileID: 179526402}
-  star2: {fileID: 1615123961}
   animator: {fileID: 241263321}
   music: {fileID: 530406756}
   image: {fileID: 88636982}
@@ -7647,8 +7645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42f300a0bb8245a429f555a24024062c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  star1: {fileID: 179526402}
-  star2: {fileID: 1615123961}
   animator: {fileID: 241263321}
   music: {fileID: 530406756}
   image: {fileID: 88636982}
@@ -7927,7 +7923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -8192,7 +8188,7 @@ MonoBehaviour:
     arrival.
 
     You managed to get inside and replenished your oxygen and supplies.'
-  - Click or press Enter to continue
+  - Click the screen to continue
   index: 0
   typingSpeed: 0.2
   startWait: 10
@@ -8415,7 +8411,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 24
+    scalar: 25
     minScalar: 0
     maxCurve:
       serializedVersion: 2

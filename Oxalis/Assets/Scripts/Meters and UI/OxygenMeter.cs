@@ -49,7 +49,7 @@ public class OxygenMeter : MonoBehaviour
     {
         if(oxygenVal > 0)
         {
-            oxygenVal -= 10f;
+            oxygenVal -= 5f;
             if(oxygenVal == 0)
             {
                 timerVal = 1f;

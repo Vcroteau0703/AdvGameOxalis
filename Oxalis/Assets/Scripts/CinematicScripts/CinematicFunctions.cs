@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CinematicFunctions : MonoBehaviour
 {
-    public GameObject star1;
-    public GameObject star2;
+    //public GameObject star1;
+    //public GameObject star2;
     public Animator animator;
     public AudioSource music;
 
@@ -26,8 +26,6 @@ public class CinematicFunctions : MonoBehaviour
 
     public void EndHyperDrive()
     {
-        star1.SetActive(false);
-        star2.SetActive(false);
         animator.SetTrigger("StartShipMove");
     }
 
