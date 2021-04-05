@@ -18411,6 +18411,10 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1328944850}
+    - target: {fileID: 6878718697878650416, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: triggerDecompresionChamber
+      value: 
+      objectReference: {fileID: 1775228675}
     - target: {fileID: 8486625622140478818, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -58.7
@@ -20412,6 +20416,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f78c02b02f2bc4c4bb86e702e4f3319e, type: 3}
+--- !u!114 &1775228675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5005054651609421812, guid: 5a55d43079968ed4b81516f4c3c9b149, type: 3}
+  m_PrefabInstance: {fileID: 546644024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d481df563c6d83e44b54a60bfcd3463d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1809959434
 PrefabInstance:
   m_ObjectHideFlags: 0

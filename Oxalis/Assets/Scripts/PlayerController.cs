@@ -138,10 +138,20 @@ public class PlayerController : MonoBehaviour
         //checking to see if player is on the ground
         if (isGrounded && velocity.y < 0)
         {
-            if(velocity.y <= -15)
+            if (velocity.y <= -20)
             {
-                healthMeter.DecreaseHealth(10);
-                velocity.y = -2f;
+                if (velocity.y <= -30)
+                {
+                    //hardest hit
+                    healthMeter.DecreaseHealth(110);
+                    velocity.y = -2f;
+                }
+                else
+                {
+                    //hard hit
+                    healthMeter.DecreaseHealth(15);
+                    velocity.y = -2f;
+                }
             }
             velocity.y = -2f;
             fuelMeter.IncreaseFuel();

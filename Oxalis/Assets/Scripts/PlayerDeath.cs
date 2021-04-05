@@ -9,6 +9,7 @@ public class PlayerDeath : MonoBehaviour
     public Animator deathScreen;
     public bool deathScreenUp = false;
     public PlayerController playerController;
+    public TriggerDecompresionChamber triggerDecompresionChamber;
 
     public HealthMeter healthMeter;
     private void Awake()
@@ -24,6 +25,8 @@ public class PlayerDeath : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         Teleport();
         healthMeter.healthVal = 100;
+        triggerDecompresionChamber.BeginDecompression();
+        yield return new WaitForSecondsRealtime(3f);
         // Opaque to Transparent
         deathScreen.SetTrigger("FadeIn");
         healthMeter.playerDead = false;
