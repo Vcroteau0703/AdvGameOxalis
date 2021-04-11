@@ -80,7 +80,7 @@ public class SupplyGoals : MonoBehaviour
         {
             case 0:
                 updates.gameObject.SetActive(true);
-                updates.text = "New planter unlocked!";
+                updates.text = "New planters unlocked!";
                 unlockPlot.SetActive(true);
                 plotNum++;
                 rewardImage.sprite = seedReward.Image;
@@ -100,16 +100,19 @@ public class SupplyGoals : MonoBehaviour
             case 2:
                 unlockPlot = farm.GetChild(plotNum).gameObject;
                 updates.gameObject.SetActive(true);
-                updates.text = "New planter unlocked!";
+                updates.text = "New planters unlocked!";
                 unlockPlot.SetActive(true);
                 plotNum++;
                 break;
             case 3:
                 unlockPlot = farm.GetChild(plotNum).gameObject;
                 updates.gameObject.SetActive(true);
-                updates.text = "New planter unlocked!";
+                updates.text = "New planters unlocked!";
                 unlockPlot.SetActive(true);
                 plotNum++;
+                break;
+            case 4:
+                Debug.Log("Game completion!");
                 break;
         }
 

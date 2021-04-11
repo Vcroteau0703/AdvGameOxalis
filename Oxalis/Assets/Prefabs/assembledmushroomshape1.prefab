@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be0715ba5982524c882648c84d19566, type: 2}
+      objectReference: {fileID: 2100000, guid: 2188533e27b81fe47b19f53bfc56feda, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Name
       value: MushroomCap1 (1)
@@ -277,7 +277,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be0715ba5982524c882648c84d19566, type: 2}
+      objectReference: {fileID: 2100000, guid: 2188533e27b81fe47b19f53bfc56feda, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Name
       value: MushroomCap1
@@ -368,7 +368,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6cf009e6c2e1b634bb566ed197be7626, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be0715ba5982524c882648c84d19566, type: 2}
+      objectReference: {fileID: 2100000, guid: b0fc28038c3fca8419a94692b4c3f860, type: 2}
     - target: {fileID: 919132149155446097, guid: 6cf009e6c2e1b634bb566ed197be7626, type: 3}
       propertyPath: m_Name
       value: MushroomStalk1
@@ -455,7 +455,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be0715ba5982524c882648c84d19566, type: 2}
+      objectReference: {fileID: 2100000, guid: 2188533e27b81fe47b19f53bfc56feda, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Name
       value: MushroomCap1 (2)
@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 6cf009e6c2e1b634bb566ed197be7626, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be0715ba5982524c882648c84d19566, type: 2}
+      objectReference: {fileID: 2100000, guid: b0fc28038c3fca8419a94692b4c3f860, type: 2}
     - target: {fileID: 919132149155446097, guid: 6cf009e6c2e1b634bb566ed197be7626, type: 3}
       propertyPath: m_Name
       value: MushroomStalk1 (1)
@@ -633,7 +633,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5be0715ba5982524c882648c84d19566, type: 2}
+      objectReference: {fileID: 2100000, guid: 2188533e27b81fe47b19f53bfc56feda, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e8113d3dc2cf464eb52af0f066ed309, type: 3}
       propertyPath: m_Name
       value: MushroomCap1 (3)

@@ -7,7 +7,7 @@ public class TriggerDecompresionChamber : MonoBehaviour
     public Animator insideDoor;
     public Animator outsideDoor;
     public GameObject decompressionTrigger;
-    bool inside = true;
+    public bool inside = true;
 
     public void BeginDecompression()
     {

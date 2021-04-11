@@ -25,7 +25,10 @@ public class PlayerDeath : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         Teleport();
         healthMeter.healthVal = 100;
-        triggerDecompresionChamber.BeginDecompression();
+        if (!triggerDecompresionChamber.inside)
+        {
+            triggerDecompresionChamber.BeginDecompression();
+        }
         yield return new WaitForSecondsRealtime(3f);
         // Opaque to Transparent
         deathScreen.SetTrigger("FadeIn");

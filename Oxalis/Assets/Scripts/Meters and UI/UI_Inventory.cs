@@ -19,6 +19,7 @@ public class UI_Inventory : MonoBehaviour
     //accessing supply canvas in worldspace
     public GameObject localSupplyCanvas;
     Slider localSupplySlider;
+    Image localRewardImage;
     // supply goals script
     public SupplyGoals supplyGoals;
 
@@ -173,5 +174,6 @@ public class UI_Inventory : MonoBehaviour
         Time.timeScale = 1;
         localSupplySlider = localSupplyCanvas.transform.GetChild(0).GetComponent<Slider>();
         localSupplySlider.value = curStorageVal;
+        localSupplySlider.maxValue = supplyGoals.supplySlider.maxValue;
     }
 }
