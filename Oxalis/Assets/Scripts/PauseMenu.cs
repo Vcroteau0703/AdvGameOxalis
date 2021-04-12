@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject playerHud;
     public GameObject pauseMenu;
+    public GameObject optionsMenu;
 
     public void PauseGame()
     {
@@ -29,4 +30,14 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Options()
+    {
+        optionsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+    public void ExitOptions()
+    {
+        pauseMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+    }
 }

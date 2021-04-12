@@ -211,7 +211,7 @@ AudioSource:
   m_GameObject: {fileID: 88636982}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 8300000, guid: e18a71d54263d01428b2806d9bc0160b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.89
@@ -6677,7 +6677,7 @@ AudioSource:
   m_GameObject: {fileID: 241263315}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8bb9dcdfbefa10b459904b33178f0fba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -6773,10 +6773,10 @@ AudioSource:
   m_GameObject: {fileID: 241263315}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 658b2f98e823d154fb0f4815ddcf098f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.72
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7196,6 +7196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418cc3d6d4b524042a9bdf0e4688b219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleScreen: {fileID: 0}
+  optionsMenu: {fileID: 0}
 --- !u!1 &530406754
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,7 +7238,7 @@ AudioSource:
   m_GameObject: {fileID: 530406754}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1f0e5b5d1ac06f745a4f3e0f6209f7ba, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.81
@@ -14622,7 +14624,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17594
+  m_Name: pb_Mesh372840
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19666,7 +19668,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17732
+  m_Name: pb_Mesh372978
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
