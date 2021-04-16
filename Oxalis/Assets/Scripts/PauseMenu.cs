@@ -23,6 +23,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         playerHud.SetActive(true);
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     public void QuitGame()
