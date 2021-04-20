@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crop: Potato
   seeds: Potato Seeds
-  supplyYield: 10
+  supplyYield: 5
   cropYield: 5
   seedYield: 2
   fertilizerYield: 1

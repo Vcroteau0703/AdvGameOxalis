@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 
 public class PlayerController : MonoBehaviour
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
     public float jetpackStrength;
     private FuelMeter fuelMeter;
     public GameObject fuel;
+    public bool jetpackActive;
+    public TextMeshProUGUI updates;
 
     //Hunger ref
     public GameObject hunger;
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         controls = new Controls();
         characterController = GetComponent<CharacterController>();
-        rayLength = 5.0f;
+        rayLength = 6.0f;
 
         // getting ui invetory script ref
         uiInventory = ui_Inventory.GetComponent<UI_Inventory>();
@@ -464,10 +467,18 @@ public class PlayerController : MonoBehaviour
     //jetpacking functions
     void Jetpack()
     {
-        jump = true;
-        audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
-        audioSource.loop = true;
-        audioSource.Play();
+        if (jetpackActive)
+        {
+            jump = true;
+            audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+        else
+        {
+            updates.gameObject.SetActive(true);
+            updates.text = "Jetpack is not active while inside";
+        }
     }
     
     void JetpackReleased()

@@ -51,7 +51,7 @@ public class SupplyGoals : MonoBehaviour
     void Update()
     {
 
-        if(supplySlider.maxValue == supplySlider.value)
+        if(supplySlider.maxValue <= supplySlider.value)
         {
             //give reward and hint!!
             Reward();

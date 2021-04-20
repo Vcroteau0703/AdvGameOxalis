@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493352760315746292}
-  - component: {fileID: 491524811751282467}
+  - component: {fileID: 6787847335746430389}
   m_Layer: 0
   m_Name: AlienFruit
-  m_TagString: Untagged
+  m_TagString: AlienFruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,25 +37,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!95 &491524811751282467
-Animator:
-  serializedVersion: 3
+--- !u!136 &6787847335746430389
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493352760315746293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 95920af017f264346a85f35516a7acd8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_Radius: 0.26396316
+  m_Height: 2.7871826
+  m_Direction: 1
+  m_Center: {x: 16.793873, y: 0.20489837, z: -3.39175}
 --- !u!1001 &493352760307476046
 PrefabInstance:
   m_ObjectHideFlags: 0

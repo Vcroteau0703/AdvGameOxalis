@@ -6,8 +6,10 @@ public class TriggerDecompresionChamber : MonoBehaviour
 {
     public Animator insideDoor;
     public Animator outsideDoor;
-    public GameObject decompressionTrigger;
+    public Animator decompressionTrigger;
     public bool inside = true;
+    public AudioClip gameMusic;
+    public Animator gameMusicTransitions;
 
     public void BeginDecompression()
     {
@@ -45,11 +47,18 @@ public class TriggerDecompresionChamber : MonoBehaviour
     {
         outsideDoor.SetTrigger("OpenDoor");
         gameObject.tag = "Decompression";
+        decompressionTrigger.SetTrigger("OxygenOff");
+        gameMusic = Resources.Load<AudioClip>("oxalis_mx_exploration");
+        gameMusicTransitions.SetBool("FadeOut", true);
+
     }
 
     void OpenChamberInside()
     {
         insideDoor.SetTrigger("DoorOpen");
         gameObject.tag = "Decompression";
+        decompressionTrigger.SetTrigger("OxygenOn");
+        gameMusic = Resources.Load<AudioClip>("oxalis_mx_farming");
+        gameMusicTransitions.SetBool("FadeOut", true);
     }
 }
