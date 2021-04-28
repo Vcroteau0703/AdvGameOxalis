@@ -11,6 +11,8 @@ TagManager:
   - Compost
   - Decompression
   - AlienFruit
+  - FloatFruit
+  - RockPlant
   layers:
   - Default
   - TransparentFX

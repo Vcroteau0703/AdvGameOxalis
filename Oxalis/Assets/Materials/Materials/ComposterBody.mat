@@ -33,9 +33,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Glossiness: 0.5
-    - _LightCutoff: 0.5
+    - _LightCutoff: 1
     - _RimSize: 0
-    - _ShadowBands: 1
+    - _ShadowBands: 4
     - _ShadowedRim: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

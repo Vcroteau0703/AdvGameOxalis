@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e324c11750b1e4c918faa9ccd71040, type: 3}
+  m_Name: FloatFruit
+  m_EditorClassIdentifier: 
+  crop: FloatFruit
+  seeds: FloatFruit Seeds
+  supplyYield: 25
+  cropYield: 1
+  seedYield: 3
+  fertilizerYield: 2
+  growTime: 50
+  Image: {fileID: 21300000, guid: b18de71d7c5d5074d9eabeb2da504e25, type: 3}
+  isSeed: 0
+  plant: {fileID: 2328350442898239340, guid: 6cad7078484de2e4e8bffd3ed4bb1197, type: 3}
+  isCrop: 1
+  isFertilizer: 0
+  hungerWorth: 20
+  healthWorth: 10

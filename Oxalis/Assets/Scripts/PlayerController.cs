@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
         // activating and deactivating animated crosshair
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out vision, rayLength) && !uiInventory.supplyMenuActive && !pauseMenu.pauseMenu.activeInHierarchy)
         {
-            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost" || vision.collider.tag == "Decompression" || vision.collider.tag == "AlienFruit")
+            if(vision.collider.tag == "Plot" || vision.collider.tag == "Germinator" || vision.collider.tag == "Storage" || vision.collider.tag == "Compost" || vision.collider.tag == "Decompression" || vision.collider.tag == "AlienFruit" || vision.collider.tag == "RockPlant" || vision.collider.tag == "FloatFruit")
             {
                 leftAnim.SetBool("interactable", true);
                 rightAnim.SetBool("interactable", true);
@@ -233,16 +233,20 @@ public class PlayerController : MonoBehaviour
                 selectedItem = Bag.supplySlots[uiInventory.curInvSlot].itemRef;
                 if(supplySlider.value >= selectedItem.supplyYield)
                 {
-                    supplySlider.value -= selectedItem.supplyYield;
-                    Bag.AddItemToInventory(selectedItem);
-                    //if(Bag.supplySlots[uiInventory.curInvSlot].quantity == 1)
-                    //{
-                    //    Debug.Log("removing item from storage");
-                    //    uiInventory.curStorageSlots--;
-                    //}
-                    Bag.RemoveItemFromStorage(selectedItem);
-                    uiInventory.DrawSlots();
-                    uiInventory.DrawSupplySlots();
+                    Bag.IsInvFull();
+                    if (!Bag.invFull)
+                    {
+                        supplySlider.value -= selectedItem.supplyYield;
+                        Bag.AddItemToInventory(selectedItem);
+                        Bag.RemoveItemFromStorage(selectedItem);
+                        uiInventory.DrawSlots();
+                        uiInventory.DrawSupplySlots();
+                    }
+                    else
+                    {
+                        Debug.Log("Bag full!");
+                    }
+
                 }
                 else
                 {
@@ -304,14 +308,22 @@ public class PlayerController : MonoBehaviour
                         {
                             // getting seed ref
                             BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
-                            // cycling through how many seeds to add based on crops seed yield
-                            for (int i = 0; i < selectedItem.seedYield; i++)
+                            Bag.IsInvFull();
+                            if (!Bag.invFull)
                             {
-                                Bag.AddItemToInventory(seed);
+                                // cycling through how many seeds to add based on crops seed yield
+                                for (int i = 0; i < selectedItem.seedYield; i++)
+                                {
+                                    Bag.AddItemToInventory(seed);
+                                }
+                                audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                                audioSource.Play();
+                                Bag.RemoveItemFromInventory(selectedItem);
                             }
-                            audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
-                            audioSource.Play();
-                            Bag.RemoveItemFromInventory(selectedItem);
+                            else
+                            {
+                                Debug.Log("Bag full!");
+                            }
                             // refreshing inventory
                             uiInventory.DrawSlots();
 
@@ -346,16 +358,25 @@ public class PlayerController : MonoBehaviour
                         {
                             // storing how much fertilizer to add to inventory
                             int fertilizerCnt = selectedItem.fertilizerYield;
-                            Bag.RemoveItemFromInventory(selectedItem);
                             // getting fertilizer ref
                             BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
-                            // cycling through how much fertilizer to add
-                            for (int i = 0; i < fertilizerCnt; i++)
+                            Bag.IsInvFull();
+                            if (!Bag.invFull)
                             {
-                                Bag.AddItemToInventory(fertilizer);
+                                // cycling through how much fertilizer to add
+                                for (int i = 0; i < fertilizerCnt; i++)
+                                {
+                                    Bag.AddItemToInventory(fertilizer);
+                                }
+                                audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                                audioSource.Play();
+                                Bag.RemoveItemFromInventory(selectedItem);
                             }
-                            audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
-                            audioSource.Play();
+                            else
+                            {
+                                Debug.Log("Bag full!");
+                            }
+
                             // refreshing inventory
                             uiInventory.DrawSlots();
 
@@ -374,16 +395,66 @@ public class PlayerController : MonoBehaviour
                 }
                 if (vision.collider.tag == "AlienFruit")
                 {
-                    vision.collider.gameObject.SetActive(false);
-                    BagItem AlienFruit = Resources.Load<BagItem>("AlienFruit");
-                    for(int i = 0; i < AlienFruit.cropYield; i++)
+                    Bag.IsInvFull();
+                    if (!Bag.invFull)
                     {
-                        Bag.AddItemToInventory(AlienFruit);
+                        vision.collider.gameObject.SetActive(false);
+                        BagItem AlienFruit = Resources.Load<BagItem>("AlienFruit");
+                        for (int i = 0; i < AlienFruit.cropYield; i++)
+                        {
+                            Bag.AddItemToInventory(AlienFruit);
+                        }
+                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                        audioSource.Play();
+                        // refreshing inventory
+                        uiInventory.DrawSlots();
                     }
-                    audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
-                    audioSource.Play();
-                    // refreshing inventory
-                    uiInventory.DrawSlots();
+                    else
+                    {
+                        Debug.Log("Bag full!");
+                    }
+                }
+                if(vision.collider.tag == "RockPlant")
+                {
+                    Bag.IsInvFull();
+                    if (!Bag.invFull)
+                    {
+                        vision.collider.gameObject.SetActive(false);
+                        BagItem rockFruit = Resources.Load<BagItem>("RockFruit");
+                        for (int i = 0; i < rockFruit.cropYield; i++)
+                        {
+                            Bag.AddItemToInventory(rockFruit);
+                        }
+                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                        audioSource.Play();
+                        // refreshing inventory
+                        uiInventory.DrawSlots();
+                    }
+                    else
+                    {
+                        Debug.Log("Bag full!");
+                    }
+                }
+                if(vision.collider.tag == "FloatFruit")
+                {
+                    Bag.IsInvFull();
+                    if (!Bag.invFull)
+                    {
+                        vision.collider.gameObject.SetActive(false);
+                        BagItem floatFruit = Resources.Load<BagItem>("FloatFruit");
+                        for (int i = 0; i < floatFruit.cropYield; i++)
+                        {
+                            Bag.AddItemToInventory(floatFruit);
+                        }
+                        audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                        audioSource.Play();
+                        // refreshing inventory
+                        uiInventory.DrawSlots();
+                    }
+                    else
+                    {
+                        Debug.Log("Bag full!");
+                    }
                 }
             }
         }

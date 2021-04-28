@@ -150,12 +150,20 @@ public class GrowPlant : MonoBehaviour
     private void Harvest()
     {
         //harvest the plant when fully grown
-        for(int i = 0; i < cropYield; i++)
+        Bag.IsInvFull();
+        if (!Bag.invFull)
         {
-            Bag.AddItemToInventory(crop);
+            for (int i = 0; i < cropYield; i++)
+            {
+                Bag.AddItemToInventory(crop);
+            }
+            Destroy(plant);
+            rend.material = unTilledGround;
+            plantState = 0;
         }
-        Destroy(plant);
-        rend.material = unTilledGround;
-        plantState = 0;
+        else
+        {
+            Debug.Log("Bag full!");
+        }
     }
 }

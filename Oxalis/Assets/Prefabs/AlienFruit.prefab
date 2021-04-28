@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 493352760315746293}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -16.13, y: -2.94, z: 6.23}
-  m_LocalScale: {x: 1.1402619, y: 1.095591, z: 1.1402621}
+  m_LocalScale: {x: 1.1402619, y: 1.0955911, z: 1.1402622}
   m_Children:
   - {fileID: 95143789086829404}
   - {fileID: 95143789599424933}
@@ -113,7 +113,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f232553a0966d8644bdd4481b07587ab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1716cd605d177844585e6573e60a1ca8, type: 2}
+      objectReference: {fileID: 2100000, guid: 23613834f67c8f140842eb8b34406b5e, type: 2}
     - target: {fileID: 919132149155446097, guid: f232553a0966d8644bdd4481b07587ab, type: 3}
       propertyPath: m_Name
       value: FruitPlantStem
@@ -339,7 +339,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f232553a0966d8644bdd4481b07587ab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1716cd605d177844585e6573e60a1ca8, type: 2}
+      objectReference: {fileID: 2100000, guid: 23613834f67c8f140842eb8b34406b5e, type: 2}
     - target: {fileID: 919132149155446097, guid: f232553a0966d8644bdd4481b07587ab, type: 3}
       propertyPath: m_Name
       value: FruitPlantStem (1)
@@ -495,7 +495,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f232553a0966d8644bdd4481b07587ab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1716cd605d177844585e6573e60a1ca8, type: 2}
+      objectReference: {fileID: 2100000, guid: 23613834f67c8f140842eb8b34406b5e, type: 2}
     - target: {fileID: 919132149155446097, guid: f232553a0966d8644bdd4481b07587ab, type: 3}
       propertyPath: m_Name
       value: FruitPlantStem (2)

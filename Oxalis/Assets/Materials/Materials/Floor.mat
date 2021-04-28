@@ -20,22 +20,22 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ee9273f7d41f88947a598f6d1bb39961, type: 3}
+        m_Texture: {fileID: 2800000, guid: 560c696041001a34fb345ea76370ae89, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: fef0ffe1e2e39fe409209ffb139da78d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
-        m_Texture: {fileID: 2800000, guid: 79f47269a7c0c634ca587da97a543207, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7de9f786618dd8042968c0e848c9a837, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Glossiness: 1
-    - _LightCutoff: 0.5
+    - _LightCutoff: 1
     - _RimSize: 0
-    - _ShadowBands: 1
+    - _ShadowBands: 4
     - _ShadowedRim: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -6,6 +6,7 @@ public static class Bag
 {
     public static BagItemSlot[] slots;
     public static BagItemSlot[] supplySlots;
+    public static bool invFull;
     
     public static void InitInventory()
     {
@@ -32,6 +33,7 @@ public static class Bag
         //add to the item quantity if the item in already in the inventory
         if (itemIn)
         {
+            invFull = false;
             slots[itemPos].quantity++;
         }
         //add item to inventory if the item is not already in the inventory
@@ -46,10 +48,6 @@ public static class Bag
                     itemAdded = true;
                     break;
                 }
-            }
-            if (!itemAdded)
-            {
-                Debug.Log("inventory full!");
             }
         }
     }
@@ -77,6 +75,10 @@ public static class Bag
             }
             else
             {
+                if (invFull)
+                {
+                    invFull = false;
+                }
                 slots[itemPos].itemRef = default;
                 slots[itemPos].quantity = 0;
             }
@@ -168,4 +170,24 @@ public static class Bag
         }
     }
 
+    public static void IsInvFull()
+    {
+        int counter = 0;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].itemRef != null)
+            {
+                counter++;
+            }
+
+        }
+        if (counter == 5)
+        {
+            invFull = true;
+        }
+        else
+        {
+            invFull = false;
+        }
+    }
 }
