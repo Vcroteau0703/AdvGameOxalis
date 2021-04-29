@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class MusicFunctions : MonoBehaviour
 {
-    private AudioSource audio;
+    private AudioSource audioSource;
     public TriggerDecompresionChamber triggerDecompresionChamber;
 
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void PlayMusic()
     {
-        audio.clip = triggerDecompresionChamber.gameMusic;
-        audio.Play();
+        audioSource.clip = triggerDecompresionChamber.gameMusic;
+        audioSource.Play();
     }
 
     public void TransitionOff()

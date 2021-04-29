@@ -13,6 +13,9 @@ TagManager:
   - AlienFruit
   - FloatFruit
   - RockPlant
+  - Dirt Ground
+  - Mushroom Top
+  - Dome Floor
   layers:
   - Default
   - TransparentFX

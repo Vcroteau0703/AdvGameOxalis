@@ -27,21 +27,21 @@ public class UI_Inventory : MonoBehaviour
     {
         Bag.InitInventory();
         otherItem = Resources.Load<BagItem>("Fertilizer");
-        Bag.AddItemToInventory(otherItem);
-        Bag.AddItemToInventory(otherItem);
-        Bag.AddItemToInventory(otherItem);
         Bag.AddItemToInventory(myItem);
         Bag.AddItemToInventory(myItem);
+        Bag.AddItemToInventory(otherItem);
+        Bag.AddItemToInventory(otherItem);
+        Bag.AddItemToInventory(otherItem);
         numOfSlots = Bag.slots.Length;
         supplyInv = transform.GetChild(5).GetComponent<Transform>();
         curStorageSlots = Bag.supplySlots.Length;
         //otherItem = Resources.Load<BagItem>("Orange");
         //Bag.AddItemToStorage(otherItem);
         //curStorageSlots++;
-        otherItem = Resources.Load<BagItem>("AlienFruit");
-        Bag.AddItemToInventory(otherItem);
-        Bag.AddItemToInventory(otherItem);
-        Bag.AddItemToInventory(otherItem);
+        //otherItem = Resources.Load<BagItem>("AlienFruit");
+        //Bag.AddItemToInventory(otherItem);
+        //Bag.AddItemToInventory(otherItem);
+        //Bag.AddItemToInventory(otherItem);
                
         DrawSlots();
         DrawSupplySlots();

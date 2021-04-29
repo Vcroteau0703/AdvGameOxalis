@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 2522085845864514355}
   m_Layer: 6
   m_Name: MushroomCap1 (2)
-  m_TagString: Untagged
+  m_TagString: Mushroom Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4936839313350518953}
   m_Layer: 6
   m_Name: MushroomCap1
-  m_TagString: Untagged
+  m_TagString: Mushroom Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 3175005271988025116}
   m_Layer: 6
   m_Name: MushroomCap1 (1)
-  m_TagString: Untagged
+  m_TagString: Mushroom Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

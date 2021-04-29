@@ -19,7 +19,7 @@ MonoBehaviour:
   seedYield: 0
   fertilizerYield: 0
   growTime: 0
-  Image: {fileID: 21300000, guid: 83fa0416a41237349a042f0e0c49dd00, type: 3}
+  Image: {fileID: 21300000, guid: 9d7aad9da38dfba40a7a2e2b20a29761, type: 3}
   isSeed: 0
   plant: {fileID: 0}
   isCrop: 0

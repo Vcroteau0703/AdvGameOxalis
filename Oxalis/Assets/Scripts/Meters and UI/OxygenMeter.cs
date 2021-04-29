@@ -17,6 +17,7 @@ public class OxygenMeter : MonoBehaviour
     public GameObject health;
     HealthMeter healthMeter;
 
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class OxygenMeter : MonoBehaviour
         oxygenSlider = GetComponent<Slider>();
         healthMeter = health.GetComponent<HealthMeter>();
         curOxygen = oxygenVal = oxygenSlider.value;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,10 @@ public class OxygenMeter : MonoBehaviour
         curOxygen = Mathf.Lerp(curOxygen, oxygenVal, Time.deltaTime * fillSpeed);
 
         oxygenSlider.value = curOxygen;
+        if(curOxygen >= 99)
+        {
+            audioSource.Stop();
+        }
     }
 
     public void OxygenDeplete()
@@ -65,6 +71,10 @@ public class OxygenMeter : MonoBehaviour
 
     public void OxygenRegen()
     {
+        if(oxygenVal < 100f)
+        {
+            audioSource.Play();
+        }
         oxygenVal = 100f;
         timerVal = 5f;
         timer = timerVal;

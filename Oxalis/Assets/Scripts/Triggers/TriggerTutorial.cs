@@ -7,6 +7,7 @@ public class TriggerTutorial : MonoBehaviour
     private UI_Tutorial uiTutorial;
     public GameObject ui_Tutorial;
 
+
     private void Awake()
     {
         uiTutorial = ui_Tutorial.GetComponent<UI_Tutorial>();
@@ -16,8 +17,14 @@ public class TriggerTutorial : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            uiTutorial.NextTutorial();
-            Destroy(gameObject);
+            if(uiTutorial.firstTutorial && ui_Tutorial.activeInHierarchy)
+            {
+                uiTutorial.firstSelectionChange = true;
+                uiTutorial.firstTutorial = false;
+                uiTutorial.NextTutorial();
+                Destroy(gameObject);
+            }
+
         }
     }
 }

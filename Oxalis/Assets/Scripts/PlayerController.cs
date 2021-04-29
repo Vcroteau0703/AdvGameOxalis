@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
 {
     private Controls controls;
 
+    //movement
     public float movementSpeed = 4.5f;
     private Vector2 move;
+    public bool isMoving;
 
     private CharacterController characterController;
     public Vector3 velocity;
@@ -163,6 +165,16 @@ public class PlayerController : MonoBehaviour
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         //movement
+        if (transform.hasChanged)
+        {
+            isMoving = true;
+            transform.hasChanged = false;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
         move = controls.Gameplay.Move.ReadValue<Vector2>();
 
         Vector3 movement = move.y * transform.forward + (move.x * transform.right);
@@ -234,7 +246,7 @@ public class PlayerController : MonoBehaviour
                 if(supplySlider.value >= selectedItem.supplyYield)
                 {
                     Bag.IsInvFull();
-                    if (!Bag.invFull)
+                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
                     {
                         supplySlider.value -= selectedItem.supplyYield;
                         Bag.AddItemToInventory(selectedItem);
@@ -244,13 +256,15 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Bag full!");
+                        updates.gameObject.SetActive(true);
+                        updates.text = "Inventory is full";
                     }
 
                 }
                 else
                 {
-                    Debug.Log("you don't have enough supply points to buy this item!");
+                    updates.gameObject.SetActive(true);
+                    updates.text = "You don't have enough supply points to buy this item";
                 }
             }
             else
@@ -309,7 +323,7 @@ public class PlayerController : MonoBehaviour
                             // getting seed ref
                             BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
                             Bag.IsInvFull();
-                            if (!Bag.invFull)
+                            if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
                             {
                                 // cycling through how many seeds to add based on crops seed yield
                                 for (int i = 0; i < selectedItem.seedYield; i++)
@@ -322,7 +336,8 @@ public class PlayerController : MonoBehaviour
                             }
                             else
                             {
-                                Debug.Log("Bag full!");
+                                updates.gameObject.SetActive(true);
+                                updates.text = "Inventory is full";
                             }
                             // refreshing inventory
                             uiInventory.DrawSlots();
@@ -331,12 +346,14 @@ public class PlayerController : MonoBehaviour
                             if (uiTutorial.firstGermination && ui_Tutorial.activeInHierarchy)
                             {
                                 uiTutorial.firstGermination = false;
+                                uiTutorial.firstCompost = true;
                                 uiTutorial.NextTutorial();
                             }
                         }
                         else
                         {
-                            Debug.Log("Item is not a crop!");
+                            updates.gameObject.SetActive(true);
+                            updates.text = "Item is not a crop";
                         }
                     }
                 }
@@ -361,7 +378,7 @@ public class PlayerController : MonoBehaviour
                             // getting fertilizer ref
                             BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
                             Bag.IsInvFull();
-                            if (!Bag.invFull)
+                            if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
                             {
                                 // cycling through how much fertilizer to add
                                 for (int i = 0; i < fertilizerCnt; i++)
@@ -374,7 +391,8 @@ public class PlayerController : MonoBehaviour
                             }
                             else
                             {
-                                Debug.Log("Bag full!");
+                                updates.gameObject.SetActive(true);
+                                updates.text = "Inventory is full";
                             }
 
                             // refreshing inventory
@@ -384,19 +402,21 @@ public class PlayerController : MonoBehaviour
                             if (uiTutorial.firstCompost && ui_Tutorial.activeInHierarchy)
                             {
                                 uiTutorial.firstCompost = false;
+                                uiTutorial.firstConsume = true;
                                 uiTutorial.NextTutorial();
                             }
                         }
                         else
                         {
-                            Debug.Log("Item is not a crop!");
+                            updates.gameObject.SetActive(true);
+                            updates.text = "Item is not a crop";
                         }
                     }
                 }
                 if (vision.collider.tag == "AlienFruit")
                 {
                     Bag.IsInvFull();
-                    if (!Bag.invFull)
+                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
                     {
                         vision.collider.gameObject.SetActive(false);
                         BagItem AlienFruit = Resources.Load<BagItem>("AlienFruit");
@@ -411,13 +431,14 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Bag full!");
+                        updates.gameObject.SetActive(true);
+                        updates.text = "Inventory is full";
                     }
                 }
                 if(vision.collider.tag == "RockPlant")
                 {
                     Bag.IsInvFull();
-                    if (!Bag.invFull)
+                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
                     {
                         vision.collider.gameObject.SetActive(false);
                         BagItem rockFruit = Resources.Load<BagItem>("RockFruit");
@@ -432,13 +453,14 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Bag full!");
+                        updates.gameObject.SetActive(true);
+                        updates.text = "Inventory is full";
                     }
                 }
                 if(vision.collider.tag == "FloatFruit")
                 {
                     Bag.IsInvFull();
-                    if (!Bag.invFull)
+                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
                     {
                         vision.collider.gameObject.SetActive(false);
                         BagItem floatFruit = Resources.Load<BagItem>("FloatFruit");
@@ -453,7 +475,8 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Bag full!");
+                        updates.gameObject.SetActive(true);
+                        updates.text = "Inventory is full";
                     }
                 }
             }
@@ -483,17 +506,38 @@ public class PlayerController : MonoBehaviour
             {
                 uiInventory.curInvSlot++;
                 uiInventory.InventorySelection();
+                if (uiTutorial.firstSelectionChange && ui_Tutorial.activeInHierarchy)
+                {
+                    selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                    if (selectedItem.isFertilizer)
+                    {
+                        uiTutorial.firstSelectionChange = false;
+                        uiTutorial.firstTill = true;
+                        uiTutorial.NextTutorial();
+                    }
+                }
             }
             else
             {
                 uiInventory.curInvSlot = 0;
                 uiInventory.InventorySelection();
+                if (uiTutorial.firstSelectionChange && ui_Tutorial.activeInHierarchy)
+                {
+                    selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                    if (selectedItem.isFertilizer)
+                    {
+                        uiTutorial.firstSelectionChange = false;
+                        uiTutorial.firstTill = true;
+                        uiTutorial.NextTutorial();
+                    }
+                }
             }
         }
     }
     
     void ChangeInventorySelectionLeft()
     {
+
         if (uiInventory.inSupplyMenu)
         {
             if (uiInventory.curInvSlot > 0)
@@ -513,11 +557,32 @@ public class PlayerController : MonoBehaviour
             {
                 uiInventory.curInvSlot--;
                 uiInventory.InventorySelection();
+                if (uiTutorial.firstSelectionChange && ui_Tutorial.activeInHierarchy)
+                {
+                    selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                    if (selectedItem.isFertilizer)
+                    {
+                        uiTutorial.firstSelectionChange = false;
+                        uiTutorial.firstTill = true;
+                        uiTutorial.NextTutorial();
+                    }
+                }
             }
             else
             {
                 uiInventory.curInvSlot = Bag.slots.Length - 1;
                 uiInventory.InventorySelection();
+                if (uiTutorial.firstSelectionChange && ui_Tutorial.activeInHierarchy)
+                {
+                    selectedItem = Bag.slots[uiInventory.curInvSlot].itemRef;
+                    if (selectedItem.isFertilizer)
+                    {
+                        uiTutorial.firstSelectionChange = false;
+                        uiTutorial.firstTill = true;
+                        uiTutorial.NextTutorial();
+
+                    }
+                }
             }
         }
 
@@ -542,6 +607,7 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
             audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
+            audioSource.volume = 0.47f;
             audioSource.loop = true;
             audioSource.Play();
         }
@@ -555,7 +621,6 @@ public class PlayerController : MonoBehaviour
     void JetpackReleased()
     {
         jump = false;
-        audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
         audioSource.loop = false;
         audioSource.Pause();
     }
@@ -575,23 +640,28 @@ public class PlayerController : MonoBehaviour
                 }
                 Bag.RemoveItemFromInventory(selectedItem);
                 uiInventory.DrawSlots();
-
+                audioSource.clip = Resources.Load<AudioClip>("eatSFX");
+                audioSource.volume = 1;
+                audioSource.Play();
                 if (uiTutorial.firstConsume && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstConsume = false;
+                    uiTutorial.firstStorage = true;
                     uiTutorial.NextTutorial();
                 }
             }
             else
             {
-                Debug.Log("You aren't hungry right now");
+                updates.gameObject.SetActive(true);
+                updates.text = "You aren't hungry right now";
             }
 
 
         }
         else
         {
-            Debug.Log("Item is not a crop!");
+            updates.gameObject.SetActive(true);
+            updates.text = "Item is not a crop";
         }
     }
 

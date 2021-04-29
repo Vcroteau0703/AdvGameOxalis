@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GrowPlant : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class GrowPlant : MonoBehaviour
     //SFX
     AudioSource audioSource;
 
+    public TextMeshProUGUI updates;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class GrowPlant : MonoBehaviour
                 if (uiTutorial.firstWater && ui_Tutorial.activeInHierarchy)
                 {
                     uiTutorial.firstWater = false;
+                    uiTutorial.firstHarvest = true;
                     uiTutorial.NextTutorial();
                 }
             }
@@ -52,22 +55,9 @@ public class GrowPlant : MonoBehaviour
         {
             case 0:
                 Till(selectedItem);
-                audioSource.clip = Resources.Load<AudioClip>("PlantingSFX");
-                audioSource.Play();
-                if (uiTutorial.firstTill && ui_Tutorial.activeInHierarchy)
-                {
-                    uiTutorial.firstTill = false;
-                    uiTutorial.NextTutorial();
-                }
                 break;
             case 1:
                 Plant(selectedItem);
-                audioSource.Play();
-                if (uiTutorial.firstPlant && ui_Tutorial.activeInHierarchy)
-                {
-                    uiTutorial.firstPlant = false;
-                    uiTutorial.NextTutorial();
-                }
                 break;
             case 2:
                 Water();
@@ -76,13 +66,6 @@ public class GrowPlant : MonoBehaviour
                 break;
             case 3:
                 Harvest();
-                audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
-                audioSource.Play();
-                if (uiTutorial.firstHarvest && ui_Tutorial.activeInHierarchy)
-                {
-                    uiTutorial.firstHarvest = false;
-                    uiTutorial.NextTutorial();
-                }
                 break;
             default:
                 Debug.Log("there was a problem :/");
@@ -100,10 +83,19 @@ public class GrowPlant : MonoBehaviour
                 Bag.RemoveItemFromInventory(selectedItem);
                 rend.material = dryGround;
                 plantState++;
+                audioSource.clip = Resources.Load<AudioClip>("PlantingSFX");
+                audioSource.Play();
+                if (uiTutorial.firstTill && ui_Tutorial.activeInHierarchy)
+                {
+                    uiTutorial.firstTill = false;
+                    uiTutorial.firstPlant = true;
+                    uiTutorial.NextTutorial();
+                }
             }
             else
             {
-                Debug.Log("Item is not fertilizer!");
+                updates.gameObject.SetActive(true);
+                updates.text = "Selected item is not fertilizer";
             }
         }
     }
@@ -125,10 +117,19 @@ public class GrowPlant : MonoBehaviour
                 plant = Instantiate(crop.plant, transform, false) as GameObject;
 
                 plantState++;
+
+                audioSource.Play();
+                if (uiTutorial.firstPlant && ui_Tutorial.activeInHierarchy)
+                {
+                    uiTutorial.firstPlant = false;
+                    uiTutorial.firstWater = true;
+                    uiTutorial.NextTutorial();
+                }
             }
             else
             {
-                Debug.Log("Selected Item is not a seed!!");
+                updates.gameObject.SetActive(true);
+                updates.text = "Selected item is not a seed";
             }
         }
 
@@ -160,10 +161,19 @@ public class GrowPlant : MonoBehaviour
             Destroy(plant);
             rend.material = unTilledGround;
             plantState = 0;
+            audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+            audioSource.Play();
+            if (uiTutorial.firstHarvest && ui_Tutorial.activeInHierarchy)
+            {
+                uiTutorial.firstHarvest = false;
+                uiTutorial.firstGermination = true;
+                uiTutorial.NextTutorial();
+            }
         }
         else
         {
-            Debug.Log("Bag full!");
+            updates.gameObject.SetActive(true);
+            updates.text = "Inventory is full";
         }
     }
 }

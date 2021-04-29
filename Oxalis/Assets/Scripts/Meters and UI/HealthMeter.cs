@@ -12,6 +12,8 @@ public class HealthMeter : MonoBehaviour
     public bool playerDead = false;
     public GameObject deathScreen;
     PlayerDeath playerDeath;
+    public HungerMeter hungerMeter;
+    public Animator gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +28,16 @@ public class HealthMeter : MonoBehaviour
     {
         if(curHealth <= 0 && !playerDead)
         {
-            playerDead = true;
-            //player dies
-            StartCoroutine(playerDeath.FadeDeathScreen());
+            if(hungerMeter.hungerVal <= 0)
+            {
+                gameOver.SetTrigger("FadeOut");
+            }
+            else
+            {
+                playerDead = true;
+                //player dies
+                StartCoroutine(playerDeath.FadeDeathScreen());
+            }
 
         }
         curHealth = Mathf.Lerp(curHealth, healthVal, Time.deltaTime * fillSpeed);

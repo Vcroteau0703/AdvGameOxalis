@@ -19,6 +19,7 @@ public class SupplyGoals : MonoBehaviour
     int plotNum = 1;
     BagItem seedReward;
     public TextMeshProUGUI updates;
+    public Animator fadeImage;
 
     //audio
     AudioSource audioSource;
@@ -112,7 +113,7 @@ public class SupplyGoals : MonoBehaviour
                 plotNum++;
                 break;
             case 4:
-                Debug.Log("Game completion!");
+                fadeImage.SetTrigger("FadeOut");
                 break;
         }
 

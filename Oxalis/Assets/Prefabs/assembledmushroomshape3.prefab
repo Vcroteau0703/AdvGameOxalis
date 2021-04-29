@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5552293926555328145}
   - component: {fileID: 8836746905945674036}
   - component: {fileID: 6721227942530934270}
+  - component: {fileID: 8377144982612841195}
   m_Layer: 0
   m_Name: MushroomCapType2
-  m_TagString: Untagged
+  m_TagString: Mushroom Top
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5552293926555328145
 Transform:
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8377144982612841195
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5063846174668342315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 376716763815791211, guid: b41c43f601951e245ac66cf5812f0ee3, type: 3}
 --- !u!1 &8077509832767763503
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,6 @@ public static class Bag
     {
         //Check if item is already in the inventory
         bool itemIn = false;
-        bool itemAdded = false;
         int itemPos = 0;
         for(int i = 0; i < slots.Length; i++)
         {
@@ -45,7 +44,6 @@ public static class Bag
                 {
                     slots[i].itemRef = itemToAdd;
                     slots[i].quantity = 1;
-                    itemAdded = true;
                     break;
                 }
             }
@@ -155,6 +153,26 @@ public static class Bag
         for (int i = 0; i < supplySlots.Length; i++)
         {
             if (itemToCheck == supplySlots[i].itemRef)
+            {
+                itemIn = true;
+                break;
+            }
+        }
+        if (itemIn)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static bool IsItemInBag(BagItem itemToCheck)
+    {
+        bool itemIn = false;
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (itemToCheck == slots[i].itemRef)
             {
                 itemIn = true;
                 break;

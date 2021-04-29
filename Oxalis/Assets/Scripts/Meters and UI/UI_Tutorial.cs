@@ -19,13 +19,17 @@ public class UI_Tutorial : MonoBehaviour
     public bool tutorialActive = false;
 
     //bools for tutorial triggering
-    public bool firstTill = true;
-    public bool firstPlant = true;
-    public bool firstWater = true;
-    public bool firstHarvest = true;
-    public bool firstGermination = true;
-    public bool firstCompost = true;
-    public bool firstConsume = true;
+    public bool firstTutorial = false;
+    public bool firstSelectionChange = false;
+    public bool firstTill = false;
+    public bool firstPlant = false;
+    public bool firstWater = false;
+    public bool firstHarvest = false;
+    public bool firstGermination = false;
+    public bool firstCompost = false;
+    public bool firstConsume = false;
+    public bool firstStorage = false;
+    public bool firstStoragePickup = false;
 
     //accessing germinator, compost and storage
     public GameObject germinator;
@@ -41,7 +45,8 @@ public class UI_Tutorial : MonoBehaviour
 
     public IEnumerator TutorialWait()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
+        firstTutorial = true;
         NextTutorial();
     }
 

@@ -10,6 +10,7 @@ public class TriggerDecompresionChamber : MonoBehaviour
     public bool inside = true;
     public AudioClip gameMusic;
     public Animator gameMusicTransitions;
+    public GameObject breathing;
 
     public void BeginDecompression()
     {
@@ -50,7 +51,7 @@ public class TriggerDecompresionChamber : MonoBehaviour
         decompressionTrigger.SetTrigger("OxygenOff");
         gameMusic = Resources.Load<AudioClip>("oxalis_mx_exploration");
         gameMusicTransitions.SetBool("FadeOut", true);
-
+        breathing.SetActive(true);
     }
 
     void OpenChamberInside()
@@ -60,5 +61,6 @@ public class TriggerDecompresionChamber : MonoBehaviour
         decompressionTrigger.SetTrigger("OxygenOn");
         gameMusic = Resources.Load<AudioClip>("oxalis_mx_farming");
         gameMusicTransitions.SetBool("FadeOut", true);
+        breathing.SetActive(false);
     }
 }
