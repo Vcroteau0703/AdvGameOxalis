@@ -19,6 +19,7 @@ public class PlayerDeath : MonoBehaviour
 
     public IEnumerator FadeDeathScreen()
     {
+        playerController.isMoving = false;
         playerController.enabled = false;
         // Transparent to Opaque
         deathScreen.SetTrigger("FadeOut");

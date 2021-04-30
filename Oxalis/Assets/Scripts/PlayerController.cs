@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     //get ui_tutorial
     public GameObject ui_Tutorial;
     private UI_Tutorial uiTutorial;
+    public GameObject tutorialTrigger2;
 
     //SFX
     AudioSource audioSource;
@@ -78,6 +79,13 @@ public class PlayerController : MonoBehaviour
 
     //Interact indicator
     public Image mouseIndicator;
+
+    //hit sfx
+    public bool hardImpact = false;
+    public bool softImpact = false;
+    AudioCycle audioCycle;
+
+
 
     private void Awake()
     {
@@ -134,11 +142,39 @@ public class PlayerController : MonoBehaviour
         rightAnim = crosshairs.GetChild(1).GetComponent<Animator>();
         upAnim = crosshairs.GetChild(2).GetComponent<Animator>();
         downAnim = crosshairs.GetChild(3).GetComponent<Animator>();
+
+        //footsteps ref
+        audioCycle = transform.GetChild(2).GetComponent<AudioCycle>();
     }
 
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (velocity.y <= -20)
+        {
+            if (velocity.y <= -30)
+            {
+                //hardest hit
+                hardImpact = true;
+                softImpact = false;
+            }
+            else
+            {
+                //hard hit
+                hardImpact = true;
+                softImpact = false;
+            }
+        }
+        else if (velocity.y <= -5)
+        {
+            softImpact = true;
+        }
+        else
+        {
+            softImpact = false;
+            hardImpact = false;
+        }
 
         //checking to see if player is on the ground
         if (isGrounded && velocity.y < 0)
@@ -148,15 +184,27 @@ public class PlayerController : MonoBehaviour
                 if (velocity.y <= -30)
                 {
                     //hardest hit
+                    audioCycle.PlayAudio();
+                    audioSource.clip = Resources.Load<AudioClip>("dieimpactSFX");
+                    audioSource.volume = 1f;
+                    audioSource.Play();
                     healthMeter.DecreaseHealth(110);
                     velocity.y = -2f;
                 }
                 else
                 {
                     //hard hit
+                    audioCycle.PlayAudio();
+                    audioSource.clip = Resources.Load<AudioClip>("dieimpactSFX");
+                    audioSource.volume = 1f;
+                    audioSource.Play();
                     healthMeter.DecreaseHealth(15);
                     velocity.y = -2f;
                 }
+            }
+            else if(velocity.y <= -5)
+            {
+                audioCycle.PlayAudio();
             }
             velocity.y = -2f;
             fuelMeter.IncreaseFuel();
@@ -323,7 +371,7 @@ public class PlayerController : MonoBehaviour
                             // getting seed ref
                             BagItem seed = Resources.Load<BagItem>(selectedItem.seeds);
                             Bag.IsInvFull();
-                            if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
+                            if (!Bag.invFull || Bag.IsItemInBag(seed))
                             {
                                 // cycling through how many seeds to add based on crops seed yield
                                 for (int i = 0; i < selectedItem.seedYield; i++)
@@ -378,7 +426,7 @@ public class PlayerController : MonoBehaviour
                             // getting fertilizer ref
                             BagItem fertilizer = Resources.Load<BagItem>("Fertilizer");
                             Bag.IsInvFull();
-                            if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
+                            if (!Bag.invFull || Bag.IsItemInBag(fertilizer))
                             {
                                 // cycling through how much fertilizer to add
                                 for (int i = 0; i < fertilizerCnt; i++)
@@ -416,10 +464,11 @@ public class PlayerController : MonoBehaviour
                 if (vision.collider.tag == "AlienFruit")
                 {
                     Bag.IsInvFull();
-                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
+                    BagItem AlienFruit = Resources.Load<BagItem>("AlienFruit");
+                    if (!Bag.invFull || Bag.IsItemInBag(AlienFruit))
                     {
                         vision.collider.gameObject.SetActive(false);
-                        BagItem AlienFruit = Resources.Load<BagItem>("AlienFruit");
+                        
                         for (int i = 0; i < AlienFruit.cropYield; i++)
                         {
                             Bag.AddItemToInventory(AlienFruit);
@@ -437,11 +486,12 @@ public class PlayerController : MonoBehaviour
                 }
                 if(vision.collider.tag == "RockPlant")
                 {
+                    BagItem rockFruit = Resources.Load<BagItem>("RockFruit");
                     Bag.IsInvFull();
-                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
+                    if (!Bag.invFull || Bag.IsItemInBag(rockFruit))
                     {
                         vision.collider.gameObject.SetActive(false);
-                        BagItem rockFruit = Resources.Load<BagItem>("RockFruit");
+                        
                         for (int i = 0; i < rockFruit.cropYield; i++)
                         {
                             Bag.AddItemToInventory(rockFruit);
@@ -459,11 +509,12 @@ public class PlayerController : MonoBehaviour
                 }
                 if(vision.collider.tag == "FloatFruit")
                 {
+                    BagItem floatFruit = Resources.Load<BagItem>("FloatFruit");
                     Bag.IsInvFull();
-                    if (!Bag.invFull || Bag.IsItemInBag(selectedItem))
+                    if (!Bag.invFull || Bag.IsItemInBag(floatFruit))
                     {
                         vision.collider.gameObject.SetActive(false);
-                        BagItem floatFruit = Resources.Load<BagItem>("FloatFruit");
+                        
                         for (int i = 0; i < floatFruit.cropYield; i++)
                         {
                             Bag.AddItemToInventory(floatFruit);
@@ -591,12 +642,18 @@ public class PlayerController : MonoBehaviour
     //sprint functions
     void Sprint()
     {
-        movementSpeed = movementSpeed * 2;
+        movementSpeed = 14;
     }
 
     void SprintReleased()
     {
-        movementSpeed = movementSpeed / 2;
+        movementSpeed = 7;
+        if (uiTutorial.firstOxygen && ui_Tutorial.activeInHierarchy)
+        {
+            uiTutorial.firstOxygen = false;
+            uiTutorial.firstOxygenPlant = true;
+            uiTutorial.NextTutorial();
+        }
     }
 
 
@@ -623,6 +680,12 @@ public class PlayerController : MonoBehaviour
         jump = false;
         audioSource.loop = false;
         audioSource.Pause();
+        if (uiTutorial.firstSprint)
+        {
+            uiTutorial.firstSprint = false;
+            uiTutorial.firstOxygen = true;
+            uiTutorial.NextTutorial();
+        }
     }
 
     //Consume function
@@ -693,6 +756,10 @@ public class PlayerController : MonoBehaviour
             rightAnim.gameObject.GetComponent<Image>().color = new Color(rightAnim.gameObject.GetComponent<Image>().color.r, rightAnim.gameObject.GetComponent<Image>().color.b, rightAnim.gameObject.GetComponent<Image>().color.g, 1f);
             upAnim.gameObject.GetComponent<Image>().color = new Color(upAnim.gameObject.GetComponent<Image>().color.r, upAnim.gameObject.GetComponent<Image>().color.b, upAnim.gameObject.GetComponent<Image>().color.g, 1f);
             downAnim.gameObject.GetComponent<Image>().color = new Color(downAnim.gameObject.GetComponent<Image>().color.r, downAnim.gameObject.GetComponent<Image>().color.b, downAnim.gameObject.GetComponent<Image>().color.g, 1f);
+            if (uiTutorial.firstStorage || uiTutorial.firstStoragePickup)
+            {
+                tutorialTrigger2.SetActive(true);
+            }
         }
         else
         {

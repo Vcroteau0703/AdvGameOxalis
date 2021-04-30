@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oxygen: {fileID: 0}
+  uiTutorial: {fileID: 0}
 --- !u!1 &6067142055676487160
 GameObject:
   m_ObjectHideFlags: 0

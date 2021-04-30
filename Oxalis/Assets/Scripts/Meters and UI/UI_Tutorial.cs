@@ -17,6 +17,8 @@ public class UI_Tutorial : MonoBehaviour
     private int index = 0;
     public GameObject tutorialUI;
     public bool tutorialActive = false;
+    public GameObject tutorialTrigger3;
+    public GameObject tutorialTrigger4;
 
     //bools for tutorial triggering
     public bool firstTutorial = false;
@@ -30,6 +32,12 @@ public class UI_Tutorial : MonoBehaviour
     public bool firstConsume = false;
     public bool firstStorage = false;
     public bool firstStoragePickup = false;
+    public bool firstDecompression = false;
+    public bool firstJetpack = false;
+    public bool firstSprint = false;
+    public bool firstOxygen = false;
+    public bool firstOxygenPlant = false;
+    public bool finalTutorial = false;
 
     //accessing germinator, compost and storage
     public GameObject germinator;
@@ -88,7 +96,7 @@ public class UI_Tutorial : MonoBehaviour
     // load next tutorial message
     public void NextTutorial()
     {
-        if (index < tutorialMessages.Length - 1)
+        if (index < tutorialMessages.Length)
         {
             tutorialUI.SetActive(true);
             tutorialActive = true;
@@ -109,6 +117,20 @@ public class UI_Tutorial : MonoBehaviour
             StopCoroutine(FlashText());
             tutorialUI.SetActive(false);
             ResumeGame();
+            if (firstDecompression)
+            {
+                tutorialTrigger3.SetActive(true);
+            }
+            else if (firstJetpack)
+            {
+                tutorialTrigger4.SetActive(true);
+            }
+            if (firstOxygenPlant)
+            {
+                firstOxygenPlant = false;
+                finalTutorial = true;
+                NextTutorial();
+            }
         }
 
     }

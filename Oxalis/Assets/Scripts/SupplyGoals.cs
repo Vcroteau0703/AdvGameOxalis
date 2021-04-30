@@ -23,13 +23,10 @@ public class SupplyGoals : MonoBehaviour
 
     //audio
     AudioSource audioSource;
-    AudioClip currentSFX;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        currentSFX = Resources.Load<AudioClip>("PickupSFX");
-        audioSource.clip = currentSFX;
 
         supplySlider = GetComponent<Slider>();
 
@@ -65,7 +62,7 @@ public class SupplyGoals : MonoBehaviour
     public void ChangeGoal()
     {
         goalCompletionCount++;
-        supplySlider.maxValue = supplySlider.maxValue * 1.5f;
+        supplySlider.maxValue = Mathf.RoundToInt(supplySlider.maxValue * 1.5f);
         localSupplySlider.maxValue = supplySlider.maxValue;
         supplySlider.value = 0;
     }
@@ -83,6 +80,7 @@ public class SupplyGoals : MonoBehaviour
                 updates.gameObject.SetActive(true);
                 updates.text = "New planters unlocked!";
                 unlockPlot.SetActive(true);
+                audioSource.Play();
                 plotNum++;
                 rewardImage.sprite = seedReward.Image;
                 localRewardImage.sprite = seedReward.Image;
@@ -103,6 +101,7 @@ public class SupplyGoals : MonoBehaviour
                 updates.gameObject.SetActive(true);
                 updates.text = "New planters unlocked!";
                 unlockPlot.SetActive(true);
+                audioSource.Play();
                 plotNum++;
                 break;
             case 3:
@@ -110,10 +109,13 @@ public class SupplyGoals : MonoBehaviour
                 updates.gameObject.SetActive(true);
                 updates.text = "New planters unlocked!";
                 unlockPlot.SetActive(true);
+                audioSource.Play();
                 plotNum++;
+                localRewardImage.sprite = null;
                 break;
             case 4:
                 fadeImage.SetTrigger("FadeOut");
+                audioSource.Play();
                 break;
         }
 

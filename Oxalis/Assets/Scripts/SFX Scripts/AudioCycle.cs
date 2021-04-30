@@ -9,6 +9,8 @@ public class AudioCycle : MonoBehaviour
     public AudioClip[] mushAudioClips;
     public AudioClip[] dirtAudioClips;
     public AudioClip[] domeAudioClips;
+    public AudioClip[] mushImpact;
+    public AudioClip[] sandImpact;
 
     AudioSource audioSource;
 
@@ -27,14 +29,13 @@ public class AudioCycle : MonoBehaviour
         playerController = transform.parent.GetComponent<PlayerController>();
         audioSource = GetComponent<AudioSource>();
         footstepSpeed = walkingSpeed;
-
         controls.Gameplay.Sprint.performed += ctv => Sprint();
         controls.Gameplay.Sprint.canceled += ctx => SprintReleased();
     }
 
     private void Update()
     {
-        if(playerController.isGrounded && playerController.isMoving)
+        if(playerController.isGrounded && playerController.isMoving && !playerController.hardImpact && !playerController.softImpact)
         {
             if(timer > footstepSpeed)
             {
@@ -50,12 +51,6 @@ public class AudioCycle : MonoBehaviour
         DetermineMaterial();
         audioSource.Play();
     }
-    
-    //public void StopAudio()
-    //{
-    //    audioSource.loop = false;
-    //    audioSource.Play();
-    //}
 
     void Sprint()
     {
@@ -71,20 +66,51 @@ public class AudioCycle : MonoBehaviour
     {
         RaycastHit[] hit;
 
-        hit = Physics.RaycastAll(transform.position, Vector3.down, 3.0f);
-        Debug.DrawRay(transform.position, Vector3.down * 3f , Color.red, 0.5f);
+        hit = Physics.RaycastAll(transform.position, Vector3.down, 3.5f);
+        Debug.DrawRay(transform.position, Vector3.down * 3.5f , Color.red, 0.5f);
 
         foreach (RaycastHit rayfloorhit in hit)
         {
             if(rayfloorhit.transform.tag == "Mushroom Top")
             {
-                randomClip = Random.Range(0, mushAudioClips.Length);
-                audioSource.clip = mushAudioClips[randomClip];
+                if (playerController.hardImpact)
+                {
+                    playerController.hardImpact = false;
+                    audioSource.clip = mushImpact[0];
+                    timer = 0.0f;
+                }
+                else if (playerController.softImpact)
+                {
+                    playerController.softImpact = false;
+                    audioSource.clip = mushImpact[1];
+                    timer = 0.0f;
+                }
+                else
+                {
+                    randomClip = Random.Range(0, mushAudioClips.Length);
+                    audioSource.clip = mushAudioClips[randomClip];
+                }
             }
             else if(rayfloorhit.transform.tag == "Dirt Ground")
             {
-                randomClip = Random.Range(0, dirtAudioClips.Length);
-                audioSource.clip = dirtAudioClips[randomClip];
+                if (playerController.hardImpact)
+                {
+                    playerController.hardImpact = false;
+                    audioSource.clip = sandImpact[0];
+                    timer = 0.0f;
+                }
+                else if (playerController.softImpact)
+                {
+                    playerController.softImpact = false;
+                    audioSource.clip = sandImpact[1];
+                    timer = 0.0f;
+                }
+                else
+                {
+                    randomClip = Random.Range(0, dirtAudioClips.Length);
+                    audioSource.clip = dirtAudioClips[randomClip];
+                }
+
             }
             else if(rayfloorhit.transform.tag == "Dome Floor")
             {

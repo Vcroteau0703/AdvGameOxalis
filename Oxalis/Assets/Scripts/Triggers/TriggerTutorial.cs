@@ -24,7 +24,34 @@ public class TriggerTutorial : MonoBehaviour
                 uiTutorial.NextTutorial();
                 Destroy(gameObject);
             }
-
+            else if(uiTutorial.firstStorage && ui_Tutorial.activeInHierarchy)
+            {
+                uiTutorial.firstStoragePickup = true;
+                uiTutorial.firstStorage = false;
+                uiTutorial.NextTutorial();
+                gameObject.SetActive(false);
+            }
+            else if(uiTutorial.firstStoragePickup && ui_Tutorial.activeInHierarchy)
+            {
+                uiTutorial.firstDecompression = true;
+                uiTutorial.firstStoragePickup = false;
+                uiTutorial.NextTutorial();
+                Destroy(gameObject);
+            }
+            else if(uiTutorial.firstDecompression && ui_Tutorial.activeInHierarchy)
+            {
+                uiTutorial.firstDecompression = false;
+                uiTutorial.firstJetpack = true;
+                uiTutorial.NextTutorial();
+                Destroy(gameObject);
+            }
+            else if(uiTutorial.firstJetpack && ui_Tutorial.activeInHierarchy)
+            {
+                uiTutorial.firstJetpack = false;
+                uiTutorial.firstSprint = true;
+                uiTutorial.NextTutorial();
+                Destroy(gameObject);
+            }
         }
     }
 }

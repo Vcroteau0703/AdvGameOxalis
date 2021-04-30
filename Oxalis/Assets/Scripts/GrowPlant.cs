@@ -152,7 +152,7 @@ public class GrowPlant : MonoBehaviour
     {
         //harvest the plant when fully grown
         Bag.IsInvFull();
-        if (!Bag.invFull)
+        if (!Bag.invFull || Bag.IsItemInBag(crop))
         {
             for (int i = 0; i < cropYield; i++)
             {

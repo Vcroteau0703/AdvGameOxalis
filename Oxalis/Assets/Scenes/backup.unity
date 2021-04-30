@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (6)
@@ -979,7 +983,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-745326
+  m_Name: pb_Mesh-3882
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1939,7 +1943,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b8df3981fa8742947877ce573b32fb54, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b8df3981fa8742947877ce573b32fb54, type: 3}
       propertyPath: m_LocalScale.x
@@ -2569,6 +2573,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipePiece (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+      propertyPath: m_TagString
+      value: Dome Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
 --- !u!4 &172447900 stripped
@@ -2587,6 +2599,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom
@@ -2653,6 +2669,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (7)
@@ -3410,6 +3430,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (6)
@@ -5087,6 +5111,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (12)
@@ -5142,6 +5170,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6879531148857212738, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
   m_PrefabInstance: {fileID: 453773800}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &469581643 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+  m_PrefabInstance: {fileID: 172447899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &469581644
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469581643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1963826460828294922, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
 --- !u!1 &472069805
 GameObject:
   m_ObjectHideFlags: 0
@@ -10002,7 +10049,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &486773365
 PrefabInstance:
@@ -10539,7 +10586,7 @@ Transform:
   m_LocalScale: {x: 1.158029, y: 1.158029, z: 1.158029}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &532543810
 PrefabInstance:
@@ -10615,6 +10662,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2310461024196078368, guid: 17b2e00917cb686428d9a69b8befcdb5, type: 3}
   m_PrefabInstance: {fileID: 532543810}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &534596664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534596667}
+  - component: {fileID: 534596666}
+  - component: {fileID: 534596665}
+  m_Layer: 0
+  m_Name: 4th Tutorial Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &534596665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534596664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86eaef0631355c4a8d37fb5b2817206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui_Tutorial: {fileID: 1474676741}
+--- !u!65 &534596666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534596664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.667667, y: 14.885597, z: 9.833527}
+  m_Center: {x: 6.261661, y: 63.618305, z: -197.332}
+--- !u!4 &534596667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534596664}
+  m_LocalRotation: {x: -0, y: -0.9238787, z: -0, w: 0.38268548}
+  m_LocalPosition: {x: 290.61, y: -43.815002, z: 365.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535406332
 GameObject:
   m_ObjectHideFlags: 0
@@ -11252,10 +11357,18 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 5076247725540127367, guid: 5a55d43079968ed4b81516f4c3c9b149, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 5076247725706546053, guid: 5a55d43079968ed4b81516f4c3c9b149, type: 3}
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 5076247725706546053, guid: 5a55d43079968ed4b81516f4c3c9b149, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 5382678659599915876, guid: 5a55d43079968ed4b81516f4c3c9b149, type: 3}
       propertyPath: m_Name
       value: Dome with new planters set up
@@ -11434,6 +11547,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (3)
@@ -11545,7 +11662,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.781
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11662,6 +11779,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97f9d6d06771a9749af1d7e98955bd1a, type: 3}
   - {fileID: 8300000, guid: 12e1857ed7be1ec4e86bfb8abe6ec2da, type: 3}
   - {fileID: 8300000, guid: 102007992205b4f4da399fd76e65478b, type: 3}
+  mushImpact:
+  - {fileID: 8300000, guid: 21f9fb7bd2161cd45ad42c3187592614, type: 3}
+  - {fileID: 8300000, guid: ec0d0e5796bb19149b61e24cb355ec52, type: 3}
+  sandImpact:
+  - {fileID: 8300000, guid: 83780a04a85d47d4eb4438e60595523b, type: 3}
+  - {fileID: 8300000, guid: daa310152667f264dbc822de737e2160, type: 3}
   walkingSpeed: 0.8
   sprintingSpeed: 0.6
 --- !u!1001 &588450161
@@ -11964,6 +12087,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (16)
@@ -12116,6 +12243,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (9)
@@ -12549,6 +12680,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (3)
@@ -12879,6 +13014,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (19)
@@ -13030,6 +13169,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (11)
@@ -13674,6 +13817,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (14)
@@ -14146,7 +14293,7 @@ Transform:
   - {fileID: 1064280986}
   - {fileID: 812776601}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &762023420
 PrefabInstance:
@@ -14615,6 +14762,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom
@@ -14931,7 +15082,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 435203984, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
   m_PrefabInstance: {fileID: 1517667303}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1642378645}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77573c6d5db1ef446b9167d548729541, type: 3}
@@ -15681,6 +15832,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (4)
@@ -15893,8 +16048,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af128085f3343a64dbfc2905aaf12723, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af128085f3343a64dbfc2905aaf12723, type: 3}
+      propertyPath: m_TagString
+      value: Dome Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af128085f3343a64dbfc2905aaf12723, type: 3}
+--- !u!1 &882300899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af128085f3343a64dbfc2905aaf12723, type: 3}
+  m_PrefabInstance: {fileID: 882300898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &882300900
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882300899}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5301284266570743018, guid: af128085f3343a64dbfc2905aaf12723, type: 3}
 --- !u!1001 &883542661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16767,6 +16949,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (2)
@@ -16893,6 +17079,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipePiece (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+      propertyPath: m_TagString
+      value: Dome Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
 --- !u!4 &951975206 stripped
@@ -17008,7 +17202,7 @@ GameObject:
   - component: {fileID: 972423230}
   - component: {fileID: 972423229}
   m_Layer: 0
-  m_Name: Tutorial Trigger (1)
+  m_Name: 3rd Tutorial Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17279,6 +17473,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (6)
@@ -17376,6 +17574,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (8)
@@ -17485,7 +17687,7 @@ Transform:
   - {fileID: 1009010348}
   - {fileID: 957759218}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009010347
 GameObject:
@@ -18222,7 +18424,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 8300000, guid: d39a915bc1cb0c542a966a2e2630444d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.888
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -18377,8 +18579,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Tab to switch between inventories
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
+  m_sharedMaterial: {fileID: 5724987002000484459, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18763,6 +18965,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (5)
@@ -18841,6 +19047,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (2)
@@ -19025,6 +19235,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (4)
@@ -19091,6 +19305,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (3)
@@ -19450,7 +19668,7 @@ Transform:
   - {fileID: 541689701}
   - {fileID: 1059489603}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1102982510
 PrefabInstance:
@@ -19746,7 +19964,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!114 &1128342570 stripped
 MonoBehaviour:
@@ -20435,119 +20653,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1469546944146498220, guid: f78c02b02f2bc4c4bb86e702e4f3319e, type: 3}
   m_PrefabInstance: {fileID: 1165846811}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1179053245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 67789012, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
-  m_PrefabInstance: {fileID: 1517667303}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1179053246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179053245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39df18de6c8b4f84fbcc746729ec2b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!82 &1179053247
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179053245}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1520650c02d992e499fac96d982b8248, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1180315872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20741,6 +20846,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (10)
@@ -20947,6 +21056,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (1)
@@ -21025,6 +21138,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (13)
@@ -21103,6 +21220,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (6)
@@ -21441,6 +21562,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (1)
@@ -21834,6 +21959,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (9)
@@ -21991,6 +22120,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (4)
@@ -22069,6 +22202,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (15)
@@ -22147,6 +22284,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (11)
@@ -27370,7 +27511,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 213.909, y: -0.42999268, z: -1.7189941}
 --- !u!114 &1328944850 stripped
 MonoBehaviour:
@@ -27394,6 +27535,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (13)
@@ -27472,6 +27617,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (7)
@@ -27912,6 +28061,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom
@@ -27978,6 +28131,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (1)
@@ -28044,6 +28201,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (1)
@@ -28772,6 +28933,10 @@ PrefabInstance:
       propertyPath: mouseIndicator
       value: 
       objectReference: {fileID: 1060111522}
+    - target: {fileID: 4011397185381746575, guid: 53e7ebf28f6e3c34b9d56de6645c7a0f, type: 3}
+      propertyPath: tutorialTrigger2
+      value: 
+      objectReference: {fileID: 2112585997}
     - target: {fileID: 4011397186352205225, guid: 53e7ebf28f6e3c34b9d56de6645c7a0f, type: 3}
       propertyPath: far clip plane
       value: 4000
@@ -29059,6 +29224,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (21)
@@ -29137,6 +29306,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (2)
@@ -29209,6 +29382,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8486625623871808274, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
   m_PrefabInstance: {fileID: 1517667303}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1474676742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+  m_PrefabInstance: {fileID: 1517667303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474676741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4e9352cebe85345be3340a845d9a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1486144761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29502,6 +29686,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.0849609
       objectReference: {fileID: 0}
+    - target: {fileID: 102956833, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_text
+      value: Available Items to Purchase
+      objectReference: {fileID: 0}
+    - target: {fileID: 102956833, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
+    - target: {fileID: 102956833, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5724987002000484459, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
+    - target: {fileID: 168489346, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c0d43583bf37a3b45b7b28b55b749832, type: 3}
+    - target: {fileID: 168489346, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
     - target: {fileID: 168489347, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: farm
       value: 
@@ -29514,6 +29718,10 @@ PrefabInstance:
       propertyPath: localSupplySlider
       value: 
       objectReference: {fileID: 799768448}
+    - target: {fileID: 168489348, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 191918042, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -29528,7 +29736,7 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: 9a767118e4626534fa62340658d6a061, type: 3}
     - target: {fileID: 393164282, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 393164284, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_Color.a
@@ -29549,7 +29757,7 @@ PrefabInstance:
     - target: {fileID: 513141032, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2050632717}
+      objectReference: {fileID: 1642378648}
     - target: {fileID: 513141032, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -29586,6 +29794,22 @@ PrefabInstance:
       propertyPath: m_enableWordWrapping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 779503208, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -61.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 779503208, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 779503209, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
+    - target: {fileID: 779503209, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5724987002000484459, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
     - target: {fileID: 825502884, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -29673,7 +29897,7 @@ PrefabInstance:
     - target: {fileID: 963107623, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1179053246}
+      objectReference: {fileID: 1642378648}
     - target: {fileID: 963107623, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -29825,7 +30049,7 @@ PrefabInstance:
     - target: {fileID: 1580368508, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1179053246}
+      objectReference: {fileID: 1642378648}
     - target: {fileID: 1580368508, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -29920,7 +30144,7 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: 9a767118e4626534fa62340658d6a061, type: 3}
     - target: {fileID: 1819774180, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1880847724, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_IsActive
@@ -29941,7 +30165,7 @@ PrefabInstance:
     - target: {fileID: 1949501563, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1179053246}
+      objectReference: {fileID: 1642378648}
     - target: {fileID: 1949501563, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -30339,8 +30563,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1328944850}
     - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialTrigger3
+      value: 
+      objectReference: {fileID: 972423227}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialTrigger4
+      value: 
+      objectReference: {fileID: 534596664}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: tutorialMessages.Array.size
-      value: 13
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: tutorialMessages.Array.data[0]
@@ -30426,14 +30658,67 @@ PrefabInstance:
         Oxalis. But do try to keep some crops on you in case you get hungry! There''s
         no coming back from a death due to starvation.
 
+
         When you are ready,
         please make your way to the airlock at the front of the dome. '
       objectReference: {fileID: 0}
     - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: tutorialMessages.Array.data[12]
-      value: "Only one door in this airlock can be opened at any time. Step inside
-        the airlock, now, and press the button on the left wall and wait for the
-        decompression process. \r\n"
+      value: "\n\n\n\nOnly one door in this airlock can be opened at any time. Step
+        inside the airlock, and press the button on the left wall and wait for the
+        decompression process. \r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialMessages.Array.data[13]
+      value: 'Your primary method of travel outside the safety of your dome will
+        be the jetpack attached to your suit! Go ahead and test it now!
+
+
+        Hold
+        Spacebar to use your jetpack'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialMessages.Array.data[14]
+      value: '
+
+
+        If you wish to move faster around Oxalis you can also sprint!
+
+
+        Hold
+        Shift to sprint'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialMessages.Array.data[15]
+      value: '
+
+        The air on this planet is too toxic to breathe.
+
+        You
+        will need to watch your oxygen carefully. That is the blue meter in the lower
+        left of your suits HUD. Make sure you always have enough to return to your
+        base.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialMessages.Array.data[16]
+      value: "Research suggests that some plants on Oxalis produce oxygen as a byproduct.
+        One such plant was detected not far from the entrance to your ecodome. You
+        should see these small blue glowing mushrooms all around the planet.\n\nStand
+        near a glowing mushroom, and the siphons in your suit will collect some oxygen.
+        \r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8486625623871808272, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+      propertyPath: tutorialMessages.Array.data[17]
+      value: 'Preliminary drone exploration sampled several plants in this area which
+        you should be able to cultivate. Carefully inspect any plants you find.
+
+
+        The
+        crosshairs on your suit HUD will move when you come across something you
+        can interact with.
+
+
+        Enjoy your exploration of Oxalis and good luck!'
       objectReference: {fileID: 0}
     - target: {fileID: 8486625623871808274, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
       propertyPath: m_IsActive
@@ -30847,8 +31132,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Esc to exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
+  m_sharedMaterial: {fileID: 5724987002000484459, guid: 8d41132ba3436b84dbc2001b436cabeb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31019,6 +31304,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (10)
@@ -31709,6 +31998,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (2)
@@ -31866,6 +32159,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (4)
@@ -32046,6 +32343,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (1)
@@ -32124,6 +32425,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (5)
@@ -32276,6 +32581,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (20)
@@ -32343,6 +32652,157 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6879531148857212738, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
   m_PrefabInstance: {fileID: 1638697831}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1642378645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435203982, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
+  m_PrefabInstance: {fileID: 1517667303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1642378647
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642378645}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 1520650c02d992e499fac96d982b8248, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1642378648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642378645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39df18de6c8b4f84fbcc746729ec2b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1652051967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+  m_PrefabInstance: {fileID: 951975205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1652051968
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652051967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1963826460828294922, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+--- !u!1 &1663174715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+  m_PrefabInstance: {fileID: 1816122121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1663174716
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663174715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1963826460828294922, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
 --- !u!1 &1674092213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2078413586, guid: 80209bbda1c0210469769b6a2befbec6, type: 3}
@@ -32753,6 +33213,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (3)
@@ -32900,7 +33364,7 @@ Transform:
   - {fileID: 1638697832}
   - {fileID: 1450736037}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1710685003
 GameObject:
@@ -33083,6 +33547,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (3)
@@ -33776,6 +34244,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (18)
@@ -33854,6 +34326,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (5)
@@ -34158,7 +34634,7 @@ Transform:
   - {fileID: 1395061569}
   - {fileID: 221354013}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1783916434
 GameObject:
@@ -34413,7 +34889,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b8df3981fa8742947877ce573b32fb54, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b8df3981fa8742947877ce573b32fb54, type: 3}
       propertyPath: m_LocalScale.x
@@ -34488,7 +34964,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-745238
+  m_Name: pb_Mesh-3794
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34657,6 +35133,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom
@@ -34791,6 +35271,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipePiece
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
+      propertyPath: m_TagString
+      value: Dome Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d178e8942bcd34798028b3cf96ed25, type: 3}
 --- !u!4 &1816122122 stripped
@@ -34883,6 +35371,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (12)
@@ -34961,6 +35453,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom
@@ -35171,7 +35667,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-745314
+  m_Name: pb_Mesh-3870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35852,7 +36348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1894896632
 MonoBehaviour:
@@ -35952,6 +36448,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (2)
@@ -36138,6 +36638,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (4)
@@ -36822,6 +37326,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (5)
@@ -36895,7 +37403,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-745302
+  m_Name: pb_Mesh-3858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37477,6 +37985,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (7)
@@ -38432,6 +38944,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (17)
@@ -38510,6 +39026,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (7)
@@ -38706,6 +39226,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (15)
@@ -38858,6 +39382,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (14)
@@ -39090,7 +39618,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 27a22005b64dfd04e9892c1ebe211ca5, type: 2}
   m_audioClip: {fileID: 8300000, guid: d39a915bc1cb0c542a966a2e2630444d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.888
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -39260,6 +39788,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 599848fc3c30c654c9b10d78422a4621, type: 3}
   m_PrefabInstance: {fileID: 2112217112}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2112585997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112586000}
+  - component: {fileID: 2112585999}
+  - component: {fileID: 2112585998}
+  m_Layer: 0
+  m_Name: 2nd Tutorial Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2112585998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112585997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86eaef0631355c4a8d37fb5b2817206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui_Tutorial: {fileID: 1474676741}
+--- !u!65 &2112585999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112585997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.667667, y: 14.885597, z: 9.833527}
+  m_Center: {x: 6.261661, y: 63.618305, z: -197.332}
+--- !u!4 &2112586000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112585997}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: 3.5, y: -39.51, z: -103.27}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_Children: []
+  m_Father: {fileID: 546644025}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2112706313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39271,6 +39857,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (8)
@@ -39349,6 +39939,10 @@ PrefabInstance:
       propertyPath: oxygen
       value: 
       objectReference: {fileID: 1249125031}
+    - target: {fileID: 4051761729701748796, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
+      propertyPath: uiTutorial
+      value: 
+      objectReference: {fileID: 1474676742}
     - target: {fileID: 6067142055676487160, guid: 04a86e1ee3dc61242bb121dd9b9e54f4, type: 3}
       propertyPath: m_Name
       value: OxygenShroom (5)

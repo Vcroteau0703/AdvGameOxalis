@@ -18,6 +18,9 @@ public class OxygenMeter : MonoBehaviour
     HealthMeter healthMeter;
 
     AudioSource audioSource;
+    public GameObject breathing;
+    public AudioClip oxRefill;
+    public AudioClip suffocate;
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +61,7 @@ public class OxygenMeter : MonoBehaviour
             oxygenVal -= 5f;
             if(oxygenVal == 0)
             {
-                timerVal = 1f;
+                timerVal = 2f;
                 timer = timerVal;
             }
         }
@@ -66,6 +69,9 @@ public class OxygenMeter : MonoBehaviour
         {
             healthMeter.DecreaseHealth(10);
             //put hit/choking sfx here
+            breathing.SetActive(false);
+            audioSource.clip = suffocate;
+            audioSource.Play();
         }
     }
 
@@ -73,6 +79,7 @@ public class OxygenMeter : MonoBehaviour
     {
         if(oxygenVal < 100f)
         {
+            audioSource.clip = oxRefill;
             audioSource.Play();
         }
         oxygenVal = 100f;
