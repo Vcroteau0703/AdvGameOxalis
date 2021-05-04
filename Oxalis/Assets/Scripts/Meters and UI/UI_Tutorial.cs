@@ -21,6 +21,7 @@ public class UI_Tutorial : MonoBehaviour
     public GameObject tutorialTrigger4;
 
     //bools for tutorial triggering
+    public bool startTutorial = true;
     public bool firstTutorial = false;
     public bool firstSelectionChange = false;
     public bool firstTill = false;
@@ -46,14 +47,22 @@ public class UI_Tutorial : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(TutorialWait());
+        //StartCoroutine(TutorialWait());
         controls = new Controls();
         controls.Gameplay.Escape.performed += ctx => CloseTutorial();
+    }
+    private void Update()
+    {
+        if(gameObject.activeInHierarchy && startTutorial)
+        {
+            startTutorial = false;
+            StartCoroutine(TutorialWait());
+        }
     }
 
     public IEnumerator TutorialWait()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         firstTutorial = true;
         NextTutorial();
     }

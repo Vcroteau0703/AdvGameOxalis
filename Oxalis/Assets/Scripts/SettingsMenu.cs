@@ -13,8 +13,11 @@ public class SettingsMenu : MonoBehaviour
     public Dropdown textureDropdown;
     public Dropdown aaDropdown;
     public Slider volumeSlider;
+    public Toggle fullScreen;
+    public Toggle tutorialCheck;
     float currentVolume;
     Resolution[] resolutions;
+    //public bool tutorialOn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -103,6 +106,7 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
         PlayerPrefs.SetInt("FullscreenPreference", Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("VolumePreference", currentVolume);
+        //PlayerPrefs.SetInt("TutorialPreference", Convert.ToInt32(tutorialOn));
     }
     public void LoadSettings(int currentResolutionIndex)
     {
@@ -122,6 +126,24 @@ public class SettingsMenu : MonoBehaviour
             volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
         else
             volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
+        //if (PlayerPrefs.HasKey("TutorialPreference"))
+        //{
+        //    tutorialOn = Convert.ToBoolean(PlayerPrefs.GetInt("TutorialPreference"));
+        //    tutorialCheck.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("TutorialPreference"));
+        //    Debug.Log(tutorialOn);
+        //}
+        //else
+        //{
+        //    tutorialOn = true;
+        //    tutorialCheck.isOn = true;
+        //    Debug.Log(tutorialOn);
+        //}
     }
+
+    //public void SkipTutorial(bool tutorial)
+    //{
+    //    tutorialOn = tutorial;
+    //    Debug.Log(tutorialOn);
+    //}
 
 }

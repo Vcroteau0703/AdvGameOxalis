@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public GameObject playerHud;
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    public PlayerController player;
 
     public void PauseGame()
     {
@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         playerHud.SetActive(false);
         pauseMenu.SetActive(true);
+        player.enabled = false;
     }
 
     public void ResumeGame()
@@ -24,6 +25,7 @@ public class PauseMenu : MonoBehaviour
         playerHud.SetActive(true);
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+        player.enabled = true;
     }
 
     public void QuitGame()

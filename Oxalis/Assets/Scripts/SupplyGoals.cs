@@ -62,7 +62,7 @@ public class SupplyGoals : MonoBehaviour
     public void ChangeGoal()
     {
         goalCompletionCount++;
-        supplySlider.maxValue = Mathf.RoundToInt(supplySlider.maxValue * 1.5f);
+        supplySlider.maxValue = Mathf.RoundToInt(supplySlider.maxValue * 2f);
         localSupplySlider.maxValue = supplySlider.maxValue;
         supplySlider.value = 0;
     }
@@ -124,7 +124,6 @@ public class SupplyGoals : MonoBehaviour
                 unlockPlot.SetActive(true);
                 audioSource.Play();
                 plotNum++;
-                localRewardImage.sprite = null;
                 break;
             case 4:
                 fadeImage.SetTrigger("FadeOut");

@@ -15,11 +15,11 @@ MonoBehaviour:
   crop: RockFruit
   seeds: RockFruit Seeds
   supplyYield: 20
-  cropYield: 2
-  seedYield: 1
+  cropYield: 1
+  seedYield: 4
   fertilizerYield: 1
   growTime: 40
-  Image: {fileID: 21300000, guid: 5afd175fe4f321742adc7d268eb742bd, type: 3}
+  Image: {fileID: 21300000, guid: 2941668d9b825c641a17140e36d373bc, type: 3}
   isSeed: 0
   plant: {fileID: 4949099478137334313, guid: d6bcb6e1e39ab044399eda83f6698c61, type: 3}
   isCrop: 1
