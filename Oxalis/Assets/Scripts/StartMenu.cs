@@ -7,6 +7,12 @@ public class StartMenu : MonoBehaviour
 {
     public GameObject titleScreen;
     public GameObject optionsMenu;
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void StartGame(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

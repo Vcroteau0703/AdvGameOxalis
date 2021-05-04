@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8836746905945674036}
   - component: {fileID: 6721227942530934270}
   - component: {fileID: 8377144982612841195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MushroomCapType2
   m_TagString: Mushroom Top
   m_Icon: {fileID: 0}

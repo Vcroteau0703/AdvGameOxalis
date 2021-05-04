@@ -85,8 +85,6 @@ public class PlayerController : MonoBehaviour
     public bool softImpact = false;
     AudioCycle audioCycle;
 
-
-
     private void Awake()
     {
         controls = new Controls();
@@ -378,7 +376,7 @@ public class PlayerController : MonoBehaviour
                                 {
                                     Bag.AddItemToInventory(seed);
                                 }
-                                audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                                audioSource.clip = Resources.Load<AudioClip>("compostSFX");
                                 audioSource.Play();
                                 Bag.RemoveItemFromInventory(selectedItem);
                             }
@@ -433,7 +431,7 @@ public class PlayerController : MonoBehaviour
                                 {
                                     Bag.AddItemToInventory(fertilizer);
                                 }
-                                audioSource.clip = Resources.Load<AudioClip>("PickupSFX");
+                                audioSource.clip = Resources.Load<AudioClip>("compostSFX");
                                 audioSource.Play();
                                 Bag.RemoveItemFromInventory(selectedItem);
                             }
@@ -642,12 +640,12 @@ public class PlayerController : MonoBehaviour
     //sprint functions
     void Sprint()
     {
-        movementSpeed = 14;
+        movementSpeed = 16;
     }
 
     void SprintReleased()
     {
-        movementSpeed = 7;
+        movementSpeed = 8;
         if (uiTutorial.firstOxygen && ui_Tutorial.activeInHierarchy)
         {
             uiTutorial.firstOxygen = false;
@@ -664,7 +662,7 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
             audioSource.clip = Resources.Load<AudioClip>("JetpackSFX");
-            audioSource.volume = 0.47f;
+            audioSource.volume = 0.77f;
             audioSource.loop = true;
             audioSource.Play();
         }

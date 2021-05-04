@@ -88,11 +88,24 @@ public class SupplyGoals : MonoBehaviour
             case 1:
                 updates.gameObject.SetActive(true);
                 updates.text = "Orange seeds unlocked!";
-                Bag.AddItemToInventory(seedReward);
-                Bag.AddItemToInventory(seedReward);
-                Bag.AddItemToInventory(seedReward);
-                uiInventory.DrawSlots();
-                audioSource.Play();
+                Bag.IsInvFull();
+                if (Bag.invFull)
+                {
+                    Bag.AddItemToStorage(seedReward);
+                    Bag.AddItemToStorage(seedReward);
+                    Bag.AddItemToStorage(seedReward);
+                    uiInventory.DrawSupplySlots();
+                    audioSource.Play();
+                }
+                else
+                {
+                    Bag.AddItemToInventory(seedReward);
+                    Bag.AddItemToInventory(seedReward);
+                    Bag.AddItemToInventory(seedReward);
+                    uiInventory.DrawSlots();
+                    audioSource.Play();
+                }
+
                 rewardImage.sprite = plotImage;
                 localRewardImage.sprite = plotImage;
                 break;
