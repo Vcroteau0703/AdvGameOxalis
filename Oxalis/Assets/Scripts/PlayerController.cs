@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
         {
             softImpact = true;
         }
-        else
+        else if(velocity.y > -5 && softImpact)
         {
             softImpact = false;
             hardImpact = false;

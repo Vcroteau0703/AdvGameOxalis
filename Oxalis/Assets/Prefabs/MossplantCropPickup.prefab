@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4921291888329136195}
   - component: {fileID: 1759812298877287377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MossplantCropPickup
   m_TagString: RockPlant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4921291888329136195
 Transform:

@@ -15,6 +15,7 @@ public class HungerMeter : MonoBehaviour
     //ref health
     public GameObject health;
     HealthMeter healthMeter;
+    public GameObject warning;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,15 @@ public class HungerMeter : MonoBehaviour
                 timerVal = 1f;
                 timer = timerVal;
             }
+            else if(timerVal == 1f)
+            {
+                timerVal = 20f;
+                timer = timerVal;
+            }
+            else if (hungerVal < 25)
+            {
+                warning.SetActive(true);
+            }
         }
         else if (!healthMeter.playerDead)
         {
@@ -61,5 +71,9 @@ public class HungerMeter : MonoBehaviour
     public void IncreaseHunger(int amount)
     {
         hungerVal += amount;
+        if(hungerVal > 25)
+        {
+            warning.SetActive(false);
+        }
     }
 }
